@@ -1,4 +1,4 @@
-# PlanRAG: A Plan-then-Retrieval Augmentated Generation Technique for Decision-makings
+# PlanRAG: A Plan-then-Retrieval Augmented Generation Technique for Decision-makings
 
 ***
 ## Setup 
