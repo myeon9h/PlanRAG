@@ -1,0 +1,15 @@
+openai==0.28.1
+pandas==2.0.3
+pydantic==2.4.2
+pyyaml==6.0.1
+tenacity==8.2.3
+packaging==23.2
+requests==2.31.0
+langsmith==0.0.43
+aiohttp==3.8.6
+sqlalchemy==2.0.21
+numexpr==2.8.6
+mypy_extensions==1.0.0
+neo4j==5.13.0
+logger==1.4
+tqdm==4.66.1
