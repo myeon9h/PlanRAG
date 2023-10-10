@@ -1,0 +1,146 @@
+﻿############# FARMING & RANCHING
+
+building_rye_farm = {
+	building_group = bg_rye_farms
+	
+	texture = "gfx/interface/icons/building_icons/rye_farm.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_rye_farm
+		pmg_secondary_building_rye_farm
+		pmg_harvesting_process_building_rye_farm
+		pmg_ownership_land_building_rye_farm
+	}
+
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = farmland_rye
+}
+
+building_wheat_farm = {
+	building_group = bg_wheat_farms
+	
+	texture = "gfx/interface/icons/building_icons/wheat_farm.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_wheat_farm
+		pmg_secondary_building_wheat_farm
+		pmg_harvesting_process_building_wheat_farm
+		pmg_ownership_land_building_wheat_farm
+	}
+
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = farmland_wheat
+}
+
+building_rice_farm = {
+	building_group = bg_rice_farms
+	
+	texture = "gfx/interface/icons/building_icons/rice_farm.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_rice_farm
+		pmg_secondary_building_rice_farm
+		pmg_harvesting_process_building_rice_farm
+		pmg_ownership_land_building_rice_farm
+	}
+
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = farmland_rice
+}
+
+building_maize_farm = {
+	building_group = bg_maize_farms
+	
+	texture = "gfx/interface/icons/building_icons/maize_farm.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+	
+	production_method_groups = {
+		pmg_base_building_maize_farm
+		pmg_secondary_building_maize_farm
+		pmg_harvesting_process_building_maize_farm
+		pmg_ownership_land_building_maize_farm
+	}
+
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = farmland_maize
+}
+
+building_millet_farm = {
+	building_group = bg_millet_farms
+	
+	texture = "gfx/interface/icons/building_icons/millet_farm.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_millet_farm
+		pmg_secondary_building_millet_farm
+		pmg_harvesting_process_building_millet_farm
+		pmg_ownership_land_building_millet_farm
+	}
+
+	required_construction = construction_cost_low
+	
+	terrain_manipulator = farmland_millet
+}
+
+building_livestock_ranch = {
+	building_group = bg_livestock_ranches
+
+	texture = "gfx/interface/icons/building_icons/cattle_ranch.dds"
+	
+	city_type = farm
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	production_method_groups = {
+		pmg_base_building_livestock_ranch
+		pmg_slaughtering
+		pmg_fencing
+		pmg_refrigeration_building_livestock_ranch
+		pmg_ownership_land_building_livestock_ranch
+	}
+
+	required_construction = construction_cost_low
+
+	terrain_manipulator = pasture
+}

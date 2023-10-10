@@ -1,0 +1,1119 @@
+4={
+	is_main_tag=yes
+	definition="FRA"
+	government="gov_fra_constitutional_monarchy_orleanist"
+	ruler=2735
+	heir=2736
+	capital=364
+	budget={
+		weekly_income={ 2000 47843.45454 77383.58822 8115.69999 0 0 31119.69506 29005.88257 11252.36256 0 }
+		weekly_expenses={ 0 0 50760.05901 50631.30436 0 38080.20428 29945.08398 31119.69506 0 0 0 19764.94849 0 }
+		building_budget={
+			expenses=0
+			incomes=0
+			gov_goods_expenses={ 45 42=5766.59475 43=43708.95334 44=1284.51092 }
+			gov_salaries_expenses={ 82 42=8860.0656 43=34360.43778 44=4520.06301 81=2890.73797 }
+			mil_salaries_expenses={ 39 36=20634.65521 38=9310.42877 }
+			mil_goods_expenses={ 39 36=26681.37708 38=11398.8272 }
+			subsidies_expenses={ 75 }
+			construction_goods_expenses={ 82 81=31119.69506 }
+			income_taxes={ 82 0=518.97411 1=1801.78914 2=1871.16998 3=502.26153 4=502.94755 5=750.69953 8=52.642 10=613.05084 13=949.81482 14=191.21393 16=9247.31488 20=1476.41974 21=514.54424 22=464.29384 23=204.40126 24=51.1003 35=1077.87851 36=2998.01594 38=1392.88083 39=3564.12278 40=160.11563 42=977.09083 43=5090.26417 44=678.0094 67=1658.72926 69=793.27682 74=137.75088 75=361.87838 76=8807.19277 81=433.61065 }
+			poll_taxes={ 82 0=599.643 1=1983.03466 2=1922.088 3=584.164 4=495.328 5=928.74 8=61.916 10=667.33872 13=1130.64 14=343.23 16=9792.99227 20=1642.9249 21=619.16 22=557.244 23=247.664 24=61.916 35=1211.4 36=2420.9129 38=1073.96936 39=3695.83872 40=67.3 42=1006.66936 43=3899.62581 44=471.1 67=1981.312 69=939.36936 74=134.6 75=233.85161 76=38138.51555 81=471.1 }
+			tariffs={ 76 75=8628.375 }
+		}
+		base_wage=600.67283
+		average_productivity=3.63584
+		government_cash_reserves_ownership=0
+		money=2845898.11714
+		money_trend={
+			current=2821068.24183
+		}
+		balance_trend={
+			current=-24829.87531
+		}
+		credit=13447949.05857
+		weekly_investment_pool_change_from_investment=766390.78035
+		weekly_investment_pool_change_from_construction=-31119.69506
+		predicted_building_investments={ 81 0=2352.9691 1=4587.11967 2=2958.25335 3=1171.04195 4=2767.83836 5=2116.66523 8=160.22654 10=154.39449 16=1606.01111 20=1414.21409 21=242.4806 22=1783.66452 23=643.29029 24=407.6349 27=12.19068 29=92.54069 32=171.74896 33=330.86243 35=305.41014 39=427.49111 67=5302.69682 69=335.86176 74=474.2497 75=770.01051 76=7561.00639 77=48.07915 78=54.1873 79=38.97965 80=81.76549 }
+		current_price_report={
+			goods={
+				0=30.7295
+				1=52.4598
+				2=61.53228
+				3=80
+				4=80
+				5=71.24267
+				6=80
+				7=21.8672
+				8=21.03935
+				9=25.38935
+				10=23.16395
+				11=45.97837
+				12=29.5743
+				13=24.02378
+				14=35.58202
+				15=24.74468
+				16=49.41997
+				17=30
+				18=54.91995
+				19=70
+				20=31.5418
+				21=34.4665
+				22=77.58312
+				23=22.62
+				24=35.9026
+				25=45.898
+				26=43.6579
+				27=40
+				28=40
+				29=60
+				30=59.14137
+				31=45.2416
+				32=7.5
+				33=48.2509
+				34=76.22525
+				35=67.26108
+				36=30.26347
+				37=33.85312
+				38=35.08455
+				39=28.817
+				40=50
+				41=12.5
+				42=30.32737
+				43=62.6587
+				44=50
+				45=100
+				46=70
+				47=80
+				48=61.80675
+				49=62.49255
+				50=100
+				51=212.909
+			}
+		}
+		building_counter=1917		building_employees_counter=1281		gov_wages_counter=1		mil_wages_counter=1		diplo_pact_counter=3		interest_counter=1		additional_income_counter=68		minting_counter=2		tariffs_counter=1		consumption_tax_counter=1		income_tax_counter=2		poll_tax_counter=1		weekly_counter=1	}
+	trends_initialized=yes
+	gdp={
+		sample_rate=28
+		count=5214
+		channels={
+0={
+				date=1836.1.1
+				index=1
+				values={ 23671568.81336 }
+			}
+		}
+	}
+	prestige={
+		sample_rate=28
+		count=5214
+		channels={
+0={
+				date=1836.1.1
+				index=1
+				values={ 881 }
+			}
+		}
+	}
+	literacy={
+		sample_rate=28
+		count=5214
+		channels={
+0={
+				date=1836.1.1
+				index=1
+				values={ 0.39411 }
+			}
+		}
+	}
+	avgsoltrend={
+		sample_rate=28
+		count=5214
+		channels={
+0={
+				date=1836.1.1
+				index=1
+				values={ 9.18192 }
+			}
+		}
+	}
+	country_type="recognized"
+	variables={
+		data={ {
+				flag="slavery_recently_abolished"
+				tick=1825
+				data={
+					type=boolean
+					identity=1
+				}
+			}
+ {
+				flag="orleanist_restoration_var"
+				tick=0
+				data={
+					type=boolean
+					identity=1
+				}
+			}
+ {
+				flag="fra_republic_counter"
+				tick=0
+				data={
+					type=value
+					identity=100000
+				}
+			}
+ {
+				flag="french_monarchist_progress_var"
+				tick=0
+				data={
+					type=value
+				}
+			}
+ {
+				flag="reading_campaign_ach_possible"
+				tick=0
+				data={
+					type=boolean
+					identity=1
+				}
+			}
+ {
+				flag="the_paris_commune_ach_possible"
+				tick=0
+				data={
+					type=boolean
+					identity=1
+				}
+			}
+ {
+				flag="belle_epoque_ach_possible"
+				tick=0
+				data={
+					type=boolean
+					identity=1
+				}
+			}
+ }
+	}
+	cultures={ 35 }
+	religion=catholic	pop_statistics={
+		population_lower_strata=32164516
+		population_middle_strata=1817496
+		population_upper_strata=574604
+		population_political_participants=10342304
+		population_salaried_workforce=3335288
+		population_subsisting_workforce=5323649
+		population_unemployed_workforce=1683367
+		population_government_workforce=475000
+		population_military_workforce=267000
+		population_laborer_workforce=3231833
+		population_by_strata={ 3 0=64329032 1=3634992 2=1149208 }
+		population_by_profession={ 15 0=45000 1=493604 2=236000 3=81000 4=951352 5=1617000 6=65000 7=532060 8=10772790 9=542420 10=113240 11=17745486 12=406904 14=954760 }
+		population_workforce_by_profession={ 15 0=13500 1=123401 2=70800 3=24300 4=285406 5=485100 6=19500 7=159618 8=3231833 9=162726 10=33972 11=5323649 12=122071 14=286428 }
+		population_qualifications={ 15 0=1178062 1=183002 2=1898768 3=109534 4=1033063 5=2273519 6=568633 7=1663666 8=10342304 9=1499177 10=450621 11=10342304 12=1248371 13=10342304 14=10342304 }
+		population_employable_qualifications={ 15 0=523156 1=692 2=864719 3=4956 4=439883 5=1135188 6=265312 7=1068053 8=7007016 9=773535 10=211666 11=7007016 12=513298 13=7007016 14=7007016 }
+		trend_population={
+			sample_rate=4
+			count=36500
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 34556616 }
+				}
+			}
+		}
+		trend_population_lower_strata={
+			sample_rate=4
+			count=36500
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 32164516 }
+				}
+			}
+		}
+		trend_population_middle_strata={
+			sample_rate=4
+			count=36500
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 1817496 }
+				}
+			}
+		}
+		trend_population_upper_strata={
+			sample_rate=4
+			count=36500
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 574604 }
+				}
+			}
+		}
+		trend_radicals={
+			sample_rate=4
+			count=365
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 0 }
+				}
+			}
+		}
+		trend_loyalists={
+			sample_rate=4
+			count=365
+			channels={
+0={
+					date=1836.1.1
+					index=1
+					values={ 0 }
+				}
+			}
+		}
+	}
+	pop_radicals_and_loyalists_statistics={
+		loyalists_increase_data={ {
+				population_data={ 0 0 1402 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ }
+		loyalists_decrease_data={ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ }
+		radicals_increase_data={ {
+				population_data={ 0 155 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 0 0 0 0 0 0 0 0 0 }
+			}
+ }
+		radicals_decrease_data={ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ {
+				population_data={ 0 0 0 0 }
+			}
+ }
+		loyalists_increase=1402
+		radicals_increase=155
+		week=0
+	}
+	states={ 8 9 222 294 299 301 324 348 349 350 351 352 353 354 355 356 357 358 359 360 361 362 363 364 395 418 595 602 872 }
+	timed_modifiers={
+		modifiers={ {
+				modifier="modifier_haitian_independence_payments"
+				start_date=1836.1.1
+			}
+ }
+	}
+	outliner_data={
+		pinned_scopes={
+			scope={
+				type=journal_entry
+				identity=7
+			}
+			scope={
+				type=journal_entry
+				identity=8
+			}
+			scope={
+				type=journal_entry
+				identity=194
+			}
+			scope={
+				type=journal_entry
+				identity=195
+			}
+			scope={
+				type=journal_entry
+				identity=196
+			}
+			scope={
+				type=journal_entry
+				identity=197
+			}
+			scope={
+				type=journal_entry
+				identity=198
+			}
+			scope={
+				type=journal_entry
+				identity=200
+			}
+			scope={
+				type=journal_entry
+				identity=201
+			}
+			scope={
+				type=journal_entry
+				identity=203
+			}
+			scope={
+				type=journal_entry
+				identity=206
+			}
+			scope={
+				type=journal_entry
+				identity=207
+			}
+			scope={
+				type=journal_entry
+				identity=208
+			}
+			scope={
+				type=journal_entry
+				identity=218
+			}
+			scope={
+				type=journal_entry
+				identity=230
+			}
+			scope={
+				type=journal_entry
+				identity=231
+			}
+			scope={
+				type=journal_entry
+				identity=250
+			}
+			scope={
+				type=journal_entry
+				identity=257
+			}
+			scope={
+				type=journal_entry
+				identity=258
+			}
+			scope={
+				type=journal_entry
+				identity=259
+			}
+			scope={
+				type=journal_entry
+				identity=262
+			}
+			scope={
+				type=journal_entry
+				identity=263
+			}
+			scope={
+				type=journal_entry
+				identity=264
+			}
+			scope={
+				type=journal_entry
+				identity=268
+			}
+			scope={
+				type=journal_entry
+				identity=269
+			}
+			scope={
+				type=journal_entry
+				identity=272
+			}
+			scope={
+				type=journal_entry
+				identity=274
+			}
+			scope={
+				type=journal_entry
+				identity=276
+			}
+			scope={
+				type=com
+				identity=2745
+			}
+			scope={
+				type=com
+				identity=2746
+			}
+			scope={
+				type=com
+				identity=2747
+			}
+			scope={
+				type=com
+				identity=2748
+			}
+			scope={
+				type=com
+				identity=2749
+			}
+			scope={
+				type=com
+				identity=2750
+			}
+		}
+		pinned_keys={ "players" }
+		expanded_keys={ "wars" "diplo_plays" "diplo_pacts" "commanders" "generals" "admirals" "markets" "goods" "interest_groups" "colonies" "states" "situations" "players" }
+		pinned_expanded_keys={ "commanders" "generals" "admirals" "markets" "goods" "interest_groups" "colonies" "states" "players" }
+	}
+	taxed_goods={ wine }
+	declared_interests={ region_england region_dixie region_mexico region_nile_basin region_north_germany region_south_germany region_iberia region_baltic region_balkans region_russia region_senegal }
+	private_queue={
+		construction_elements={ {
+				type=building_fishing_wharf				state=361
+				country=4
+				construction_left=150
+				construction_speed=20
+				base_construction_speed=19.80159
+				valid_construction=yes
+			}
+ {
+				type=building_whaling_station				state=9
+				country=4
+				construction_left=150
+				construction_speed=20
+				base_construction_speed=19.80159
+				valid_construction=yes
+			}
+ }
+	}
+	default_on_action_counter=1	convoys_produced=3740
+	convoys_from_subjects=0
+	diplomatic_pacts_counter=3	counters={
+buildings=1917
+character_wages=51
+legitimacy=15
+diplomatic_pact=3
+minting=2
+additional_income=68
+income_taxes=2
+commander_hqs=69
+port_connection=3
+convoy_cost_supply_routes=233
+convoy_cost_port_connections=33
+supply_network=145
+state_region_market_access=61
+state_region_production_consumption=12677
+state_region_market_change=87
+country_taxed_goods=2
+country_trade_routes=142
+pop_consumption=12048
+country_map_color=147
+building_subsidies=33
+building_production_method=106
+employees=1281
+building_max_level=33
+country_budget_update=10
+pop_statistics=88
+construction_queue=3
+government_stances_for_laws=44
+	}
+}

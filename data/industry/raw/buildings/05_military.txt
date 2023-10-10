@@ -1,0 +1,80 @@
+﻿############ BARRACKS
+
+building_barracks = {
+	building_group = bg_army
+	recruits_combat_unit = combat_unit_regular
+	texture = "gfx/interface/icons/building_icons/building_barracks.dds"
+	city_type = city
+	
+	has_max_level = yes
+	
+	levels_per_mesh = 25
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	production_method_groups = {
+		pmg_organization
+		pmg_artillery
+		pmg_reconaissance
+		pmg_specialist_companies
+		pmg_medical_aid
+	}
+
+	required_construction = construction_cost_very_low
+}
+
+building_conscription_center = {
+	building_group = bg_conscription
+	buildable = no
+	expandable = no
+	downsizeable = no
+	
+	has_max_level = yes	
+
+	levels_per_mesh = 0
+	residence_points_per_level = 0
+	city_type = none
+
+	recruits_combat_unit = combat_unit_conscript
+	texture = "gfx/interface/icons/building_icons/building_conscription_center.dds"
+
+	production_method_groups = {
+		pmg_organization_conscription
+		pmg_artillery_conscription
+		pmg_reconaissance_conscription
+		pmg_specialist_companies_conscription
+		pmg_medical_aid
+	}
+}
+
+building_naval_base = {
+	building_group = bg_navy
+	recruits_combat_unit = combat_unit_flotilla
+	city_type = port
+	levels_per_mesh = 25
+	
+	has_max_level = yes
+	
+	texture = "gfx/interface/icons/building_icons/naval_base.dds"
+	naval = yes
+	unlocking_technologies = { admiralty }
+	
+	production_method_groups = {
+		pmg_ship_class
+		pmg_escorts
+		pmg_raiders
+		pmg_naval_theory
+	}
+	
+	required_construction = construction_cost_very_low
+	
+	# Can only build naval bases on the coast
+	possible = {
+		error_check = {
+			severity = fail
+			is_coastal = yes
+		}
+	}
+}

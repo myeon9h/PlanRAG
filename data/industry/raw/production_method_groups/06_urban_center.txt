@@ -1,0 +1,76 @@
+﻿pmg_amenities = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_market_stalls
+		pm_market_squares
+		pm_covered_markets
+		pm_arcades
+	}
+}
+
+pmg_street_lighting = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_street_lighting
+		pm_gas_streetlights
+		pm_electric_streetlights
+	}
+}
+
+pmg_public_transport = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_public_transport
+		pm_public_trams
+		pm_public_motor_carriages
+	}
+}
+
+pmg_urban_clergy = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_state_urban_clergy
+		pm_free_urban_clergy
+		pm_no_urban_clergy
+	}
+}
+
+pmg_base_building_arts_academy = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_traditional_art
+		pm_realist_art
+		pm_photographic_art
+		pm_film_art
+	}
+}
+
+pmg_ownership_building_arts_academy = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_traditional_patronage
+		pm_bourgeoisie_patronage
+		pm_independent_artists
+	}
+}
+
+pmg_base_building_power_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_hydroelectric_plant
+		pm_coal-fired_plant
+		pm_oil-fired_plant
+	}
+}
+
+pmg_ownership_capital_building_power_plant = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_power_plant
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}

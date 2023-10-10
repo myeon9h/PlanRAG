@@ -1,0 +1,380 @@
+﻿# goods						The good being referenced
+# weight					The base weight that is applied to this good based on market Sell Order share
+# max_supply_share			The maximum weight that can be applied to this good based on market Sell Order share, relative supply above this amount will have no further impact on base weight
+# min_supply_share			If above 0, a minimum of this multiplier of the base weight will be applied to a good regardless of its market Sell Order share
+
+popneed_simple_clothing = {
+	default = fabric
+
+	entry = {
+		goods = fabric
+		
+		weight = 1	
+		max_supply_share = 0.75 
+		min_supply_share = 0.0
+	}	
+	
+	entry = {
+		goods = clothes
+		
+		weight = 1
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_crude_items = {
+	default = wood
+
+	entry = {
+		goods = wood
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = furniture
+		
+		weight = 1
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_basic_food = {
+	default = grain
+
+	entry = {
+		goods = grain
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = fish
+		
+		weight = 1.5
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = meat
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = fruit
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = groceries
+		
+		weight = 1.5
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_heating = {
+	default = wood
+
+	entry = {
+		goods = wood
+		
+		weight = 1.0
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = fabric
+		
+		weight = 0.5
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}	
+	
+	entry = {
+		goods = coal
+		
+		weight = 1.5
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = oil
+		
+		weight = 2
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = electricity
+		
+		weight = 3
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_household_items = {
+	default = furniture
+
+	entry = {
+		goods = furniture
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.10
+	}
+	
+	entry = {
+		goods = glass
+		
+		weight = 1
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = paper
+		
+		weight = 0.5
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}	
+}
+
+popneed_standard_clothing = {
+	default = clothes
+
+	entry = {
+		goods = clothes
+	}
+}
+
+popneed_services = {
+	default = services
+
+	entry = {
+		goods = services
+	}
+}
+
+popneed_intoxicants = {
+	default = liquor
+
+	entry = {
+		goods = liquor
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = tobacco
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = opium
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+}
+
+popneed_luxury_drinks = {
+	default = tea
+
+	entry = {
+		goods = tea
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = coffee
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = wine
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+}
+
+popneed_free_movement = {
+	default = transportation
+
+	entry = {
+		goods = services
+		
+		weight = 0.25
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+
+	entry = {
+		goods = transportation
+		
+		weight = 1
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = automobiles
+		
+		weight = 2
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_communication = {
+	default = transportation
+	
+	entry = {
+		goods = services
+		
+		weight = 0.25
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}	
+	
+	entry = {
+		goods = transportation
+		
+		weight = 0.25
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = telephones
+		
+		weight = 1
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}
+
+popneed_luxury_food = {
+	default = meat
+	
+	entry = {
+		goods = meat
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.1
+	}
+	
+	entry = {
+		goods = fruit
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.1
+	}
+	
+	entry = {
+		goods = groceries
+		
+		weight = 1
+		max_supply_share = 0.75
+		min_supply_share = 0.0
+	}
+	
+	entry = {
+		goods = sugar
+		
+		weight = 0.5
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+}
+
+popneed_luxury_items = {
+	default = luxury_clothes
+	
+	entry = {
+		goods = luxury_clothes
+		
+		weight = 1
+		max_supply_share = 0.5
+		min_supply_share = 0.1
+	}
+	
+	entry = {
+		goods = luxury_furniture
+		
+		weight = 1
+		max_supply_share = 0.5
+		min_supply_share = 0.1
+	}
+	
+	entry = {
+		goods = porcelain
+		
+		weight = 1
+		max_supply_share = 0.5
+		min_supply_share = 0.1
+	}
+
+	entry = {
+		goods = radios
+		
+		weight = 1
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+}
+
+popneed_art = {
+	default = services
+	
+	entry = {
+		goods = services
+		
+		weight = 0.5
+		max_supply_share = 0.5
+		min_supply_share = 0.0
+	}
+
+	entry = {
+		goods = fine_art
+		
+		weight = 2
+		max_supply_share = 1.0
+		min_supply_share = 0.0
+	}
+}

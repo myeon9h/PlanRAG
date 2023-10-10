@@ -1,0 +1,17 @@
+[
+    {
+        "question": "Buildings produce specific goods by using other specific goods. The price of goods is determined by the supply and demand for those goods. If supply is greater than demand, the price of goods drops below the base price; if demand is greater than supply, the price rises above the base price. In cases where the input goods are more expensive than the output goods in comparison to their base price, the corresponding building becomes useless. Which of the following buildings would be the most effective to construct?",
+        "goal": "Note that our goal is decreasing the market price of goods name: Steel, ",
+        "target_rdb": "multi_type_001",
+        "target_gdb": "multi-type-001",
+        "examples": [
+            "Steel Mills",
+            "Food Industries",
+            "Iron Mines",
+            "Arts Academy",
+            "Tooling Workshops"
+        ],
+        "answer": "Steel Mills",
+        "type": "cycle"
+    }
+]

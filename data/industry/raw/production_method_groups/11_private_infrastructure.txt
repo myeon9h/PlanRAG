@@ -1,0 +1,51 @@
+﻿pmg_base_building_railway = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_steam_trains
+		pm_electric_trains
+		pm_diesel_trains
+	}
+}
+
+pmg_passenger_trains = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_passenger_trains
+		pm_wooden_passenger_carriages
+		pm_steel_passenger_carriages
+	}
+}
+
+pmg_ownership_capital_building_railway = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_building_railway
+		pm_publicly_traded_building_railway
+		pm_government_run_building_railway
+		pm_worker_cooperative_building_railway
+	}
+}
+
+pmg_base_building_trade_center = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_trade_center
+	}
+}
+
+pmg_ownership_building_trade_center = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_trade_center_merchant_guilds
+		pm_trade_center_privately_owned
+		pm_trade_center_government_run
+	}
+}

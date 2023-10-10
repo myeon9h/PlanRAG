@@ -1,0 +1,84 @@
+﻿pmg_base_building_port = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_anchorage
+		pm_basic_port
+		pm_industrial_port
+		pm_modern_port
+	}
+}
+
+pmg_base_building_government_administration = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_simple_organization
+		pm_horizontal_drawer_cabinets
+		pm_vertical_filing_cabinets
+		pm_switch_boards
+	}
+}
+
+pmg_government_administration_bureaucrat_professionalism = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_hereditary_bureaucrats
+		pm_professional_bureaucrats
+	}
+}
+
+pmg_government_administration_religious_administration = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_religious_bureaucrats
+		pm_secular_bureaucrats
+	}
+}
+
+pmg_base_building_university = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_scholastic_education
+		pm_philosophy_department
+		pm_analytical_philosophy_department
+	}
+}
+
+pmg_university_academia = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_religious_academia
+		pm_secular_academia
+	}
+}
+
+pmg_base_building_skyscraper = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_skyscraper_bureaucratic_nexus
+		pm_skyscraper_trade_nexus
+	}
+}
+
+pmg_airship_mooring_post = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_airships
+		pm_airship_mooring_post
+	}
+}

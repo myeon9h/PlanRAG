@@ -1,0 +1,687 @@
+﻿# parent_group = parent_group_key		If set, this group is considered a child of the specified group. Default no parent.
+# always_possible = yes/no				If yes, building types in this group are always permitted regardless of resources in state. Default no.
+# economy_of_scale = yes/no				If yes, any non-subsistence buildings in or underneath this group will get an economy of scale throughput modifier for each level > 1. Default no.
+# is_subsistence = yes/no				If yes, buildings of types in this group are considered subsistence buildings that follow special rules. Default no.
+# default_building = building_type_key	Specifies the default building type that will be built unless the state specifies a different one. No default.
+# lens = lens_key						If specified, determines the lens buildings in this group will be sorted under. No default.
+# auto_place_buildings = yes/no
+# capped_by_resources = yes/no
+# discoverable_resource = yes/no
+# depletable_resource = yes/no
+# can_use_slaves = yes/no				Default no, setting yes enables slavery for all contained buildings and groups
+# land_usage = urban/rural				Which type of state resource the building uses. urban = Urbanization, rural = Arable Land. Default no state resource usage.
+#										If unspecified, will return first non-default land usage type found in parent building group tree.
+# cash_reserves_max = number			Maximum amount of £ (per level) that buildings in this group can store into their cash reserves. If unspecified or set to 0, it will use the value from the parent group. Default 0
+# inheritable_construction =  yes/no	If yes, a construction of this building group will survive a state changing hands or a split state merging
+# stateregion_max_level = yes/no		If yes, any building types in this group with the has_max_level property will consider its level restrictions on state-region rather than state level	
+# urbanization = number					The amount of urbanization buildings in this group provides per level
+# should_auto_expand = trigger			Under which condition buildings in this group should auto-expand if auto-expand is toggled on (trigger on more specific group or building type overrides)
+# 										If this trigger has any contents at all, the game will think the building is potentially auto-expandable, so do not write triggers that can never evaluate to true here
+# hiring_rate = X						How much of the building's max staffing level can be hired in a single week (default NDefines::NEconomy::HIRING_RATE)
+# proportionality_limit = X				How high is the building's tolerance for pop types being out of proportion? default NDefines::NEconomy::EMPLOYMENT_PROPORTIONALITY_LIMIT)
+# hires_unemployed_only = yes			If yes, buildings in this group may only hire from the unemployment pool. Default no.
+
+# Manufacturing
+
+bg_manufacturing = {
+	category = urban
+
+	always_possible = yes
+	
+	economy_of_scale = yes
+	
+	cash_reserves_max = 25000
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 4.0
+}
+
+bg_light_industry = {
+	parent_group = bg_manufacturing
+
+	lens = light_industry
+	
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+}
+
+bg_heavy_industry = {
+	parent_group = bg_manufacturing
+
+	lens = heavy_industry
+	
+	urbanization = 30
+	infrastructure_usage_per_level = 3
+}
+
+# Agriculture
+
+bg_agriculture = {
+	category = rural
+
+	land_usage = rural
+	
+	lens = agriculture
+	
+	economy_of_scale = yes
+	
+	can_use_slaves = yes
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_rye_farms = {
+	parent_group = bg_agriculture
+	
+	default_building = building_rye_farm
+	
+	cash_reserves_max = 25000
+}
+
+bg_wheat_farms = {
+	parent_group = bg_agriculture
+	
+	default_building = building_wheat_farm
+	
+	cash_reserves_max = 25000
+}
+
+bg_rice_farms = {
+	parent_group = bg_agriculture
+	
+	default_building = building_rice_farm
+	
+	cash_reserves_max = 25000
+}
+
+bg_maize_farms = {
+	parent_group = bg_agriculture
+	
+	default_building = building_maize_farm
+	
+	cash_reserves_max = 25000
+}
+
+bg_millet_farms = {
+	parent_group = bg_agriculture
+	
+	default_building = building_millet_farm
+	
+	cash_reserves_max = 25000
+}
+
+
+bg_subsistence_agriculture = {
+	parent_group = bg_agriculture
+
+	always_possible = yes
+	
+	auto_place_buildings = yes
+
+	is_subsistence = yes
+	
+	default_building = building_subsistence_farms
+	
+	fired_pops_become_radical = no
+	
+	hires_unemployed_only = yes
+}
+
+# Ranching
+
+bg_ranching = {
+	parent_group = bg_agriculture
+	category = rural
+
+	land_usage = rural
+	
+	lens = agriculture
+	
+	economy_of_scale = yes
+	
+	can_use_slaves = yes
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_livestock_ranches = {
+	parent_group = bg_ranching
+	
+	default_building = building_livestock_ranch
+	
+	cash_reserves_max = 25000
+}
+
+bg_subsistence_ranching = {
+	parent_group = bg_ranching
+
+	always_possible = yes
+	
+	auto_place_buildings = yes
+
+	is_subsistence = yes
+	
+	default_building = building_subsistence_farms
+	
+	fired_pops_become_radical = no
+	
+	hires_unemployed_only = yes
+}
+
+
+# Plantations
+
+bg_plantations = {
+	category = rural
+
+	land_usage = rural
+	
+	economy_of_scale = yes
+	
+	lens = plantation
+	
+	can_use_slaves = yes
+	cash_reserves_max = 25000
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_coffee_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_coffee_plantation
+}
+
+
+bg_cotton_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_cotton_plantation
+}
+
+bg_silk_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_silk_plantation
+}
+
+bg_dye_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_dye_plantation
+}
+
+bg_opium_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_opium_plantation
+}
+
+bg_tea_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_tea_plantation
+}
+
+bg_tobacco_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_tobacco_plantation
+}
+
+bg_sugar_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_sugar_plantation
+}
+
+bg_banana_plantations = {
+	parent_group = bg_plantations
+	
+	default_building = building_banana_plantation
+}
+
+# Mining
+
+bg_mining = {
+	category = rural
+
+	economy_of_scale = yes
+	
+	capped_by_resources = yes
+	
+	lens = mine
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 10
+	infrastructure_usage_per_level = 2
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 3.0
+}
+
+bg_gold_fields = {
+	parent_group = bg_mining
+
+	auto_place_buildings = yes
+
+	discoverable_resource = yes
+	
+	depletable_resource = yes
+	
+	pays_taxes = no
+
+	default_building = building_gold_fields
+	
+	fired_pops_become_radical = no
+}
+
+bg_gold_mining = {
+	parent_group = bg_mining
+	
+	default_building = building_gold_mine
+
+	can_use_slaves = yes
+}
+
+bg_coal_mining = {
+	parent_group = bg_mining
+	
+	default_building = building_coal_mine
+
+	can_use_slaves = yes
+}
+
+bg_iron_mining = {
+	parent_group = bg_mining
+	
+	default_building = building_iron_mine
+
+	can_use_slaves = yes
+}
+
+bg_lead_mining = {
+	parent_group = bg_mining
+	
+	default_building = building_lead_mine
+
+	can_use_slaves = yes
+}
+
+bg_sulfur_mining = {
+	parent_group = bg_mining
+	
+	default_building = building_sulfur_mine
+
+	can_use_slaves = yes
+}
+
+# Logging
+
+bg_logging = {
+	category = rural
+
+	capped_by_resources = yes
+	
+	economy_of_scale = yes
+	
+	can_use_slaves = yes
+	
+	default_building = building_logging_camp
+	
+	lens = forestry	
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_rubber = {
+	category = rural 
+	
+	capped_by_resources = yes
+	
+	economy_of_scale = yes
+	
+	discoverable_resource = yes
+	
+	depletable_resource = no
+	
+	default_building = building_rubber_plantation
+	
+	lens = forestry	
+	
+	cash_reserves_max = 25000 
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+# Fishing
+
+bg_whaling = {
+	category = rural
+
+	capped_by_resources = yes
+	
+	economy_of_scale = yes
+	
+	default_building = building_whaling_station
+	
+	lens = fishing
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 3.0
+}
+
+bg_fishing = {
+	category = rural
+
+	capped_by_resources = yes
+	
+	economy_of_scale = yes
+	
+	default_building = building_fishing_wharf
+	
+	lens = fishing
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 5
+	infrastructure_usage_per_level = 1
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+# Oil Extraction
+
+bg_oil_extraction = {
+	category = rural
+
+	capped_by_resources = yes
+	
+	economy_of_scale = yes
+	
+	discoverable_resource = yes
+	
+	default_building = building_oil_rig
+	
+	lens = mine
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 10
+	infrastructure_usage_per_level = 2
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 3.0
+}
+
+# Service
+
+bg_service = {
+	category = urban
+	
+	land_usage = urban
+
+	always_possible = yes	
+	
+	auto_place_buildings = yes	
+	
+	economy_of_scale = yes
+	
+	default_building = building_urban_center
+	
+	cash_reserves_max = 25000
+}
+
+bg_urban_facilities = {
+	category = urban
+	
+	lens = urban
+
+	always_possible = yes
+	
+	economy_of_scale = yes
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	
+	should_auto_expand = { 
+		default_auto_expand_rule = yes
+	}
+	
+	economy_of_scale_ai_factor = 4.0
+}
+
+bg_arts = {
+	parent_group = bg_urban_facilities
+	infrastructure_usage_per_level = 0.5
+}
+
+bg_power = {
+	parent_group = bg_heavy_industry
+}
+
+# Government
+
+bg_government = {
+	category = urban
+
+	always_possible = yes
+	
+	is_government_funded = yes
+	
+	economy_of_scale = yes
+	
+	lens = government
+	
+	urbanization = 20
+	infrastructure_usage_per_level = 1
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_technology = {
+	parent_group = bg_government
+}
+
+bg_bureaucracy = {
+	parent_group = bg_government
+}
+
+bg_trade = {
+	parent_group = bg_urban_facilities
+	
+	category = urban
+	
+	lens = trade
+
+	always_possible = yes	
+	
+	created_by_trade_routes = yes
+	
+	auto_place_buildings = yes
+	
+	hiring_rate = 1.0
+	
+	proportionality_limit = 1.0
+	
+	economy_of_scale = no
+	
+	default_building = building_trade_center
+	
+	cash_reserves_max = 5000	
+	
+	urbanization = 5
+	
+	infrastructure_usage_per_level = 0.1
+	
+	fired_pops_become_radical = no
+	
+	should_auto_expand = {
+		always = no
+	}
+}
+
+# Infrastructure
+
+bg_infrastructure = {
+	category = development
+
+	always_possible = yes
+	
+	lens = infrastructure
+	
+	stateregion_max_level = yes
+	
+	economy_of_scale_ai_factor = 1.5
+}
+
+bg_public_infrastructure = {
+	parent_group = bg_infrastructure
+	
+	is_government_funded = yes
+	
+	urbanization = 5
+}
+
+bg_construction = {
+	parent_group = bg_public_infrastructure
+
+	infrastructure_usage_per_level = 0.2
+
+	lens = government
+
+	is_government_funded = yes
+	
+	can_use_slaves = yes
+	
+	urbanization = 5
+	
+	economy_of_scale_ai_factor = 2.0
+}
+
+bg_private_infrastructure = {
+	parent_group = bg_infrastructure
+	
+	is_government_funded = no
+	subsidized = yes
+	
+	cash_reserves_max = 25000
+	
+	urbanization = 5
+}
+
+bg_canals = {
+	parent_group = bg_infrastructure
+	lens = special
+	inheritable_construction = yes
+	
+	urbanization = 100
+}
+
+bg_monuments = {
+	parent_group = bg_government
+	lens = special
+	inheritable_construction = yes
+}
+
+# Military
+
+bg_military = {
+	category = development
+
+	always_possible = yes
+	
+	is_military = yes
+	
+	is_government_funded = yes
+
+	infrastructure_usage_per_level = 0.2
+	
+	lens = military
+	
+	urbanization = 2
+}
+
+bg_army = {
+	parent_group = bg_military
+}
+
+bg_conscription = {
+	parent_group = bg_army
+	urbanization = 0
+	
+	fired_pops_become_radical = no
+}
+
+bg_navy = {
+	parent_group = bg_military
+}
+
+bg_skyscraper = {
+	parent_group = bg_government
+}
+
+bg_monuments_hidden = {
+	always_possible = yes
+}

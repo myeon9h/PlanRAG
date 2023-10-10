@@ -1,0 +1,48 @@
+﻿############ PRIVATE INFRASTRUCTURE
+
+building_railway = {
+	building_group = bg_private_infrastructure	
+	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+	
+	unlocking_technologies = {
+		railways
+	}
+
+	production_method_groups = {
+		pmg_base_building_railway
+		pmg_passenger_trains
+		pmg_ownership_capital_building_railway
+	}
+
+	required_construction = construction_cost_high
+	
+	ai_value = 2000 # Railways are important
+	
+	should_auto_expand = { 
+		OR = {
+			cash_reserves_ratio > 0.5
+			is_subsidized = yes
+		}
+		state.market_access < 1
+		NOT = { is_under_construction = yes }
+	}
+}
+
+building_trade_center = {
+	building_group = bg_trade
+	city_type = city
+	levels_per_mesh = 10
+
+	lens = infrastructure
+
+	texture = "gfx/interface/icons/building_icons/building_trade_center.dds"
+
+	production_method_groups = {
+		pmg_base_building_trade_center
+		pmg_ownership_building_trade_center
+	}
+
+	buildable = no
+	expandable = no
+	downsizeable = no	
+}

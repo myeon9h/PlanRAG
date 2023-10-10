@@ -1,0 +1,7 @@
+﻿# The dummy PM group is used for buildings that serve no gameplay mechanical purpose but still need to be reacted to be e.g. city hub graphics
+
+pmg_dummy = {
+	production_methods = {
+		pm_dummy
+	}
+}

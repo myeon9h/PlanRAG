@@ -1,0 +1,502 @@
+﻿pmg_base_building_food_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_bakery
+		pm_sweeteners
+		pm_baking_powder
+	}
+}
+
+pmg_canning = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_disabled_canning
+		pm_cannery
+		pm_vacuum_canning
+	}
+}
+
+pmg_distillery = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_disabled_distillery
+		pm_pot_stills
+		pm_patent_stills
+	}
+}
+
+pmg_automation_building_food_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_manual_dough_processing
+		pm_automated_bakery
+	}
+}
+
+pmg_ownership_capital_building_food_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_food_industry
+		pm_privately_owned_building_food_industry
+		pm_publicly_traded_building_food_industry
+		pm_government_run_building_food_industry
+		pm_worker_cooperative_building_food_industry
+	}
+}
+
+pmg_base_building_textile_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_handsewn_clothes
+		pm_dye_workshops
+		pm_sewing_machines
+		pm_electric_sewing_machines
+	}
+}
+
+pmg_luxury_building_textile_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxury_clothes
+		pm_craftsman_sewing
+		pm_elastics
+	}
+}
+
+pmg_automation_building_textile_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_traditional_looms
+		pm_mechanized_looms
+		pm_automatic_power_looms
+	}
+}
+
+pmg_ownership_capital_building_textile_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_textile_mills
+		pm_privately_owned_building_textile_mills
+		pm_publicly_traded_building_textile_mills
+		pm_government_run_building_textile_mills
+		pm_worker_cooperative_building_textile_mills
+	}
+}
+
+pmg_base_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_handcrafted_furniture
+		pm_lathe
+		pm_mechanized_workshops
+	}
+}
+
+pmg_luxury_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_luxuries
+		pm_luxury_furniture
+		pm_precision_tools
+	}
+}
+
+pmg_automation_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_furniture_manufacturies
+		pm_rotary_valve_engine_building_furniture_manufacturies
+		pm_assembly_lines_building_furniture_manufacturies
+	}
+}
+
+pmg_ownership_capital_building_furniture_manufacturies = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_furniture_manufacturies
+		pm_privately_owned_building_furniture_manufacturies
+		pm_publicly_traded_building_furniture_manufacturies
+		pm_government_run_building_furniture_manufacturies
+		pm_worker_cooperative_building_furniture_manufacturies
+	}
+}
+
+pmg_base_building_tooling_workshops = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_crude_tools
+		pm_pig_iron
+		pm_steel
+	}
+}
+
+pmg_automation_building_tooling_workshops = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_tooling_workshops
+		pm_rotary_valve_engine_building_tooling_workshops
+		pm_assembly_lines_building_tooling_workshops
+	}
+}
+
+pmg_ownership_capital_building_tooling_workshops = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_tooling_workshops
+		pm_privately_owned_building_tooling_workshops
+		pm_publicly_traded_building_tooling_workshops
+		pm_government_run_building_tooling_workshops
+		pm_worker_cooperative_building_tooling_workshops
+	}
+}
+
+pmg_base_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_forest_glass
+		pm_leaded_glass
+		pm_crystal_glass
+		pm_houseware_plastics
+	}
+}
+
+pmg_luxury_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_disabled_ceramics
+		pm_ceramics
+		pm_bone_china
+	}
+}
+
+pmg_glassblowing = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_manual_glassblowing
+		pm_automatic_bottle_blowers
+	}
+}
+
+pmg_ownership_capital_building_glassworks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_glassworks
+		pm_privately_owned_building_glassworks
+		pm_publicly_traded_building_glassworks
+		pm_government_run_building_glassworks
+		pm_worker_cooperative_building_glassworks
+	}
+}
+
+pmg_base_building_paper_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_pulp_pressing
+		pm_sulfite_pulping
+		pm_bleached_paper
+	}
+}
+
+pmg_automation_building_paper_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_paper_mills
+		pm_rotary_valve_engine_building_paper_mills
+	}
+}
+
+pmg_ownership_capital_building_paper_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_paper_mills
+		pm_privately_owned_building_paper_mills
+		pm_publicly_traded_building_paper_mills
+		pm_government_run_building_paper_mills
+		pm_worker_cooperative_building_paper_mills
+	}
+}
+
+pmg_fertilizer_production = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_artificial_fertilizers
+		pm_improved_fertilizer
+		pm_nitrogen_fixation
+	}
+}
+
+pmg_explosives_building_chemical_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_explosives_production
+		pm_leblanc_process
+		pm_ammonia-soda_process
+		pm_vacuum_evaporation
+		pm_brine_electrolysis
+	}
+}
+
+pmg_ownership_capital_building_chemical_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_chemical_plants
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_synthetic_dyes = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_dye_production
+	}
+}
+
+pmg_synthetic_silk = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_artificial_fibers
+		pm_rayon
+	}
+}
+
+pmg_ownership_capital_building_synthetics_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_synthetic_plants
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_steelmaking_process = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_blister_steel_process
+		pm_bessemer_process
+		pm_open_hearth_process
+		pm_electric_arc_process
+	}
+}
+
+pmg_automation_building_steel_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_steel_mills
+		pm_rotary_valve_engine_building_steel_mills
+	}
+}
+
+pmg_ownership_capital_building_steel_mills = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_steel_mills
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_base_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_steam_engines
+		pm_electric_engines
+		pm_diesel_engines
+	}
+}
+
+pmg_automobile_production = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_automobiles_disabled
+		pm_automobile_production
+	}
+}
+
+pmg_automation_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_watertube_boiler_building_motor_industry
+		pm_rotary_valve_engine_building_motor_industry
+		pm_assembly_lines_building_motor_industry
+	}
+}
+
+pmg_ownership_capital_building_motor_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_motor_industries
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_base_building_shipyards = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_basic_shipbuilding
+		pm_complex_shipbuilding
+		pm_metal_shipbuilding
+		pm_arc_welding_shipbuilding
+	}
+}
+
+pmg_military_base = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_military.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_military_shipbuilding
+		pm_military_shipbuilding_wooden
+		pm_military_shipbuilding_wooden_2
+		pm_military_shipbuilding_steam
+		pm_military_shipbuilding_steam_2
+	}
+}
+
+pmg_ownership_capital_building_shipyards = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_shipyards
+		pm_privately_owned_building_shipyards
+		pm_publicly_traded_building_shipyards
+		pm_government_run_building_shipyards
+		pm_worker_cooperative_building_shipyards
+	}
+}
+
+pmg_aeroplanes = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_aeroplane_production
+	}
+}
+
+pmg_tanks = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_tank_production
+		pm_tank_production
+	}
+}
+
+pmg_ownership_capital_building_war_machine_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_war_machines_induestries
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_telephones_category = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_telephones
+	}
+}
+
+pmg_radios_category = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_radios
+		pm_radios
+	}
+}
+
+pmg_ownership_capital_building_electrics_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_electrics_industries
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}
+
+pmg_firearms_manufacturing = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_muskets
+		pm_rifles
+		pm_repeaters
+		pm_bolt_action_rifles
+	}
+}
+
+pmg_automation_building_arms_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_automation_disabled
+		pm_rotary_valve_engine_building_arms_industry
+		pm_assembly_lines_building_arms_industry
+	}
+}
+
+pmg_foundries = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_no_artillery_production
+		pm_cannons
+		pm_smoothbores
+		pm_breech_loaders
+	}
+}
+
+pmg_ownership_capital_building_arms_industry = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_arms_industry
+		pm_privately_owned_building_arms_industry
+		pm_publicly_traded_building_arms_industry
+		pm_government_run_building_arms_industry
+		pm_worker_cooperative_building_arms_industry
+	}
+}
+
+pmg_base_building_munition_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_percussion_caps
+		pm_explosive_shells
+	}
+}
+
+pmg_automation_building_munition_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_productive
+
+	production_methods = {
+		pm_automation_disabled
+		pm_rotary_valve_engine_building_munition_plants
+		pm_assembly_lines_building_munition_plants
+	}
+}
+
+pmg_ownership_capital_building_munition_plants = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_munition_plants
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}

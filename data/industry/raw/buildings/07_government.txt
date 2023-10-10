@@ -1,0 +1,114 @@
+﻿############ GOVERNMENT BUILDINGS
+building_port = {
+	building_group = bg_public_infrastructure
+	city_type = port
+	texture = "gfx/interface/icons/building_icons/building_port.dds"
+
+	has_max_level = yes
+	ignore_stateregion_max_level = yes
+	port = yes
+
+	unlocking_technologies = { navigation }
+
+	production_method_groups = {
+		pmg_base_building_port
+	}
+
+	required_construction = construction_cost_medium
+
+	terrain_manipulator = urban_port
+	
+	possible = {
+		error_check = {
+			severity = fail
+			is_coastal = yes
+		}
+	}
+}
+
+building_government_administration = {
+	building_group = bg_bureaucracy
+	city_type = city
+
+	levels_per_mesh = 10
+
+	unlocking_technologies = {
+		tech_bureaucracy
+	}
+
+	production_method_groups = {
+		pmg_base_building_government_administration
+		pmg_government_administration_bureaucrat_professionalism
+		pmg_government_administration_religious_administration
+	}
+
+	texture = "gfx/interface/icons/building_icons/building_government_administration.dds"
+
+	required_construction = construction_cost_medium
+}
+
+building_university = {
+
+	building_group = bg_technology
+
+	city_type = city
+
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		academia
+	}
+
+	production_method_groups = {
+		pmg_base_building_university
+		pmg_university_academia
+	}
+
+	texture = "gfx/interface/icons/building_icons/building_university.dds"
+
+	required_construction = construction_cost_medium
+}
+
+building_skyscraper = {
+
+	building_group = bg_skyscraper
+
+	city_type = city
+
+	levels_per_mesh = 1
+
+	enable_air_connection = yes
+
+	override_centerpiece_mesh = yes
+
+	expandable = no
+
+	downsizeable = no
+
+	production_method_groups = {
+		pmg_base_building_skyscraper
+		pmg_airship_mooring_post
+	}
+
+	texture = "gfx/interface/icons/building_icons/skyscraper.dds"
+
+	required_construction = construction_cost_monument
+
+	can_build_government = {
+		error_check = {
+			severity = fail
+			custom_tooltip = {
+				text = skyscraper_can_construct_tt
+				has_modifier = skyscraper_site
+			}
+		}
+	}
+	can_build_private = {
+		error_check = {
+			severity = potential
+			always = no
+		}
+	}	
+	
+	ai_value = 10000
+}

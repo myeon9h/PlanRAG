@@ -1,0 +1,254 @@
+[
+    {
+        "answer": "N_juliet_foxtrot", 
+        "country": "POR", 
+        "homenode": "N_echo_hotel", 
+        "examples": [
+            "N_hotel_golf", 
+            "N_juliet_hotel", 
+            "N_beta", 
+            "N_juliet_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_golf_echo", 
+        "country": "TUR", 
+        "homenode": "N_juliet_echo", 
+        "examples": [
+            "N_foxtrot_echo", 
+            "N_golf_echo", 
+            "N_india_echo", 
+            "N_india_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_charlie_hotel", 
+        "country": "ENG", 
+        "homenode": "N_juliet_hotel", 
+        "examples": [
+            "N_hotel_golf", 
+            "N_charlie_hotel", 
+            "N_beta_hotel", 
+            "N_delta_golf"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_juliet_foxtrot", 
+        "country": "CAS", 
+        "homenode": "N_echo_hotel", 
+        "examples": [
+            "N_beta", 
+            "N_foxtrot_golf", 
+            "N_juliet_foxtrot", 
+            "N_delta_golf"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_beta_foxtrot", 
+        "country": "MOS", 
+        "homenode": "N_charlie_foxtrot", 
+        "examples": [
+            "N_echo_golf", 
+            "N_india_echo", 
+            "N_beta_foxtrot", 
+            "N_alpha_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_charlie_foxtrot", 
+        "country": "SWE", 
+        "homenode": "N_echo_golf", 
+        "examples": [
+            "N_beta_echo", 
+            "N_beta_golf", 
+            "N_charlie_hotel", 
+            "N_charlie_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_alpha_golf", 
+        "country": "HAB", 
+        "homenode": "N_charlie_golf", 
+        "examples": [
+            "N_hotel_hotel", 
+            "N_alpha_golf", 
+            "N_india_foxtrot", 
+            "N_india_hotel"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_alpha_golf", 
+        "country": "POL", 
+        "homenode": "N_beta_golf", 
+        "examples": [
+            "N_echo_golf", 
+            "N_charlie_charlie", 
+            "N_alpha_golf", 
+            "N_charlie_golf"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_india_foxtrot", 
+        "country": "VEN", 
+        "homenode": "N_india_hotel", 
+        "examples": [
+            "N_hotel_hotel", 
+            "N_beta_beta", 
+            "N_alpha_golf", 
+            "N_india_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_delta_charlie", 
+        "country": "MNG", 
+        "homenode": "N_foxtrot_charlie", 
+        "examples": [
+            "N_india", 
+            "N_delta_charlie", 
+            "N_charlie_charlie", 
+            "N_india_charlie"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_delta_golf", 
+        "country": "DAN", 
+        "homenode": "N_charlie_hotel", 
+        "examples": [
+            "N_golf_echo", 
+            "N_delta_foxtrot", 
+            "N_delta_golf", 
+            "N_echo_hotel"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_charlie_golf", 
+        "country": "BRA", 
+        "homenode": "N_delta_golf", 
+        "examples": [
+            "N_beta", 
+            "N_charlie_hotel", 
+            "N_foxtrot_golf", 
+            "N_charlie_golf"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_delta_echo", 
+        "country": "TIM", 
+        "homenode": "N_echo_echo", 
+        "examples": [
+            "N_beta_delta", 
+            "N_alpha_delta", 
+            "N_juliet_delta", 
+            "N_delta_echo"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_golf_echo", 
+        "country": "GEN", 
+        "homenode": "N_hotel_hotel", 
+        "examples": [
+            "N_golf_echo", 
+            "N_india_echo", 
+            "N_hotel_foxtrot", 
+            "N_golf_hotel"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_delta_hotel", 
+        "country": "BUR", 
+        "homenode": "N_foxtrot_hotel", 
+        "examples": [
+            "N_delta_hotel", 
+            "N_juliet_hotel", 
+            "N_hotel_hotel", 
+            "N_foxtrot_golf"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_india_echo", 
+        "country": "LIT", 
+        "homenode": "N_alpha_foxtrot", 
+        "examples": [
+            "N_juliet_echo", 
+            "N_india_echo", 
+            "N_beta_golf", 
+            "N_charlie_foxtrot"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_foxtrot_echo", 
+        "country": "MAM", 
+        "homenode": "N_golf_echo", 
+        "examples": [
+            "N_foxtrot_echo", 
+            "N_charlie_echo", 
+            "N_hotel_delta", 
+            "N_india_delta"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_alpha_delta", 
+        "country": "VIJ", 
+        "homenode": "N_echo_delta", 
+        "examples": [
+            "N_beta_delta", 
+            "N_alpha_delta", 
+            "N_foxtrot_delta", 
+            "N_india_delta"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_alpha_golf", 
+        "country": "UBV", 
+        "homenode": "N_charlie_golf", 
+        "examples": [
+            "N_alpha_golf", 
+            "N_hotel_foxtrot", 
+            "N_golf_hotel", 
+            "N_india_hotel"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_echo_beta", 
+        "country": "AYU", 
+        "homenode": "N_foxtrot_beta", 
+        "examples": [
+            "N_echo_beta", 
+            "N_golf_beta", 
+            "N_alpha_delta", 
+            "N_juliet_charlie"
+        ], 
+        "year": 1445
+    }, 
+    {
+        "answer": "N_india", 
+        "country": "KOR", 
+        "homenode": "N_charlie_charlie", 
+        "examples": [
+            "N_foxtrot_charlie", 
+            "N_hotel", 
+            "N_india", 
+            "N_delta_charlie"
+        ], 
+        "year": 1445
+    }
+]

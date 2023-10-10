@@ -1,0 +1,76 @@
+﻿# URBANIZATION
+
+building_urban_center = {
+	building_group = bg_service
+	texture = "gfx/interface/icons/building_icons/urban_center.dds"
+	city_type = city
+	residence_points_per_level = 0
+	
+	unlocking_technologies = { 
+		urbanization
+	}
+	
+	production_method_groups = {
+		pmg_amenities
+		pmg_street_lighting
+		pmg_public_transport
+		pmg_urban_clergy
+	}
+	
+	buildable = no
+	expandable = no
+	downsizeable = no	
+	
+	terrain_manipulator = urban_city
+}
+
+building_arts_academy = {
+	building_group = bg_arts
+
+	city_type = city
+	
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		romanticism
+	}
+
+	production_method_groups = {
+		pmg_base_building_arts_academy
+		pmg_ownership_building_arts_academy
+	}
+	
+	texture = "gfx/interface/icons/building_icons/building_arts_academy.dds"
+
+	required_construction = construction_cost_high
+}
+
+building_power_plant = {
+	building_group = bg_power
+	texture = "gfx/interface/icons/building_icons/power_plant.dds"
+	levels_per_mesh = 5
+
+	city_type = city
+	
+	unlocking_technologies = { 
+		electrical_generation 
+	}
+
+	production_method_groups = {
+		pmg_base_building_power_plant
+		pmg_ownership_capital_building_power_plant
+	}
+	
+	required_construction = construction_cost_very_high
+
+	possible = {
+		error_check = {
+			severity = fail
+			this = {
+				owner = { 
+					NOT = { has_law = law_type:law_industry_banned } 
+				}
+			}
+		}
+	}
+}

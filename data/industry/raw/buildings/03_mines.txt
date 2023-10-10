@@ -1,0 +1,121 @@
+﻿building_coal_mine = {
+	building_group = bg_coal_mining
+	texture = "gfx/interface/icons/building_icons/coal_mine.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	required_construction = construction_cost_medium
+	terrain_manipulator = mining
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	production_method_groups = {
+		pmg_mining_equipment_building_coal_mine
+		pmg_explosives_building_coal_mine
+		pmg_steam_automation_building_coal_mine
+		pmg_train_automation_building_coal_mine
+		pmg_ownership_capital_building_coal_mine
+	}
+}
+ 
+building_iron_mine = {
+	building_group = bg_iron_mining
+	texture = "gfx/interface/icons/building_icons/iron_mine.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	required_construction = construction_cost_medium
+	terrain_manipulator = mining
+	
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	production_method_groups = {
+		pmg_mining_equipment_building_iron_mine
+		pmg_explosives_building_iron_mine
+		pmg_steam_automation_building_iron_mine
+		pmg_train_automation_building_iron_mine
+		pmg_ownership_capital_building_iron_mine
+	}
+ }
+
+building_lead_mine = {
+	building_group = bg_lead_mining
+	texture = "gfx/interface/icons/building_icons/lead_mine.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	required_construction = construction_cost_medium
+	terrain_manipulator = mining
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	production_method_groups = {
+		pmg_mining_equipment_building_lead_mine
+		pmg_explosives_building_lead_mine
+		pmg_steam_automation_building_lead_mine
+		pmg_train_automation_building_lead_mine
+		pmg_ownership_capital_building_lead_mine
+	}
+ }
+
+building_sulfur_mine = {
+	building_group = bg_sulfur_mining
+	texture = "gfx/interface/icons/building_icons/sulfur_mine.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	required_construction = construction_cost_medium
+	terrain_manipulator = mining
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	production_method_groups = {
+		pmg_mining_equipment_building_sulfur_mine
+		pmg_explosives_building_sulfur_mine
+		pmg_steam_automation_building_sulfur_mine
+		pmg_train_automation_building_sulfur_mine
+		pmg_ownership_capital_building_sulfur_mine
+	}
+ }
+ 
+building_gold_mine = {
+	building_group = bg_gold_mining
+	texture = "gfx/interface/icons/building_icons/gold_mine.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	required_construction = construction_cost_medium
+	terrain_manipulator = mining
+	
+	unlocking_technologies = {
+		prospecting
+	}
+	
+	ai_value = 3000 # Gold mines are very nice for minting revenue
+
+	production_method_groups = {
+		pmg_mining_equipment_building_gold_mine
+		pmg_explosives_building_gold_mine
+		pmg_steam_automation_building_gold_mine
+		pmg_train_automation_building_gold_mine
+		pmg_ownership_capital_building_gold_mine
+	}
+}
+
+building_gold_fields = {
+	building_group = bg_gold_fields
+	texture = "gfx/interface/icons/building_icons/gold_fields.dds"
+	city_type = mine
+	levels_per_mesh = 5
+	buildable = no
+	expandable = no
+	terrain_manipulator = mining
+	
+	unlocking_technologies = {
+		prospecting
+	}
+
+	production_method_groups = {
+		pmg_base_building_gold_fields
+	}
+}

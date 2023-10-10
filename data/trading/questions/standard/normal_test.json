@@ -1,0 +1,13 @@
+{
+    "question":"",
+    "goal":"",
+    "target_rdb":"",
+    "target_gdb":"",
+    "options":[
+        "safi",
+        "chesapeake_bay",
+        "kongo",
+        "carribean_trade"
+    ],
+    "answer":"safi"
+}

@@ -1,0 +1,145 @@
+880={
+	capital=31751
+	country=196
+	arable_land=25
+	incorporation=1
+	market=880
+	infrastructure=18.59612
+	infrastructure_usage=5.6
+	pop_needs={
+		177={
+			pop_need_entry_data={ {
+					weights={
+						9=1.91875
+						12=3.0812
+					}
+				}
+ {
+					weights={
+						10=2
+						13=3
+					}
+				}
+ {
+					weights={
+						7=3.8769
+						8=0.3312
+						11=0
+						36=0.09895
+						37=0.2969
+					}
+				}
+ {
+					weights={
+						9=3
+						10=1.586
+						17=0
+						23=0
+						28=0
+					}
+				}
+ {
+					weights={
+						13=4
+						14=0
+						31=0
+					}
+				}
+ {
+					weights={
+						12=1
+					}
+				}
+ {
+					weights={
+						15=1
+					}
+				}
+ {
+					weights={
+						38=2.96305
+						43=2.0369
+						44=0
+					}
+				}
+ {
+					weights={
+						39=0
+						40=0
+						41=3
+					}
+				}
+ {
+					weights={
+						15=0.4
+						16=0
+						45=0
+					}
+				}
+ {
+					weights={
+						15=0.4
+						16=0
+						46=0
+					}
+				}
+ {
+					weights={
+						11=0
+						36=1.25
+						37=2
+						42=0
+					}
+				}
+ {
+					weights={
+						35=0.25
+						47=0
+						48=1
+						49=0.25
+					}
+				}
+ {
+					weights={
+						15=0.25
+						51=0
+					}
+				}
+ }
+		}
+
+	}
+	building_budget={
+		expenses=764.26658
+		incomes=1288.76411
+		gov_salaries_expenses={ 44 43=578.55154 }
+		mil_salaries_expenses={ 37 36=185.71504 }
+		income_taxes={ 77 1=43.82159 18=50.67504 20=52.2119 36=27.85725 43=86.78272 76=135.40795 }
+		poll_taxes={ 77 1=67.3 18=67.0308 20=67.0308 36=26.92 43=67.3 76=596.42606 }
+	}
+	variables={
+	}
+	region="STATE_SAN_SALVADOR"
+	provinces={
+		provinces={ 31748 3 }
+	}
+	pop_statistics={
+		population_lower_strata=402156
+		population_middle_strata=18444
+		population_upper_strata=7604
+		population_radicals=107051
+		population_political_participants=106671
+		population_salaried_workforce=25872
+		population_subsisting_workforce=80798
+		population_unemployed_workforce=1
+		population_government_workforce=5000
+		population_military_workforce=2000
+		population_laborer_workforce=12501
+		population_by_strata={ 3 0=402156 1=18444 2=7604 }
+		population_by_profession={ 15 1=7604 2=4000 4=12204 5=16000 7=5200 8=50004 10=240 11=323192 12=2000 14=7760 }
+		population_workforce_by_profession={ 15 1=1521 2=1000 4=3051 5=4000 7=1300 8=12501 10=60 11=80798 12=500 14=1940 }
+		population_qualifications={ 15 0=1625 1=2453 2=4251 3=1224 4=3575 5=11405 6=476 7=21035 8=106671 9=3376 10=630 11=106671 12=15025 13=106671 14=106671 }
+		population_employable_qualifications={ 15 1=530 3=770 5=4799 7=15998 8=80799 9=1890 11=80799 12=8726 13=80799 14=80799 }
+	}
+	base_pop_bureaucracy_cost=17.12816
+}

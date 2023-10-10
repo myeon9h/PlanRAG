@@ -1,0 +1,852 @@
+[
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"POR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"sevilla\". where should I alocate my merchant to steer trade to \"sevilla\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"sevilla\".",
+        "answer": "safi",
+        "examples": [
+            "carribean_trade",
+            "english_channel",
+            "kongo",
+            "safi"
+        ],
+        "home": "sevilla",
+        "country": "POR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 1
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"TUR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"constantinople\". where should I alocate my merchant to steer trade to \"constantinople\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"constantinople\".",
+        "answer": "alexandria",
+        "examples": [
+            "aleppo",
+            "alexandria",
+            "crimea",
+            "ragusa"
+        ],
+        "home": "constantinople",
+        "country": "TUR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 2
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"ENG\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"english_channel\". where should I alocate my merchant to steer trade to \"english_channel\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"english_channel\".",
+        "answer": "lubeck",
+        "examples": [
+            "carribean_trade",
+            "lubeck",
+            "north_sea",
+            "saxony"
+        ],
+        "home": "english_channel",
+        "country": "ENG",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 3
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"CAS\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"sevilla\". where should I alocate my merchant to steer trade to \"sevilla\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"sevilla\".",
+        "answer": "safi",
+        "examples": [
+            "kongo",
+            "rheinland",
+            "safi",
+            "saxony"
+        ],
+        "home": "sevilla",
+        "country": "CAS",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 4
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"MOS\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"novgorod\". where should I alocate my merchant to steer trade to \"novgorod\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"novgorod\".",
+        "answer": "kazan",
+        "examples": [
+            "baltic_sea",
+            "crimea",
+            "kazan",
+            "kiev"
+        ],
+        "home": "novgorod",
+        "country": "MOS",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 5
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"SWE\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"baltic_sea\". where should I alocate my merchant to steer trade to \"baltic_sea\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"baltic_sea\".",
+        "answer": "novgorod",
+        "examples": [
+            "cape_of_good_hope",
+            "krakow",
+            "lubeck",
+            "novgorod"
+        ],
+        "home": "baltic_sea",
+        "country": "SWE",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 6
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"HAB\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"wien\". where should I alocate my merchant to steer trade to \"wien\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"wien\".",
+        "answer": "pest",
+        "examples": [
+            "genua",
+            "pest",
+            "ragusa",
+            "venice"
+        ],
+        "home": "wien",
+        "country": "HAB",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 7
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"POL\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"krakow\". where should I alocate my merchant to steer trade to \"krakow\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"krakow\".",
+        "answer": "pest",
+        "examples": [
+            "baltic_sea",
+            "nippon",
+            "pest",
+            "wien"
+        ],
+        "home": "krakow",
+        "country": "POL",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 8
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"VEN\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"venice\". where should I alocate my merchant to steer trade to \"venice\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"venice\".",
+        "answer": "ragusa",
+        "examples": [
+            "genua",
+            "mexico",
+            "pest",
+            "ragusa"
+        ],
+        "home": "venice",
+        "country": "VEN",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 9
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"MNG\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"beijing\". where should I alocate my merchant to steer trade to \"beijing\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"beijing\".",
+        "answer": "hangzhou",
+        "examples": [
+            "girin",
+            "hangzhou",
+            "nippon",
+            "yumen"
+        ],
+        "home": "beijing",
+        "country": "MNG",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 10
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"DAN\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"lubeck\". where should I alocate my merchant to steer trade to \"lubeck\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"lubeck\".",
+        "answer": "saxony",
+        "examples": [
+            "alexandria",
+            "laplata",
+            "saxony",
+            "sevilla"
+        ],
+        "home": "lubeck",
+        "country": "DAN",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 11
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"BRA\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"saxony\". where should I alocate my merchant to steer trade to \"saxony\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"saxony\".",
+        "answer": "wien",
+        "examples": [
+            "kongo",
+            "lubeck",
+            "rheinland",
+            "wien"
+        ],
+        "home": "saxony",
+        "country": "BRA",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 12
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"TIM\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"persia\". where should I alocate my merchant to steer trade to \"persia\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"persia\".",
+        "answer": "samarkand",
+        "examples": [
+            "doab",
+            "ganges_delta",
+            "hormuz",
+            "samarkand"
+        ],
+        "home": "persia",
+        "country": "TIM",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 13
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"GEN\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"genua\". where should I alocate my merchant to steer trade to \"genua\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"genua\".",
+        "answer": "alexandria",
+        "examples": [
+            "alexandria",
+            "crimea",
+            "tunis",
+            "valencia"
+        ],
+        "home": "genua",
+        "country": "GEN",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 14
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"BUR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"champagne\". where should I alocate my merchant to steer trade to \"champagne\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"champagne\".",
+        "answer": "bordeaux",
+        "examples": [
+            "bordeaux",
+            "english_channel",
+            "genua",
+            "rheinland"
+        ],
+        "home": "champagne",
+        "country": "BUR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 15
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"LIT\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"kiev\". where should I alocate my merchant to steer trade to \"kiev\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"kiev\".",
+        "answer": "crimea",
+        "examples": [
+            "constantinople",
+            "crimea",
+            "krakow",
+            "novgorod"
+        ],
+        "home": "kiev",
+        "country": "LIT",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 16
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"MAM\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"alexandria\". where should I alocate my merchant to steer trade to \"alexandria\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"alexandria\".",
+        "answer": "aleppo",
+        "examples": [
+            "aleppo",
+            "basra",
+            "ethiopia",
+            "gulf_of_aden"
+        ],
+        "home": "alexandria",
+        "country": "MAM",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 17
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"VIJ\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"comorin_cape\". where should I alocate my merchant to steer trade to \"comorin_cape\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"comorin_cape\".",
+        "answer": "ganges_delta",
+        "examples": [
+            "doab",
+            "ganges_delta",
+            "gujarat",
+            "gulf_of_aden"
+        ],
+        "home": "comorin_cape",
+        "country": "VIJ",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 18
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"UBV\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"wien\". where should I alocate my merchant to steer trade to \"wien\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"wien\".",
+        "answer": "pest",
+        "examples": [
+            "pest",
+            "tunis",
+            "valencia",
+            "venice"
+        ],
+        "home": "wien",
+        "country": "UBV",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 19
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"AYU\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"gulf_of_siam\". where should I alocate my merchant to steer trade to \"gulf_of_siam\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"gulf_of_siam\".",
+        "answer": "burma",
+        "examples": [
+            "burma",
+            "canton",
+            "ganges_delta",
+            "malacca"
+        ],
+        "home": "gulf_of_siam",
+        "country": "AYU",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 20
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"KOR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"nippon\". where should I alocate my merchant to steer trade to \"nippon\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"nippon\".",
+        "answer": "girin",
+        "examples": [
+            "beijing",
+            "california",
+            "girin",
+            "hangzhou"
+        ],
+        "home": "nippon",
+        "country": "KOR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 21
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"LXA\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"gulf_of_siam\". where should I alocate my merchant to steer trade to \"gulf_of_siam\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"gulf_of_siam\".",
+        "answer": "burma",
+        "examples": [
+            "burma",
+            "canton",
+            "chengdu",
+            "malacca"
+        ],
+        "home": "gulf_of_siam",
+        "country": "LXA",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 22
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"JNP\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"doab\". where should I alocate my merchant to steer trade to \"doab\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"doab\".",
+        "answer": "ganges_delta",
+        "examples": [
+            "deccan",
+            "ganges_delta",
+            "lahore",
+            "lhasa"
+        ],
+        "home": "doab",
+        "country": "JNP",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 23
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"AFG\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"lahore\". where should I alocate my merchant to steer trade to \"lahore\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"lahore\".",
+        "answer": "doab",
+        "examples": [
+            "doab",
+            "gujarat",
+            "hormuz",
+            "persia"
+        ],
+        "home": "lahore",
+        "country": "AFG",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 24
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"ADA\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"gulf_of_aden\". where should I alocate my merchant to steer trade to \"gulf_of_aden\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"gulf_of_aden\".",
+        "answer": "ethiopia",
+        "examples": [
+            "alexandria",
+            "english_channel",
+            "ethiopia",
+            "hormuz"
+        ],
+        "home": "gulf_of_aden",
+        "country": "ADA",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 25
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"ZAN\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"zanzibar\". where should I alocate my merchant to steer trade to \"zanzibar\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"zanzibar\".",
+        "answer": "zambezi",
+        "examples": [
+            "canton",
+            "cape_of_good_hope",
+            "gulf_of_aden",
+            "zambezi"
+        ],
+        "home": "zanzibar",
+        "country": "ZAN",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 26
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"PLB\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"malacca\". where should I alocate my merchant to steer trade to \"malacca\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"malacca\".",
+        "answer": "gulf_of_siam",
+        "examples": [
+            "canton",
+            "gulf_of_siam",
+            "philippines",
+            "the_moluccas"
+        ],
+        "home": "malacca",
+        "country": "PLB",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 27
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"KAZ\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"kazan\". where should I alocate my merchant to steer trade to \"kazan\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"kazan\".",
+        "answer": "astrakhan",
+        "examples": [
+            "astrakhan",
+            "novgorod",
+            "siberia",
+            "white_sea"
+        ],
+        "home": "kazan",
+        "country": "KAZ",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 28
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"HES\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"rheinland\". where should I alocate my merchant to steer trade to \"rheinland\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"rheinland\".",
+        "answer": "wien",
+        "examples": [
+            "champagne",
+            "lubeck",
+            "wien",
+            "wien"
+        ],
+        "home": "rheinland",
+        "country": "HES",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 29
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"WUR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"wien\". where should I alocate my merchant to steer trade to \"wien\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"wien\".",
+        "answer": "krakow",
+        "examples": [
+            "krakow",
+            "pest",
+            "saxony",
+            "venice"
+        ],
+        "home": "wien",
+        "country": "WUR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 30
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"BOH\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"saxony\". where should I alocate my merchant to steer trade to \"saxony\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"saxony\".",
+        "answer": "wien",
+        "examples": [
+            "krakow",
+            "lubeck",
+            "pest",
+            "wien"
+        ],
+        "home": "saxony",
+        "country": "BOH",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 31
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"NEV\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"champagne\". where should I alocate my merchant to steer trade to \"champagne\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"champagne\".",
+        "answer": "rheinland",
+        "examples": [
+            "bordeaux",
+            "english_channel",
+            "genua",
+            "rheinland"
+        ],
+        "home": "champagne",
+        "country": "NEV",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 32
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"NAP\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"genua\". where should I alocate my merchant to steer trade to \"genua\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"genua\".",
+        "answer": "alexandria",
+        "examples": [
+            "alexandria",
+            "ragusa",
+            "valencia",
+            "venice"
+        ],
+        "home": "genua",
+        "country": "NAP",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 33
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"QAR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"persia\". where should I alocate my merchant to steer trade to \"persia\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"persia\".",
+        "answer": "basra",
+        "examples": [
+            "basra",
+            "hormuz",
+            "lahore",
+            "samarkand"
+        ],
+        "home": "persia",
+        "country": "QAR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 34
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"SHL\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"lubeck\". where should I alocate my merchant to steer trade to \"lubeck\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"lubeck\".",
+        "answer": "saxony",
+        "examples": [
+            "baltic_sea",
+            "rheinland",
+            "saxony",
+            "wien"
+        ],
+        "home": "lubeck",
+        "country": "SHL",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 35
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"MAZ\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"krakow\". where should I alocate my merchant to steer trade to \"krakow\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"krakow\".",
+        "answer": "kiev",
+        "examples": [
+            "baltic_sea",
+            "kiev",
+            "pest",
+            "saxony"
+        ],
+        "home": "krakow",
+        "country": "MAZ",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 36
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"RAG\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"ragusa\". where should I alocate my merchant to steer trade to \"ragusa\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"ragusa\".",
+        "answer": "constantinople",
+        "examples": [
+            "alexandria",
+            "constantinople",
+            "crimea",
+            "venice"
+        ],
+        "home": "ragusa",
+        "country": "RAG",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 37
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"LAN\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"genua\". where should I alocate my merchant to steer trade to \"genua\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"genua\".",
+        "answer": "alexandria",
+        "examples": [
+            "alexandria",
+            "ragusa",
+            "tunis",
+            "valencia"
+        ],
+        "home": "genua",
+        "country": "LAN",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 38
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"NOV\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"novgorod\". where should I alocate my merchant to steer trade to \"novgorod\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"novgorod\".",
+        "answer": "kiev",
+        "examples": [
+            "baltic_sea",
+            "kazan",
+            "kiev",
+            "white_sea"
+        ],
+        "home": "novgorod",
+        "country": "NOV",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 39
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"GOT\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"baltic_sea\". where should I alocate my merchant to steer trade to \"baltic_sea\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"baltic_sea\".",
+        "answer": "novgorod",
+        "examples": [
+            "krakow",
+            "lubeck",
+            "novgorod",
+            "pest"
+        ],
+        "home": "baltic_sea",
+        "country": "GOT",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 40
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"HSA\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"lubeck\". where should I alocate my merchant to steer trade to \"lubeck\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"lubeck\".",
+        "answer": "north_sea",
+        "examples": [
+            "baltic_sea",
+            "north_sea",
+            "rheinland",
+            "saxony"
+        ],
+        "home": "lubeck",
+        "country": "HSA",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 41
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"HOL\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"english_channel\". where should I alocate my merchant to steer trade to \"english_channel\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"english_channel\".",
+        "answer": "north_sea",
+        "examples": [
+            "champagne",
+            "lubeck",
+            "north_sea",
+            "rheinland"
+        ],
+        "home": "english_channel",
+        "country": "HOL",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 42
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"LOR\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"champagne\". where should I alocate my merchant to steer trade to \"champagne\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"champagne\".",
+        "answer": "rheinland",
+        "examples": [
+            "lubeck",
+            "rheinland",
+            "saxony",
+            "wien"
+        ],
+        "home": "champagne",
+        "country": "LOR",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 43
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"ULM\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"wien\". where should I alocate my merchant to steer trade to \"wien\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"wien\".",
+        "answer": "pest",
+        "examples": [
+            "krakow",
+            "pest",
+            "saxony",
+            "venice"
+        ],
+        "home": "wien",
+        "country": "ULM",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 44
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"BOS\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"ragusa\". where should I alocate my merchant to steer trade to \"ragusa\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"ragusa\".",
+        "answer": "constantinople",
+        "examples": [
+            "constantinople",
+            "crimea",
+            "pest",
+            "wien"
+        ],
+        "home": "ragusa",
+        "country": "BOS",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 45
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"BYZ\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"constantinople\". where should I alocate my merchant to steer trade to \"constantinople\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"constantinople\".",
+        "answer": "alexandria",
+        "examples": [
+            "aleppo",
+            "alexandria",
+            "crimea",
+            "ragusa"
+        ],
+        "home": "constantinople",
+        "country": "BYZ",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 46
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"OUC\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"nippon\". where should I alocate my merchant to steer trade to \"nippon\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"nippon\".",
+        "answer": "girin",
+        "examples": [
+            "canton",
+            "girin",
+            "hangzhou",
+            "xian"
+        ],
+        "home": "nippon",
+        "country": "OUC",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 47
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"PAP\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"genua\". where should I alocate my merchant to steer trade to \"genua\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"genua\".",
+        "answer": "alexandria",
+        "examples": [
+            "alexandria",
+            "ragusa",
+            "tunis",
+            "valencia"
+        ],
+        "home": "genua",
+        "country": "PAP",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 48
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"SOO\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"nippon\". where should I alocate my merchant to steer trade to \"nippon\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"nippon\".",
+        "answer": "girin",
+        "examples": [
+            "beijing",
+            "girin",
+            "malacca",
+            "xian"
+        ],
+        "home": "nippon",
+        "country": "SOO",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 49
+    },
+    {
+        "question": "\nThe Trading node possesses both a local_value and a current_value.\nThe Country has a name and a home_node.\nThere can be a directional edge [UPSTREAM] between Trading nodes. It connects from an upper node to a lower node. Only the current_value can move from an upstream node to a downstream node.\nA Country can have a non-directional connection with a trading node. Each connection has its unique trading_power.\nIf a specific node is the home_node of a country, that country profits from that node. The profit is proportional to the current_value and the country's share of total trade power in that node.\nIf a specific node is upstream of a country's home node, the country transfers a portion of the current_value to the downstream node(s) based on the country's share of the total trade power in that node.\nA Merchant is an entity affiliated with a country and can be assigned to a specific trading node. A Merchant assigned to a trading node grants an additional trading power of 2 to the country in that node.\nWhen a specific trading node has more than one downstream node, and a country that does not have that node as its home node places a Merchant in the Trading node, the country can decide which downstream node the current_value will be transferred to. In other words, the country can transfer a portion of the current_value equivalent to its share of trade power to a specified downstream node. If no Merchant is placed, and there's more than one downstream node, the country loses the ability to decide the direction. The current_value will then be distributed among the downstream nodes in proportion to the other outflows. If there's only one downstream node, there's no impact.\n    \n================\n<Question>\n\nAssume that you are the ruler of the country named \"THU\". You and your competitions are on the system of trade in 1444.\nYou have one merchant to work on trade system. Our home node is \"saxony\". where should I alocate my merchant to steer trade to \"saxony\"?\n",
+        "year": 1445,
+        "goal": "Note that my goal is maximizing my profit on \"saxony\".",
+        "answer": "krakow",
+        "examples": [
+            "english_channel",
+            "krakow",
+            "pest",
+            "venice"
+        ],
+        "home": "saxony",
+        "country": "THU",
+        "target_rdb": "eu4_1445",
+        "target_gdb": "eu4",
+        "question_num": 50
+    }
+]

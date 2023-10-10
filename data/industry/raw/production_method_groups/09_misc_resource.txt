@@ -1,0 +1,158 @@
+﻿pmg_base_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_forestry
+		pm_saw_mills
+		pm_electric_saw_mills
+	}
+}
+
+pmg_hardwood = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_refining.dds"
+	production_methods = {
+		pm_no_hardwood
+		pm_hardwood
+	}
+}
+
+pmg_equipment = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_no_equipment
+		pm_steam_donkey_building_logging_camp
+		pm_chainsaws
+	}
+}
+
+pmg_transportation_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_rail_transport_building_logging_camp
+		pm_log_carts
+	}
+}
+
+pmg_ownership_capital_building_logging_camp = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_logging_camp
+		pm_privately_owned_building_logging_camp
+		pm_publicly_traded_building_logging_camp
+		pm_government_run_building_logging_camp
+		pm_worker_cooperative_building_logging_camp
+	}
+}
+
+pmg_base_building_rubber_plantation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		default_building_rubber_plantation
+		automatic_irrigation_building_rubber_plantation
+	}
+}
+
+pmg_train_automation_building_rubber_plantation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_steam_rail_transport
+	}
+}
+
+pmg_ownership_land_building_rubber_plantation = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned
+		pm_publicly_traded
+		pm_government_run
+		pm_worker_cooperative_plantation
+	}
+}
+
+pmg_base_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_fishing
+		pm_fishing_trawlers
+		pm_steam_trawlers
+	}
+}
+
+pmg_refrigeration_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_unrefrigerated
+		pm_refrigerated_storage_building_fishing_wharf
+		pm_refrigerated_rail_cars_building_fishing_wharf
+		pm_flash_freezing_building_fishing_wharf
+	}
+}
+
+pmg_ownership_capital_building_fishing_wharf = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_fishing_wharf
+		pm_privately_owned_building_fishing_wharf
+		pm_publicly_traded_building_fishing_wharf
+		pm_government_run_building_fishing_wharf
+		pm_worker_cooperative_building_fishing_wharf
+	}
+}
+
+pmg_base_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_simple_whaling
+		pm_wooden_whaling_ships
+		pm_steam_whaling_ships
+	}
+}
+
+pmg_refrigeration_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_unrefrigerated
+		pm_refrigerated_storage_building_whaling_station
+		pm_refrigerated_rail_cars_building_whaling_station
+		pm_flash_freezing_building_whaling_station
+	}
+}
+
+pmg_ownership_capital_building_whaling_station = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_merchant_guilds_building_whaling_station
+		pm_privately_owned_building_whaling_station
+		pm_publicly_traded_building_whaling_station
+		pm_government_run_building_whaling_station
+		pm_worker_cooperative_building_whaling_station
+	}
+}
+
+pmg_base_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	production_methods = {
+		pm_steam_derricks
+		pm_combustion_derricks
+	}
+}
+
+pmg_transportation_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_automation.dds"
+	production_methods = {
+		pm_road_carts
+		pm_rail_transport_building_oil_rig
+		pm_tanker_cars
+	}
+}
+
+pmg_ownership_capital_building_oil_rig = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_ownership.dds"
+	production_methods = {
+		pm_privately_owned_industry
+		pm_publicly_traded_building_oil_rig
+		pm_government_run_industry
+		pm_worker_cooperative_industry
+	}
+}

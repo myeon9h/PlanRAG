@@ -1,0 +1,20 @@
+﻿############ GOVERNMENT BUILDINGS
+
+building_construction_sector = {
+	building_group = bg_construction
+	texture = "gfx/interface/icons/building_icons/construction_camp.dds"
+	city_type = city
+	levels_per_mesh = 5
+	
+	has_max_level = yes
+	
+	required_construction = construction_cost_very_low
+	unlocking_technologies = {
+		urbanization
+	}
+	production_method_groups = {
+		pmg_base_building_construction_sector
+	}
+	
+	ai_value = 2000 # Construction sector should generally be preferred over other equal-priority spending items
+}

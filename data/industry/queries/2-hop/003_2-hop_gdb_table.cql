@@ -1,0 +1,15 @@
+CREATE (a:Goods{name:"Explosives"});
+CREATE (a:Goods{name:"Fine Arts"});
+CREATE (a:Goods{name:"Sulfur"});
+CREATE (a:Goods{name:"Fabric"});
+CREATE (a:Goods{name:"Paper"});
+CREATE (a:Goods{name:"Ammunition"});
+CREATE (a:Goods{name:"Tools"});
+CREATE (a:Goods{name:"Clothes"});
+CREATE (a:Goods{name:"Liquor"});
+MATCH (a: Goods{name:"Paper"}), (b: Goods{name:"Fine Arts"}) CREATE (a)-[r:makes{name:"Arts Academy"}]->(b);
+MATCH (a: Goods{name:"Sulfur"}), (b: Goods{name:"Explosives"}) CREATE (a)-[r:makes{name:"Chemical Plants"}]->(b);
+MATCH (a: Goods{name:"Fabric"}), (b: Goods{name:"Clothes"}) CREATE (a)-[r:makes{name:"Textile Mills"}]->(b);
+MATCH (a: Goods{name:"Explosives"}), (b: Goods{name:"Ammunition"}) CREATE (a)-[r:makes{name:"Munition Plants"}]->(b);
+MATCH (a: Goods{name:"Tools"}), (b: Goods{name:"Liquor"}) CREATE (a)-[r:makes{name:"Rye Farms"}]->(b);
+;

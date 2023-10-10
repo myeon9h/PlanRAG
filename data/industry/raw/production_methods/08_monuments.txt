@@ -1,0 +1,257 @@
+﻿# To ensure the game rule 'monument_effects' works properly, the game rule needs to be amended with flags disabling any new monuments' Base method
+# PM Groups should have the 'is_hidden_when_unavailable' flag to ensure only one alternative is visible at any time (unless the player actually has an option they can switch to)
+
+pm_default_building_eiffel_tower = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 100
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_machinists_add = 100
+		}
+	}
+}
+
+pm_default_building_angkor_wat = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.25
+			country_prestige_add = 25
+		}
+	}
+
+	building_modifiers = {
+#		workforce_scaled = {
+#		}
+
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+}
+
+pm_default_building_big_ben = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 50
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_throughput_mult = 0.01
+		}
+	}
+	
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_machinists_add = 100
+		}
+	}
+}
+
+pm_default_building_forbidden_city = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_legitimacy_headofstate_add = 20
+			country_authority_add = 50
+			country_prestige_add = 25
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 800
+			building_employment_clergymen_add = 200
+		}
+	}
+}
+
+pm_default_building_hagia_sophia = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pop_attraction_mult = 0.1
+			country_prestige_add = 25
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_clergymen_add = 200
+		}
+	}
+}
+
+pm_default_building_mosque_of_djenne = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.1
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_education_access_add = 0.2
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+}
+
+pm_default_building_saint_basils_cathedral = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.1
+			country_prestige_add = 25
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_clergymen_add = 200
+		}
+	}
+}
+
+pm_default_building_statue_of_liberty = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 75
+			state_migration_pull_mult = 0.25
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 100
+		}
+	}
+}
+
+pm_default_building_taj_mahal = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_prestige_add = 25
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 100
+		}
+	}
+}
+
+pm_default_building_vatican_city = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	unlocking_religions = { catholic }
+
+	country_modifiers = {
+		workforce_scaled = {
+			interest_group_ig_devout_pol_str_mult = 0.25
+			country_influence_add = 100
+			country_authority_add = 100
+		}
+	}
+
+	building_modifiers = {
+		#workforce_scaled = {
+		#}
+
+		level_scaled = {
+			building_employment_clergymen_add = 500
+		}
+	}
+}
+
+pm_monument_prestige_only_vatican_city = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+	
+	disallowing_religions = { catholic }
+
+	country_modifiers = {
+		throughput_scaled = {
+			country_prestige_add = 25
+		}
+	}
+}
+
+pm_default_building_white_house = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			building_government_administration_throughput_mult = 0.2
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add = 500
+		}
+	}
+}
+
+pm_monument_prestige_only = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+
+	country_modifiers = {
+		throughput_scaled = {
+			country_prestige_add = 25
+		}
+	}
+}
+
+pm_monument_no_effects = {
+	texture = "gfx/interface/icons/production_method_icons/wonders.dds"
+}
