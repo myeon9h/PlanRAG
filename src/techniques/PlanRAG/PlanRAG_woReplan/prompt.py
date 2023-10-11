@@ -11,7 +11,7 @@ Plan: [Step 1: requirement 1, Step 2: requirement 2, ..., Step N: requirement N]
 Current step: the current Step in the Plan.
 Thought: you should always think about the Current step.
 Action: a suitable database name, MUST be one of [{tool_names}].
-Action input: a syntactically correct query statement only, MUST be written by one of [SQL, Cypher query].
+Action input: a syntactically correct query statement only, MUST be written by Cypher query language.
 Observation: the data from the database.
 ... (a process of Plan, Current step, Thought, Action, Action input, and Observation can repeat N times)
 Thought: I now know the answer.

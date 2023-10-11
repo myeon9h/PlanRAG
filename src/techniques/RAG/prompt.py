@@ -8,7 +8,7 @@ FORMAT_INSTRUCTIONS = """Use the following Strict format:
 Question: the input question you must answer.
 Thought: you should always think about what to do.
 Action: a suitable database name, MUST be one of [{tool_names}].
-Action input: a syntactically correct query statement only, MUST be written by one of [SQL, Cypher query].
+Action input: a syntactically correct query statement only, MUST be written by Cypher query language.
 Observation: the result of the action.
 ... (a process of Thought, Action, Action input, and Observation can repeat together N times)
 Thought: I now know the answer.

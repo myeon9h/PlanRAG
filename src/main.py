@@ -46,15 +46,16 @@ if __name__ == "__main__":
     question_num = args.question_num
     if dataset == "industry":
         from data_loaders.industry import industry_dataloader, GDB_INFO
-        question, db_name, country = industry_dataloader(question_num, question_path = "./data/industry/questions/simulated_questions.json")
+        question, _, country = industry_dataloader(question_num, question_path = "./data/industry/questions/simulated_questions.json")
         db_file_path = f"./data/industry/db_query(parsed)/LPG_format/{country}.cql"
     elif dataset == "trading":
         from data_loaders.trading  import trading_dataloader, GDB_INFO
-        question, _, db_name = trading_dataloader(question_num, "./data/trading/questions/standard/simulated_question.json", option=False)
+        question, _, _ = trading_dataloader(question_num, "./data/trading/questions/standard/simulated_question.json", option=False)
         db_file_path = f"./data/trading/db_query(parsed)/LPG_format/q{question_num}.cql"
     else:
         assert(0)
 
+    db_name = 'neo4j'
     db_config = config['NEO4J']
     db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
     load_db(db_engine, db_file_path)
