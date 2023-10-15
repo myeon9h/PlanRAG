@@ -3,7 +3,7 @@ import goods
 
 if __name__ == "__main__":
 
-    game_savefile = "./data/building/raw/france_research_noncloud.v3"
+    game_savefile = "./data/building/raw/test.v3"
     goods_file = "./data/building/raw/goods/00_goods.txt"
 
     country_code = "GBR"

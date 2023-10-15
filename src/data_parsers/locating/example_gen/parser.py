@@ -44,7 +44,7 @@ provinces={
 """
 
 
-def province_parser(file_name="./data/locating/raw/(1445case)Castile_research_1445_02.eu4"):
+def province_parser(file_name="./data/locating/raw/test.eu4"):
 
     file = open(file_name, 'r')
     data_list = file.readlines()
@@ -103,7 +103,7 @@ def province_parser(file_name="./data/locating/raw/(1445case)Castile_research_14
     file.close()
     return province_dict
 
-def country_parser(file_name="./data/locating/raw/(1445case)Castile_research_1445_02.eu4"):
+def country_parser(file_name="./data/locating/raw/test.eu4"):
 
     file = open(file_name, 'r')
     data_list = file.readlines()
@@ -167,7 +167,7 @@ def country_parser(file_name="./data/locating/raw/(1445case)Castile_research_144
     file.close()
     return country_dict
 
-def merchant_parser(file_name="./data/locating/raw/(1445case)Castile_research_1445_02.eu4"):
+def merchant_parser(file_name="./data/locating/raw/test.eu4"):
     merchant_path_list = []
 
     file = open(file_name, 'r')

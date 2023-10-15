@@ -5,7 +5,7 @@ from tqdm import tqdm
 import copy
 import pandas as pd
 
-def initialize(country_code, file_path = "./data/building/raw/france_research_noncloud.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
+def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
     cnt = country.country_extracting(file_path, country_code)
     goods_list = initialize_goods(cnt)
@@ -14,8 +14,6 @@ def initialize(country_code, file_path = "./data/building/raw/france_research_no
     return (cnt, goods_list, building_dict)
 
 
-# goods 와 그 demand, supply 등을 initialize.
-# 여기서는 pop 에 의한 demand 만 고려함. buildings 에 의한 demand 는 나중에 고려됨
 def initialize_goods(cnt: country.Country,goods_file = "./data/building/raw/goods/00_goods.txt"):
     goods_list = goods.goods_finder(goods_file)
     for goods_code in range(len(goods_list)):
@@ -26,7 +24,7 @@ def initialize_goods(cnt: country.Country,goods_file = "./data/building/raw/good
 
     return goods_list
 
-def initialize_buildings(cnt:country.Country, file_path = "./data/building/raw/france_research_noncloud.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
+def initialize_buildings(cnt:country.Country, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
     
 
     building_dict = building.extract_building()

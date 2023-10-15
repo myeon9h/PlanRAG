@@ -139,7 +139,7 @@ def node_value_injector(nodes_dict, save_file):
     file.close()
     return nodes_dict
 
-def merchant_parser(file_name="./data/locating/raw/(1445case)Castile_research_1445_02.eu4"):
+def merchant_parser(file_name="./data/locating/raw/test.eu4"):
     merchant_path_list = []
 
     file = open(file_name, 'r')

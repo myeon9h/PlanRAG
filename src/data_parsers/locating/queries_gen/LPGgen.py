@@ -1,14 +1,7 @@
-from tradenode import Node
 from node_parser_graph import node_parser
 from node_parser_rdb import node_value_injector
-from node_visualizer import node_visualizer
-from query_generator import cql_gen, sql_gen
-
 from src.data_parsers.locating.example_gen.parser import *
 from anonymize import *
-import networkx as nx
-
-import json, os
 
 
 class LPGwrapper:
@@ -19,7 +12,7 @@ class LPGwrapper:
         self.node_country = []
 
 
-    def generate(self, game_savefile = "./data/locating/raw/(1445case)Castile_research_1445_02.eu4"):
+    def generate(self, game_savefile = "./data/locating/raw/test.eu4"):
 
         structure_file_name = "./data/locating/raw/tradenodes.txt"
         
@@ -29,10 +22,9 @@ class LPGwrapper:
 
         merchant_list = merchant_parser()
         province_dict = province_parser()
-        country_dict = country_parser() #country_dict 는 country 와 그 trade_port 를 가지고 있음.
+        country_dict = country_parser() 
 
 
-        # trading nodes 에 넣는 코드
         for node in nodes_dict.values():
             try:
                 node_localvalue = node.node_values["local_value"]
@@ -49,7 +41,6 @@ class LPGwrapper:
 
             self.trading_nodes_dict[node_name] = {"local_value": float(node_localvalue), "node_inland": node_inland, "total_power": float(node_total_power), "outgoing": 0, "ingoing": 0}
         
-        # countries 에 넣는 코드
         for country in country_dict.keys():
             country_val = country_dict[country]
             if country_val["development"] > 0:    
@@ -57,12 +48,10 @@ class LPGwrapper:
             pass
 
 
-        #trading_nodes 사이 관계
         for node in nodes_dict.values():
             for downstream in node.out_going:
                 self.trading_node_flow.append({"upstream": node.name, "flow": 0, "downstream": downstream})
         
-        # merchant_dict 에는 노드별로 어떤 국가가 merchant를 allocate 했는지 상태가 들어있음
         merchant_dict = dict()
         for m in merchant_list:
             province_idx = int(m["node"])
@@ -75,10 +64,7 @@ class LPGwrapper:
             else:
                 continue
 
-
-        # trading node 와 country 사이 관계
         for node in nodes_dict.values():
-            # print(node.node_countries)
             for country in node.node_countries.keys():
                 try:
                     home = province_dict[country_dict[country]["trade_port"]]

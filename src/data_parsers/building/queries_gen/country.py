@@ -11,8 +11,8 @@ class Country:
         self.name = definition
         self.num = number
         self.market = dict()
-        self.states = [] # 주 들 정보가 연산에 필수적임.
-        self.consume_by_pops = dict() # 각 재화가 pops 에 의해 요구되는 양을 양의 실수로 표현. key 는 각 재화의 정수 코드.
+        self.states = [] 
+        self.consume_by_pops = dict() 
 
     def __repr__(self):
         return "country: {}, county number: {}".format(self.name, self.num)
@@ -44,10 +44,6 @@ def country_extracting(file_path ,code):
     return cnt
 
 
-    # file = open(file_path, "r")
-    # data_list = file.readlines()
-
-    # for line in tqdm(data_list):
 
 # you can find country market price information by three codes. e.g. "FRA"(France), "GER"(Germany)
 def country_finder_as_code(file_path, code):
@@ -106,7 +102,6 @@ def country_finder_as_code(file_path, code):
     file.close()
     return country
 
-# state_num_list 에 따라 해당 state 에서 총 재화가 얼마나 요구되는지 평가 
 def states_consume(file_path, state_num_list):
     
     result_dict = dict()
@@ -115,7 +110,6 @@ def states_consume(file_path, state_num_list):
     demand_section_file_path = "./data/building/raw/00_pop_needs.txt"
     goods_list = goods.goods_finder(goods_file)
 
-    # 부에 따른 demand 를 정리. dict 들의 list 이며 각 dict 에는 popneed_simple_clothing 등이 key 로, 필요한 값이 value 로 제공된다. wealth =0 은 없으므로 1부터 시작.
     wealth_demand_list = [dict()]
     wealth_file = open(wealth_file_path, "r", encoding="UTF8")
     wealth_data_list = wealth_file.readlines()
@@ -140,9 +134,7 @@ def states_consume(file_path, state_num_list):
             wealth_dict = dict()
     
     wealth_file.close()
-    # 이제 wealth_demand_list 가 존재
 
-    # popneed_simple_clothing 같은 것의 key-value 관계를 만들어둔다. key 는 sentence 이름.
     demand_section_dict = dict()
     demand_file = open(demand_section_file_path, "r", encoding="UTF8")
     demand_file_list = demand_file.readlines()
@@ -159,12 +151,6 @@ def states_consume(file_path, state_num_list):
             register = True
     
     demand_file.close()
-    # 이제 demand_section_dict, wealth_demand_list 가 존재
-
-    # state_pop_dict = dict()
-
-    # for s in state_num_list:
-    #     state_pop_dict[s] = []
 
     pop_list = []
 
@@ -173,12 +159,10 @@ def states_consume(file_path, state_num_list):
 
     class State(Enum):
         NO_ACTION = 0
-        # pop 찾기를 위한 작업들
         POP_SELECTING = 1
         POP_MINING = 2
         POP_END = 3
         
-        # state 에 이들을 가져다 붙이기 위한 노력
         STATE_START = 3
         STATE_SELECTING = 5
         STATE_MINING = 6
@@ -187,19 +171,12 @@ def states_consume(file_path, state_num_list):
 
         END_ACTION = 11
 
-    # state 찾을 때는 이걸로
-# """
-# states={
-#     database={
-# """
-
 
     state = State.NO_ACTION
     culture_dict = dict()
     # country = None
     pop = Pop()
     for line in (data_list):
-    # 우선 pop 들을 전부 파악해야 함.
         if state == State.NO_ACTION and line == "pops={\n":
             state = State.POP_SELECTING
 
@@ -249,7 +226,6 @@ def states_consume(file_path, state_num_list):
             else:
                 continue
         
-        # 이제 Pop들은 전부 등록됨, POP_END 는 STATE_START 와 동일.
         elif state == State.STATE_START and line == "states={\n":
             state = State.STATE_SELECTING
             
@@ -313,7 +289,6 @@ def states_consume(file_path, state_num_list):
         continue
 
     
-    # 각 재화별로 얼마나 소모되는지 양수로 작성 
     consume_dict = dict()
     for i in range(len(goods_list)):
         consume_dict[i] = 0
@@ -327,15 +302,12 @@ def states_consume(file_path, state_num_list):
         consume_dict = dict(Counter(consume_dict)+Counter(pops_consume(p, culture_dict, demand_section_dict, wealth_demand_list, goods_list)))
 
 
-    # print(consume_dict)
     return consume_dict
     
     
     
 
-# 하나의 pop 이 얼마나 재화를 요구하는지 평가
 def pops_consume(pop: Pop, culture_dict, demand_section_dict, wealth_demand_list, goods_list):
-    # print(wealth_demand_list[pop.wealth])
 
     demand_dict = wealth_demand_list[pop.wealth]
     culture_weight_dict = culture_dict[pop.culture]
@@ -347,19 +319,13 @@ def pops_consume(pop: Pop, culture_dict, demand_section_dict, wealth_demand_list
 
     for demand in demand_dict.keys():
         demand_idx = demand_section_dict[demand]
-        # 각각의 demand 에 대한 계산
 
         weight_dict = culture_weight_dict[demand_idx]
 
         for key in weight_dict.keys():
-            # print(pop.type)
 
             return_dict[key] = ((pop_workforce+0.5*pop_dependents)/10000) * (PEASANTS if pop.type == "peasants" else 1)*(1/goods_list[key].base_price)*(weight_dict[key]/sum(weight_dict.values()))*demand_dict[demand]
 
-    # print(return_dict)
-
-    # print(demand_section_dict)
-    # print(culture_dict[pop.culture])
 
 
     return return_dict

@@ -14,15 +14,12 @@ class Building:
         self.current_input = dict()
         self.current_output = dict()
 
-        # goods key 들에 대한 dictionary
         self.max_demand = dict()
-        # goods key 들에 대한 dictionary
         self.max_supply = dict()
 
         self.level = -1
         self.throughput = -1
 
-        # 어느 state 에 위치하는가
         self.state = -1
 
     def current_output_calculation(self):
@@ -68,8 +65,7 @@ class Building:
         return f"[{self.id}, {self.name}, {self.max_demand}, {self.max_supply}, {self.level}, {self.throughput}, {self.state}]"
 
 
-# Building class 로 구성된 list 를 반환
-def extract_building(file_path= "./data/building/raw/france_research_noncloud.v3"):
+def extract_building(file_path= "./data/building/raw/test.v3"):
 
     building_dict = dict()
     file = open(file_path, "r",encoding="UTF8")
@@ -211,5 +207,5 @@ def extract_building(file_path= "./data/building/raw/france_research_noncloud.v3
 
 if __name__ == "__main__":
 
-    game_savefile = "./data/building/raw/france_research_noncloud.v3"
+    game_savefile = "./data/building/raw/test.v3"
     extract_building(game_savefile)

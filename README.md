@@ -5,7 +5,7 @@ Our contents are provided under the MIT license.
 ***
 ## Setup 
 ### Database (Neo4j)
-Our baselines (RAG & PlanRAG) use Neo4j as a tool for accessing Labeled Property Graph (LPG) data in Decision QA datasets.  
+Our baselines (Single-turn RAG, Iterative RAG and PlanRAG) use Neo4j as a tool for accessing Labeled Property Graph (LPG) data in Decision QA datasets.  
 Therefore, you should prepare it with the following commands and instructions:
 ```bash
 # Ubuntu
@@ -48,9 +48,13 @@ pip install -r requirements.txt
   # building scenario
   python src/main.py --technique PlanRAG --dataset building --question_num 1
   ```
-+ RAG
++ Iterative RAG
   ```bash
   python src/main.py --technique RAG --dataset locating --question_num 1
+  ```
++ Single-turn RAG
+  ```bash
+  python src/main.py --technique SingleRAG --dataset locating --question_num 1
   ```
 
 ## Simulators
@@ -58,7 +62,28 @@ pip install -r requirements.txt
 
 <!-- 시뮬레이터 어떻게 사용하여야 하는지 -->
 
-### locating
+### The locating scenario
+
+To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide a `test.eu4` file in `/data/locating/raw/` for data generation.
+
+You can create the `simulated_question.json` in `/data/locating/questions/standard/` by sequentially executing the following code:
+
+```
+export PYTHONPATH=.
+python ./src/data_parsers/locating/queries_gen/simulator.py
+python ./src/data_parsers/locating/example_gen/main.py
+```
 
 
-### building
+### The building scenario
+
+
+To generate questions for the building scenario, you will need a Victoria 3 game savefile. We provide a `test.v3` file in `/data/building/raw/` for data generation.
+
+You can create the `simulated_questions.json` in `/data/building/questions/standard/` by sequentially executing the following code:
+
+```
+export PYTHONPATH=.
+python ./src/data_parsers/building/queries_gen/simulator.py
+python ./src/data_parsers/building/example_gen/main.py
+```
