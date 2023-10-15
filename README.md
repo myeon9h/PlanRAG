@@ -43,14 +43,14 @@ pip install -r requirements.txt
 ## Execution examples
 + PlanRAG (ours)
   ```bash
-  # trading scenario
-  python src/main.py --technique PlanRAG --dataset trading --question_num 1
-  # industry scenario
-  python src/main.py --technique PlanRAG --dataset industry --question_num 1
+  # locating scenario
+  python src/main.py --technique PlanRAG --dataset locating --question_num 1
+  # building scenario
+  python src/main.py --technique PlanRAG --dataset building --question_num 1
   ```
 + RAG
   ```bash
-  python src/main.py --technique RAG --dataset trading --question_num 1
+  python src/main.py --technique RAG --dataset locating --question_num 1
   ```
 
 ## Simulators
@@ -58,7 +58,7 @@ pip install -r requirements.txt
 
 <!-- 시뮬레이터 어떻게 사용하여야 하는지 -->
 
-### trading
+### locating
 
 
-### industry
+### building
