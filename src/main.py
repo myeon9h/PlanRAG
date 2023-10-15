@@ -81,15 +81,40 @@ if __name__ == "__main__":
 
     # Prepare TaskManager agent
     technique = args.technique
-    if technique == "RAG":
-        from techniques.RAG.base import TaskManagerChain as TaskManager
-    elif technique == "PlanRAG":
-        from techniques.PlanRAG.PlanRAG.base import TaskManagerChain as TaskManager
-    elif technique == "PlanRAG_woReplan":
-        from techniques.PlanRAG.PlanRAG_woReplan.base import TaskManagerChain as TaskManager
-    else:
-        assert(0)
+    if technique == "SingleRAG":
+        
+        from techniques.SingleRAG.base import prompts as prompts
+        from langchain.chains.llm import LLMChain        
+        llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+        retrieving_prompt, answering_prompt = prompts(llm=llm, tools = databases)
+        retrieving_chain = LLMChain(llm=llm, prompt=retrieving_prompt, verbose= True)
+        answering_chain = LLMChain(llm=llm, prompt=answering_prompt, verbose = True)
+        query_raw = retrieving_chain.run(question)
+        print(query_raw)
+        query = query_raw.split("Action input:")[1]
+        if "Observation" in query:
+            query = query.split("Observation")[0]
+        retrieved_data = db_engine.query(query)
 
-    llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
-    taskManager = TaskManager.from_llm_and_tools(llm=llm, tools=databases, verbose = True)
-    taskManager.run(question)
+        chain_input = f"""
+{question}
+Retrieving query:{query}
+Retrieved data: {retrieved_data}        
+"""
+
+        final_decision = answering_chain.run(chain_input)
+        print(final_decision)
+        pass
+    else:
+        if technique == "RAG":
+            from techniques.RAG.base import TaskManagerChain as TaskManager
+        elif technique == "PlanRAG":
+            from techniques.PlanRAG.PlanRAG.base import TaskManagerChain as TaskManager
+        elif technique == "PlanRAG_woReplan":
+            from techniques.PlanRAG.PlanRAG_woReplan.base import TaskManagerChain as TaskManager
+        else:
+            assert(0)
+
+        llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+        taskManager = TaskManager.from_llm_and_tools(llm=llm, tools=databases, verbose = True)
+        taskManager.run(question)

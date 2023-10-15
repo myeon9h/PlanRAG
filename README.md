@@ -1,5 +1,7 @@
 # PlanRAG: A Plan-then-Retrieval Augmented Generation Technique for Decision-makings
 
+Our contents are provided under the MIT license.
+
 ***
 ## Setup 
 ### Database (Neo4j)
@@ -50,3 +52,13 @@ pip install -r requirements.txt
   ```bash
   python src/main.py --technique RAG --dataset trading --question_num 1
   ```
+
+## Simulators
+
+
+<!-- 시뮬레이터 어떻게 사용하여야 하는지 -->
+
+### trading
+
+
+### industry

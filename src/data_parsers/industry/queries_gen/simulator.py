@@ -39,8 +39,6 @@ def initialize_buildings(cnt:country.Country, file_path = "./data/industry/raw/f
     
     return filtered_building_dict
 
-
-# building id 에 해당하는 building 의 level 에 mod_level 만큼을 더한다. 을 조정한다. 해당하는 building 은 max_demand 와 max_supply 도 조정된다.
 def modification(building_dict, id, mod_level):
     building_dict[id].level_change(building_dict[id].level+mod_level)
     return building_dict
@@ -57,12 +55,8 @@ def extract(goods_list, building_dict):
     return query
 
 
-# 내국 시장만 simulate 한다.
-# modifications 에는 modification 의 id, level 이 Tuple 으로 주어진다.
 def simulate(goods_list, building_dict, cycle = 10):
 
-    # demand by bulidings
-    # supply by buildings
     b_cnt = 0
     for b in building_dict.values():
         for goods_code in b.max_demand.keys():
@@ -73,14 +67,9 @@ def simulate(goods_list, building_dict, cycle = 10):
 
 
 
-    # for key in range(len(goods_list)):
-    #     print("{:10}|{:20}|{:15}|{:10}|{:10}".format(key,goods_list[key].name, goods_list[key].base_price, round(goods_list[key].supply, 2), round(goods_list[key].building_demand), 2))
-    # print("------------------------------------------------")
     for i in range(cycle):
 
-        # 실제 input 구하는 과정 (buliding 으로 얼마나 나누어지는가?: max demand 만큼 나눠진다.)
         for bidx in building_dict.keys():
-            # print(bidx, building_dict[bidx])
             for goods_code in building_dict[bidx].max_demand.keys():
 
                 building_dict[bidx].current_input[goods_code] = building_dict[bidx].max_demand[goods_code]*goods_list[goods_code].supply/(goods_list[goods_code].pop_demand + goods_list[goods_code].building_demand)
@@ -88,18 +77,10 @@ def simulate(goods_list, building_dict, cycle = 10):
 
         for goods in goods_list:
             goods.supply = 0
-            # goods.building_demand = 0
-
-        # building 은 그것으로 얼마나 생산하는가?
         for b in building_dict.values():
             b.current_output_calculation()
-            
-            # buildings 들의 suppluy 로 goods 의 supply 는 어떻게 바뀌는가?
             for goods_code in b.current_output.keys():
                 goods_list[goods_code].supply = goods_list[goods_code].supply + b.current_output[goods_code]
-            
-        # for key in range(len(goods_list)):
-        #     print("{:10}|{:20}|{:15}|{:10}|{:10}".format(key,goods_list[key].name, goods_list[key].base_price, round(goods_list[key].supply, 2), round(goods_list[key].building_demand), 2))
         
 
 
@@ -110,7 +91,6 @@ def simulate(goods_list, building_dict, cycle = 10):
 
 
 if __name__ == "__main__":
-    # goods_list = simulate("PRU")
 
     query_dir = "./data/industry/db_query(parsed)/LPG_format/"
     raw_dir = "./data/industry/raw/simulated_question_raw.csv"
@@ -139,7 +119,6 @@ if __name__ == "__main__":
 
 
         for goods_id in tqdm(range(len(goods_list))):
-            # goods_id 찾기
             
             assert(goods_id != -1)
 
@@ -167,15 +146,11 @@ if __name__ == "__main__":
                     min_building_id = b.id
                     min_val = goods_list[goods_id].current_price
 
-            # min_string = f"{building_dict[min_building_id]}" if min_building_id != -1 else None
-            # print(f"for {goods_list[goods_id].name} in {country_code}, max_val = {round(max_val,3)} by {max_building_id}, min_val = {round(min_val, 3)} by {min_building_id} {min_string}")
-
-            if min_building_id != -1:
+            if (min_building_id != -1) and ( goods_id in building_dict[min_building_id].max_supply.keys()):
                 questions.append([country_code] + [goods_list[goods_id].name] + [min_building_id])
             
     df = pd.DataFrame(data=questions, index=range(len(questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
     df.to_csv(raw_dir)
 
-
-
+    print(len(questions))
             
