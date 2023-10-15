@@ -31,7 +31,7 @@ def fake_tool(query):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--technique", help="RAG or PlanRAG or PlanRAG_woReplan", type=str, default="PlanRAG")
-    parser.add_argument("--dataset", help="trading or industry", type=str, default="trading")
+    parser.add_argument("--dataset", help="locating or building", type=str, default="locating")
     parser.add_argument("--question_num", type=int, default=1)
     args = parser.parse_args()
     print_args(args)
@@ -44,14 +44,14 @@ if __name__ == "__main__":
     # Prepare dataset & Setup database
     dataset = args.dataset
     question_num = args.question_num
-    if dataset == "industry":
-        from data_loaders.industry import industry_dataloader, GDB_INFO
-        question, _, country = industry_dataloader(question_num, question_path = "./data/industry/questions/simulated_questions.json")
-        db_file_path = f"./data/industry/db_query(parsed)/LPG_format/{country}.cql"
-    elif dataset == "trading":
-        from data_loaders.trading  import trading_dataloader, GDB_INFO
-        question, _, _ = trading_dataloader(question_num, "./data/trading/questions/standard/simulated_question.json", option=False)
-        db_file_path = f"./data/trading/db_query(parsed)/LPG_format/q{question_num}.cql"
+    if dataset == "building":
+        from data_loaders.building import building_dataloader, GDB_INFO
+        question, _, country = building_dataloader(question_num, question_path = "./data/building/questions/simulated_questions.json")
+        db_file_path = f"./data/building/db_query(parsed)/LPG_format/{country}.cql"
+    elif dataset == "locating":
+        from data_loaders.locating  import locating_dataloader, GDB_INFO
+        question, _, _ = locating_dataloader(question_num, "./data/locating/questions/standard/simulated_question.json", option=False)
+        db_file_path = f"./data/locating/db_query(parsed)/LPG_format/q{question_num}.cql"
     else:
         assert(0)
 
