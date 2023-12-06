@@ -1,7 +1,7 @@
 # flake8: noqa
 PREFIX = """You are a decision-making agent answering a given question.
 You should collect the data to answer the question.
-To this end, firstly, you need to plan which data would be needed in what order.
+To this end, first, you need to plan which data would be needed in what order.
 Keep in mind that the question can require to access following databases multiple times: """
 
 FORMAT_INSTRUCTIONS = """Use the following Strict format:
