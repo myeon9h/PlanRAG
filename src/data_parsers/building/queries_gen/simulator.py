@@ -91,9 +91,13 @@ def simulate(goods_list, building_dict, cycle = 10):
 if __name__ == "__main__":
 
     query_dir = "./data/building/db_query(parsed)/LPG_format/"
+    csv_dir = "./data/building/db_query(parsed)/CSV_format/"
     raw_dir = "./data/building/raw/simulated_question_raw.csv"
 
     write = True
+    
+    # csv or cql 
+    extraction_mode = "csv" 
 
     # country list
     country_code_list = ["USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP"]
@@ -107,14 +111,67 @@ if __name__ == "__main__":
         base_goods_list, base_building_dict=simulate(goods_list, building_dict, cycle = 100)
         
         # base query
-        cql = extract(base_goods_list, base_building_dict)
-        if write:
+        if write and extraction_mode == "cql":
+            cql = extract(base_goods_list, base_building_dict)
             query_path = query_dir + f"{country_code}.cql"
             with open(query_path,"w") as file:
                 file.write(cql)
             
             file.close()
+        elif write and extraction_mode == "csv":
+            import csv
+            # print(base_building_dict)
 
+            csv_path = csv_dir+f"{country_code}"
+            building_dict_list = list({"id": b.id, "name": b.name, "level": b.level} for b in base_building_dict.values())
+            fieldnames = list(building_dict_list[0].keys())
+            with open(csv_path+"_building.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in building_dict_list:
+                    w.writerow(dictionary.values())
+
+
+            # demand
+            demand_dict_list = []
+            for b in base_building_dict.values():
+                demand_dict_list = demand_dict_list + [{"Goods": d, "Building": b.id, "max_demand": b.max_demand[d], "current_input": b.current_input[d], "level": b.level} for d in b.max_demand.keys()]
+            fieldnames = list(demand_dict_list[0].keys())
+            with open(csv_path+"_demand.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in demand_dict_list:
+                    w.writerow(dictionary.values())
+
+
+            # supply
+            supply_dict_list = []
+            for b in base_building_dict.values():
+                supply_dict_list = supply_dict_list + list({"Goods": s, "Building": b.id, "max_supply": b.max_supply[s], "current_output": b.current_output[s], "level": b.level} for s in b.current_output.keys())
+            fieldnames = list(supply_dict_list[0].keys())
+            with open(csv_path+"_supply.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in supply_dict_list:
+                    w.writerow(dictionary.values())
+
+
+            # goods
+            base_goods_list
+            base_goods_dict_list = list({"name": g.name, "code": g.num, "base_price": g.base_price, "current_price": g.current_price, "pop_demand": g.pop_demand} for g in base_goods_list)
+            fieldnames = list(base_goods_dict_list[0].keys())
+            with open(csv_path+"_goods.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in base_goods_dict_list:
+                    w.writerow(dictionary.values())
+
+        elif write:
+            print("mode error")
+            assert(0)
+
+        else:
+            continue
 
         for goods_id in tqdm(range(len(goods_list))):
             
