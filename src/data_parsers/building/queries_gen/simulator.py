@@ -72,8 +72,6 @@ CREATE TABLE building
 (
     id BOOLEAN
     name VARCHAR(30),
-    max_supply FLOAT,
-    max_demand FLOAT,
     level INT,
    CONSTRAINT id PRIMARY KEY (id)
 );

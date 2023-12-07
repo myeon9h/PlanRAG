@@ -62,7 +62,7 @@ class Building:
         return query
     
     def sql_format(self):
-        query = "INSERT INTO building(id, name, max_demand, mex_supply, level) VALUES ({0}, \"{1}\", {2}, {3}, {4});\n".format(self.id, self.name, self.max_demand, self.max_supply, self.level)
+        query = "INSERT INTO building(id, name, level) VALUES ({0}, \"{1}\", {2},);\n".format(self.id, self.name, self.max_demand, self.max_supply, self.level)
 
         # demand
         for d in self.max_demand.keys():
