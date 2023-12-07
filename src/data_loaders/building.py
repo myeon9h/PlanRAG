@@ -5,10 +5,15 @@ import json
 
 # building question has one of following five types: {1,2,3}-hop, cycle, tree
 # question number starts with 1
+RDB_INFO = """
+CREATE TABLE goods(    goods_name    VARCHAR(30),    code    INT,    base_price FLOAT,    current_price FLOAT,    pop_demand FLOAT, PRIMARY KEY (code));
 
+CREATE TABLE building(    id INT,    name VARCHAR(80),    level INT, PRIMARY KEY (id));
 
+CREATE TABLE supply(    goods_id INT,    building_id INT,    max_supply FLOAT,    current_output FLOAT,    level INT, PRIMARY KEY (goods_id, building_id));
 
-
+CREATE TABLE demand(    goods_id INT,    building_id INT,    max_demand FLOAT,    current_input FLOAT,    level INT,   PRIMARY KEY (goods_id, building_id));
+"""    
 
 GDB_INFO = """
 (g: Goods {{name, code, base_price, current_price, pop_demand}})

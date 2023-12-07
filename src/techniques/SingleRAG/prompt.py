@@ -7,7 +7,7 @@ FORMAT_INSTRUCTIONS = """Use the following Strict format:
 Question: the input question you must answer.
 Thought: you should always think about what to do.
 Action: Graph DB
-Action input: a syntactically correct query statement only, MUST be written by Cypher query language.
+Action input: a syntactically correct query statement only, MUST be written by one of [MySQL, Cypher query language].
 Observation: the result of the action.
 Thought: I now know the answer.
 Final answer: the final answer to the question based on the observed data.

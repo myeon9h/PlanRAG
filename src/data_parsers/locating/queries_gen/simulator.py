@@ -203,43 +203,13 @@ def extraction_sql(wrapper):
     # table init
     query = query +"""
 
-CREATE TABLE country
-(
-    country_name    VARCHAR(30),
-    trade_port    VARCHAR(30),
-    development FLOAT,
-   CONSTRAINT country_name PRIMARY KEY (country_name)
-);
+CREATE TABLE country( country_name  VARCHAR(30), trade_port    VARCHAR(30), development FLOAT, PRIMARY KEY (country_name));
 
-CREATE TABLE trading_node
-(
-    trading_node    VARCHAR(30),
-    local_value FLOAT,
-    node_inland BOOLEAN
-    total_power FLOAT,
-    outgoing FLOAT,
-    ingoing FLOAT,
-   CONSTRAINT trading_node PRIMARY KEY (trading_node)
-);
+CREATE TABLE trading_node(    trading_node    VARCHAR(30), local_value FLOAT,    node_inland BOOLEAN,    total_power FLOAT,    outgoing FLOAT,    ingoing FLOAT,   PRIMARY KEY (trading_node));
 
-CREATE TABLE flow
-(
-    upstream    VARCHAR(30),
-    downstream VARCHAR(30),
-    flow FLOAT,
-   CONSTRAINT upstream, downstream PRIMARY KEY (upstream, downstream)
-);
+CREATE TABLE flow(    upstream    VARCHAR(30),    downstream VARCHAR(30),    flow FLOAT,   PRIMARY KEY (upstream, downstream));
 
-CREATE TABLE node_country
-(
-    node_name     VARCHAR(30),
-    country_name    VARCHAR(30),
-    is_home BOOLEAN,
-    merchant BOOLEAN,
-    base_trading_power FLOAT,
-    calculated_trading_power FLOAT,
-   CONSTRAINT node_name, country_name PRIMARY KEY (node_name, country_name)
-);
+CREATE TABLE node_country(    node_name     VARCHAR(30), country_name    VARCHAR(30),    is_home BOOLEAN, merchant BOOLEAN,    base_trading_power FLOAT,    calculated_trading_power FLOAT,   PRIMARY KEY (node_name, country_name));
     
 """
 
@@ -260,7 +230,7 @@ CREATE TABLE node_country
         up = flow["upstream"]
         down = flow["downstream"]
         val = flow["flow"]
-        query = query + "INSERT INTO flow(upstream, downstream, flow) VALUES (\"{0}\", \"{1}\");\n".format(up, down,val)
+        query = query + "INSERT INTO flow(upstream, downstream, flow) VALUES (\"{0}\", \"{1}\", {2});\n".format(up, down,val)
 
     # node_country table
     for tc in wrapper.node_country:
