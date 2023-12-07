@@ -1,29 +1,42 @@
 RDB_INFO = """
-CREATE TABLE general(
-    name    VARCHAR(30),
-    current FLOAT,
+
+CREATE TABLE country
+(
+    country_name    VARCHAR(30),
+    trade_port    VARCHAR(30),
+    development FLOAT,
+   CONSTRAINT country_name PRIMARY KEY (country_name)
+);
+
+CREATE TABLE trading_node
+(
+    trading_node    VARCHAR(30),
     local_value FLOAT,
+    node_inland BOOLEAN
+    total_power FLOAT,
     outgoing FLOAT,
-    value_added_outgoing FLOAT,
-    retention_ FLOAT,
-    total FLOAT,
-    CONSTRAINT name PRIMARY KEY (name)
+    ingoing FLOAT,
+   CONSTRAINT trading_node PRIMARY KEY (trading_node)
 );
-general table indicates node's general statistics.
-1. retention_ means amount of money which is not go out from node (remaining money).
-2. current means leftover of local_value (i.e. local_value-outgoing)
-3. total means total trading power of each nodes.
 
-
-CREATE TABLE trading(
-    node_name       VARCHAR(30),
-    country_code    VARCHAR(5),
-    val FLOAT,
-    CONSTRAINT country_code PRIMARY KEY (node_name, country_code)
+CREATE TABLE flow
+(
+    upstream    VARCHAR(30),
+    downstream VARCHAR(30),
+    flow FLOAT,
+   CONSTRAINT upstream, downstream PRIMARY KEY (upstream, downstream)
 );
-general table indicates country's trading power on each node.
-1. val means country_code's trading power on node_name.
-RDB has no connection data
+
+CREATE TABLE node_country
+(
+    node_name     VARCHAR(30),
+    country_name    VARCHAR(30),
+    is_home BOOLEAN,
+    merchant BOOLEAN,
+    base_trading_power FLOAT,
+    calculated_trading_power FLOAT,
+   CONSTRAINT node_name, country_name PRIMARY KEY (node_name, country_name)
+);
 """
 
 GDB_INFO = """

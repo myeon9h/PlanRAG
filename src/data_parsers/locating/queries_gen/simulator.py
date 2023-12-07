@@ -172,8 +172,8 @@ def modification(wrapper,mode, input):
     return wrapper
 
 
-# mode 는 cql 과 csv 가 있다.
-def extraction(wrapper, mode="cql"):
+# mode 는 cql 과 sql 가 있다.
+def extraction_cql(wrapper):
     query = ""
 
     for node_name in wrapper.trading_nodes_dict.keys():
@@ -197,9 +197,78 @@ def extraction(wrapper, mode="cql"):
         query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Country {{name:\"{1}\"}}) CREATE ({1})-[r:NodeCountry{{is_home: {2}, merchant: \"{3}\",base_trading_power: {4},calculated_trading_power: {5}}}]->({0});\n".format(node, con, ("true" if tc["is_home"] else "false"), tc["merchant"], tc["base_trading_power"], tc["calculated_trading_power"])
     return query
 
+def extraction_sql(wrapper):
+    query = ""
+
+    # table init
+    query = query +"""
+
+CREATE TABLE country
+(
+    country_name    VARCHAR(30),
+    trade_port    VARCHAR(30),
+    development FLOAT,
+   CONSTRAINT country_name PRIMARY KEY (country_name)
+);
+
+CREATE TABLE trading_node
+(
+    trading_node    VARCHAR(30),
+    local_value FLOAT,
+    node_inland BOOLEAN
+    total_power FLOAT,
+    outgoing FLOAT,
+    ingoing FLOAT,
+   CONSTRAINT trading_node PRIMARY KEY (trading_node)
+);
+
+CREATE TABLE flow
+(
+    upstream    VARCHAR(30),
+    downstream VARCHAR(30),
+    flow FLOAT,
+   CONSTRAINT upstream, downstream PRIMARY KEY (upstream, downstream)
+);
+
+CREATE TABLE node_country
+(
+    node_name     VARCHAR(30),
+    country_name    VARCHAR(30),
+    is_home BOOLEAN,
+    merchant BOOLEAN,
+    base_trading_power FLOAT,
+    calculated_trading_power FLOAT,
+   CONSTRAINT node_name, country_name PRIMARY KEY (node_name, country_name)
+);
     
+"""
 
 
+    # country table
+    for con in wrapper.countries_dict.keys():
+        con_val = wrapper.countries_dict[con]
+        query = query + "INSERT INTO country(country_name,trade_port,development) VALUES (\"{0}\", \"{1}\", {2});\n".format(con, con_val["trade_port"],con_val["development"])
+
+    # trading_node table
+    for node_name in wrapper.trading_nodes_dict.keys():
+        node_val = wrapper.trading_nodes_dict[node_name]
+        query = query + "INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES (\"{0}\", {1}, {2}, {3}, {4}, {5});\n".format(node_name, node_val["local_value"], ("TRUE" if node_val["node_inland"] else "FALSE"), node_val["total_power"], node_val["outgoing"], node_val["ingoing"])
+
+    
+    # flow table
+    for flow in wrapper.trading_node_flow:
+        up = flow["upstream"]
+        down = flow["downstream"]
+        val = flow["flow"]
+        query = query + "INSERT INTO flow(upstream, downstream, flow) VALUES (\"{0}\", \"{1}\");\n".format(up, down,val)
+
+    # node_country table
+    for tc in wrapper.node_country:
+        node = tc["node_name"]
+        con = tc["country_name"]
+        query = query + "INSERT INTO node_country(node_name,country_name, is_home, merchant, base_trading_power, calculated_trading_power) VALUES (\"{0}\", \"{1}\", {2}, {3}, {4}, {5});\n".format(node, con, ("TRUE" if tc["is_home"] else "FALSE"), ("TRUE" if tc["merchant"] else "FALSE"), tc["base_trading_power"], tc["calculated_trading_power"])
+
+    return query
 
 
 def estimation(wrapper, country):
@@ -243,8 +312,8 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
     for k in original_wrapper.trading_nodes_dict.keys():
         find_flow_cache[k] = dict()
 
-    query_dir = "./data/locating/db_query(parsed)/LPG_format/"
-    csv_dir = "./data/locating/db_query(parsed)/CSV_format/"
+    cql_dir = "./data/locating/db_query(parsed)/LPG_format/"
+    sql_dir = "./data/locating/db_query(parsed)/SQL_format/"
 
     raw_dir = "./data/locating/raw/simulated_question_raw.csv"
     countries = []
@@ -267,48 +336,18 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
         country_wrapper = simulation(country_wrapper)
 
         if write and extraction_mode == "cql":
-            cql = extraction(country_wrapper)
-            query_path = query_dir+f"q{question_number}.cql"
+            cql = extraction_cql(country_wrapper)
+            query_path = cql_dir+f"q{question_number}.cql"
             with open(query_path, "w") as file:
                 file.write(cql)
             
             file.close()
 
-        elif write and extraction_mode == "csv":
-            import csv
-            # csv 일 때 어떻게 할 것인지: extraction 에서 write?
-            # ...
-            # mode 가 csv 인 경우
-            csv_path = csv_dir+f"q{question_number}"
-            tradenode_dict_list = [{ **{"Trading_node": key}, **country_wrapper.trading_nodes_dict[key]} for key in country_wrapper.trading_nodes_dict.keys()]
-            fieldnames = list(tradenode_dict_list[0].keys())
-            with open(csv_path+"_tradingnode.csv", 'w') as csvf:
-                w = csv.writer(csvf)
-                w.writerow(fieldnames)
-                for dictionary in tradenode_dict_list:
-                    w.writerow(dictionary.values())
-
-            country_dict_list = [{ **{"country": key}, **country_wrapper.countries_dict[key]} for key in country_wrapper.countries_dict.keys()]
-            fieldnames = list(country_dict_list[0].keys())
-            with open(csv_path+"_country.csv", 'w') as csvf:
-                w = csv.writer(csvf)
-                w.writerow(fieldnames)
-                for dictionary in country_dict_list:
-                    w.writerow(dictionary.values())
-
-            fieldnames = list(country_wrapper.trading_node_flow[0].keys())
-            with open(csv_path+"_flow.csv", 'w') as csvf:
-                w = csv.writer(csvf)
-                w.writerow(fieldnames)
-                for dictionary in country_wrapper.trading_node_flow:
-                    w.writerow(dictionary.values())
-
-            fieldnames = list(country_wrapper.node_country[0].keys())
-            with open(csv_path+"_NodeCountry.csv", 'w') as csvf:
-                w = csv.writer(csvf)
-                w.writerow(fieldnames)
-                for dictionary in country_wrapper.node_country:
-                    w.writerow(dictionary.values())
+        elif write and extraction_mode == "sql":
+            sql = extraction_sql(country_wrapper)
+            query_path = sql_dir+f"q{question_number}.sql"
+            with open(query_path, "w") as file:
+                file.write(sql)
 
         elif write:
             print("mode error!")
@@ -360,7 +399,7 @@ if __name__ == "__main__":
 
     individual = False
     file=None
-    extraction_mode = "csv"
+    extraction_mode = "sql"
     
     if individual:
         original_wrapper = construct(file)
