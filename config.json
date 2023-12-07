@@ -1,8 +1,12 @@
 {
-    "OPENAI_API_KEY": "",
+    "OPENAI_API_KEY": "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",
     "NEO4J": {
-        "HOST": "", 
-        "USER": "",
-        "PASSWORD": ""
+        "HOST": "bolt://localhost:7687",
+        "USER": "neo4j",
+        "PASSWORD": "infolab1234"
+    },
+    "MYSQL": {
+        "HOST": "localhost",
+        "USER": "root"
     }
 }

@@ -6,6 +6,7 @@ from langchain.agents import Tool
 from langchain.chat_models import ChatOpenAI
 
 from utils import Neo4jDatabase
+from utils import SQLDatabase
 from tqdm import tqdm
 import argparse
 
@@ -13,21 +14,22 @@ def print_args(args):
     for arg in vars(args):
         print(f"{arg}: {getattr(args, arg)}")
 
-def load_db(db_engine, db_file_path, db_name):
+def load_db(db_engine, db_file_path, data_format):
 
-    if db_name == "neo4j":
+    if data_format == "graph":
         file=open(db_file_path, "r")
         queries_list = file.readlines()
         db_engine.query("match (n) detach delete n;")
         for line in tqdm(queries_list):
             db_engine.query(line)
     
-    elif db_name == "mysql":
+    elif data_format == "table":
         file=open(db_file_path, "r")
         queries_list = file.readlines()
-        db_engine.query("drop database mysql;")
-        db_engine.query("create database mysql;")
-        db_engine.query("use database mysql;")
+        db_engine.query("drop database decisionQA_rdb;")
+        db_engine.query("create database decisionQA_rdb;")
+        db_engine.query("use decisionQA_rdb;")
+
         for line in tqdm(queries_list):
             db_engine.query(line)
     else:
@@ -46,8 +48,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--technique", help="RAG or PlanRAG or PlanRAG_woReplan", type=str, default="PlanRAG")
     parser.add_argument("--dataset", help="locating or building", type=str, default="locating")
+    parser.add_argument("--data_format", help="graph or table", type=str, default="graph")
     parser.add_argument("--question_num", type=int, default=1)
-    parser.add_argument("--db_name", help="neo4j or mysql", type=str, default="neo4j")
     args = parser.parse_args()
     print_args(args)
     config = read_config("./config.json")
@@ -59,37 +61,52 @@ if __name__ == "__main__":
     # Prepare dataset & Setup database
     dataset = args.dataset
     question_num = args.question_num
+    data_format = args.data_format
+
     if dataset == "building":
-        from data_loaders.building import building_dataloader, GDB_INFO
+        from data_loaders.building import building_dataloader, GDB_INFO, RDB_INFO
         question, _, country = building_dataloader(question_num, question_path = "./data/building/questions/simulated_questions.json")
-        db_file_path = f"./data/building/db_query(parsed)/LPG_format/{country}.cql"
+        if data_format == "graph":
+            db_file_path = f"./data/{dataset}/db_query(parsed)/LPG_format/{country}.cql"
+        elif data_format == "table":
+            db_file_path = f"./data/{dataset}/db_query(parsed)/SQL_format/{country}.sql"
+
     elif dataset == "locating":
-        from data_loaders.locating  import locating_dataloader, GDB_INFO
+        from data_loaders.locating  import locating_dataloader, GDB_INFO, RDB_INFO
         question, _, _ = locating_dataloader(question_num, "./data/locating/questions/standard/simulated_question.json", option=False)
-        db_file_path = f"./data/locating/db_query(parsed)/LPG_format/q{question_num}.cql"
+        if data_format == "graph":
+            db_file_path = f"./data/{dataset}/db_query(parsed)/LPG_format/q{question_num}.cql"
+        elif data_format == "table":
+            db_file_path = f"./data/{dataset}/db_query(parsed)/SQL_format/q{question_num}.sql"
     else:
         assert(0)
 
-    db_name = args.db_name
-    if db_name == "neo4j":
+    if data_format == "graph":
+        db_name = "neo4j"
         db_config = config['NEO4J']
         db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
-    elif db_name == "mysql":
-        # TODO: mysql db setting
-        assert(0)
-        pass
+        
+        tool_name = "Graph DB"
+        tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a Cypher query statement to interact with this tool):""" + GDB_INFO
+
+    elif data_format == "table":
+        db_name = "decisionQA_rdb"
+        db_config = config['MYSQL']
+        #db_engine = SQLDatabase.from_uri("mysql+pymysql://root@localhost/decisionQA_rdb")
+        db_engine = SQLDatabase.from_uri(f"mysql+pymysql://{db_config['USER']}@{db_config['HOST']}/{db_name}")
+
+        tool_name = "Relational DB"
+        tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a MySQL statement to interact with this tool):""" + RDB_INFO
     
-    load_db(db_engine, db_file_path, db_name=db_name)
+    load_db(db_engine, db_file_path, data_format=data_format)
 
     # Database as a tool
     # TODO: sql tool generate
     databases = [
         Tool(
-            name="Graph DB",
+            name=tool_name,
             func=db_engine.query,
-            description="""
-            Useful for when you need to collect the data that follows the following schema (You MUST generate a Cypher query statement to interact with this tool):"""
-            + GDB_INFO
+            description=tool_description
             #Specific conditions should be given when you ask.
         ),
         Tool(
