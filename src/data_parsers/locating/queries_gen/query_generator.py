@@ -21,7 +21,6 @@ def cql_gen(nodes_dict, dir_path, anony=False):
     for node in nodes_dict.values():
         for downstream in node.out_going:
             if anony:
-                # query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:DOWNSTREAM]->({1});\n".format(node.anony_name, nodes_dict[downstream].anony_name)
 
                 query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:UPSTREAM]->({1});\n".format(node.anony_name, nodes_dict[downstream].anony_name)
             else:
