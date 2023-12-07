@@ -13,12 +13,26 @@ def print_args(args):
     for arg in vars(args):
         print(f"{arg}: {getattr(args, arg)}")
 
-def load_db(db_engine, db_file_path):
-    file=open(db_file_path, "r")
-    queries_list = file.readlines()
-    db_engine.query("match (n) detach delete n;")
-    for line in tqdm(queries_list):
-        db_engine.query(line)
+def load_db(db_engine, db_file_path, db_name):
+
+    if db_name == "neo4j":
+        file=open(db_file_path, "r")
+        queries_list = file.readlines()
+        db_engine.query("match (n) detach delete n;")
+        for line in tqdm(queries_list):
+            db_engine.query(line)
+    
+    elif db_name == "mysql":
+        file=open(db_file_path, "r")
+        queries_list = file.readlines()
+        db_engine.query("drop database mysql;")
+        db_engine.query("create database mysql;")
+        db_engine.query("use database mysql;")
+        for line in tqdm(queries_list):
+            db_engine.query(line)
+    else:
+        print("dbtype error")
+        assert(0)
 
 def read_config(config_path):
     with open(config_path, "r") as f:
@@ -33,6 +47,7 @@ if __name__ == "__main__":
     parser.add_argument("--technique", help="RAG or PlanRAG or PlanRAG_woReplan", type=str, default="PlanRAG")
     parser.add_argument("--dataset", help="locating or building", type=str, default="locating")
     parser.add_argument("--question_num", type=int, default=1)
+    parser.add_argument("--db_name", help="neo4j or mysql", type=str, default="neo4j")
     args = parser.parse_args()
     print_args(args)
     config = read_config("./config.json")
@@ -55,12 +70,19 @@ if __name__ == "__main__":
     else:
         assert(0)
 
-    db_name = 'neo4j'
-    db_config = config['NEO4J']
-    db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
-    load_db(db_engine, db_file_path)
+    db_name = args.db_name
+    if db_name == "neo4j":
+        db_config = config['NEO4J']
+        db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
+    elif db_name == "mysql":
+        # TODO: mysql db setting
+        assert(0)
+        pass
+    
+    load_db(db_engine, db_file_path, db_name=db_name)
 
     # Database as a tool
+    # TODO: sql tool generate
     databases = [
         Tool(
             name="Graph DB",

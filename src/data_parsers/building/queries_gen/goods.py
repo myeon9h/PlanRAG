@@ -24,6 +24,9 @@ class Goods:
 
     def lpg_format(self):
         return "CREATE (n: Goods {{name:\"{0}\", code: {1}, base_price:{2}, current_price:{3}, pop_demand:{4}}});\n".format(self.name, self.num, self.base_price, self.current_price, self.pop_demand)
+    
+    def sql_format(self):
+        return "INSERT INTO goods(goods_name,code,base_price, current_price, pop_demand) VALUES (\"{0}\", {1}, {2}, {3}, {4});\n".format(self.name, self.num, self.base_price, self.current_price, self.pop_demand)
 
     def __repr__(self):
         return "GoodsName: {}, GoodsCode: {}, BasePrice: {}, CurrentPrice: {}, Pop_demand: {}, Building_demand: {}, Supply: {}".format(self.name, self.num, self.base_price, round(self.current_price, 2), round(self.pop_demand, 2), round(self.building_demand, 2), round(self.supply, 2))

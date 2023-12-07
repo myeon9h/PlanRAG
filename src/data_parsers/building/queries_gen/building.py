@@ -60,6 +60,19 @@ class Building:
             query = query + "MATCH (g: Goods{{code: {0}}}), (b: Building{{id:{1}}}) CREATE (b)-[r:Supply{{max_supply: {2}, current_output: {4},level: {3}}}]->(g);\n".format(s, self.id, self.max_supply[s], self.level, self.current_output[s])
 
         return query
+    
+    def sql_format(self):
+        query = "INSERT INTO building(id, name, max_demand, mex_supply, level) VALUES ({0}, \"{1}\", {2}, {3}, {4});\n".format(self.id, self.name, self.max_demand, self.max_supply, self.level)
+
+        # demand
+        for d in self.max_demand.keys():
+            query = query + "INSERT INTO demand(goods_id, building_id, max_demand, current_input, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(d, self.id, self.max_demand[d], self.level, self.current_input[d])
+        
+        # supply
+        for s in self.current_output.keys():
+            query = query + "INSERT INTO supply(goods_id, building_id, max_supply, current_output, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(s, self.id, self.max_supply[s], self.level, self.current_output[s])
+
+        return query
 
     def __repr__(self) -> str:
         return f"[{self.id}, {self.name}, {self.max_demand}, {self.max_supply}, {self.level}, {self.throughput}, {self.state}]"
