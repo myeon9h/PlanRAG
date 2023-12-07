@@ -6,7 +6,7 @@ from query_generator import cql_gen, sql_gen
 
 from src.data_parsers.locating.example_gen.parser import *
 from anonymize import *
-import networkx as nx
+# import networkx as nx
 
 import json, os
 
@@ -71,13 +71,6 @@ if __name__ == "__main__":
 
 
         exit()
-
-    
-    # file = open("./data/locating/questions/anonymized/anonyTable.json", "w")
-    
-    # json.dump(anonyTable(), file, indent=4)
-    
-    # file.close()
 
     # Neo4j 에 넣는 코드
     cql_gen(nodes_dict,queries_path, anony= anony)

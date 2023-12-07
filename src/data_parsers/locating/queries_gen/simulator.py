@@ -172,7 +172,8 @@ def modification(wrapper,mode, input):
     return wrapper
 
 
-def extraction(wrapper):
+# mode 는 cql 과 csv 가 있다.
+def extraction(wrapper, mode="cql"):
     query = ""
 
     for node_name in wrapper.trading_nodes_dict.keys():
@@ -194,11 +195,12 @@ def extraction(wrapper):
         node = tc["node_name"]
         con = tc["country_name"]
         query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Country {{name:\"{1}\"}}) CREATE ({1})-[r:NodeCountry{{is_home: {2}, merchant: \"{3}\",base_trading_power: {4},calculated_trading_power: {5}}}]->({0});\n".format(node, con, ("true" if tc["is_home"] else "false"), tc["merchant"], tc["base_trading_power"], tc["calculated_trading_power"])
-
-
-
-
     return query
+
+    
+
+
+
 
 def estimation(wrapper, country):
     home = wrapper.countries_dict[country]["trade_port"]
@@ -231,7 +233,7 @@ def option_gen(wrapper, con):
                 options.append(node)
         return options 
 
-def problem_gen(file=None, write = True, verbose = True, subjective=False):
+def problem_gen(file=None, write = True, verbose = True, subjective=False, extraction_mode = "cql"):
     
 
     original_wrapper = construct(file)
@@ -242,6 +244,7 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False):
         find_flow_cache[k] = dict()
 
     query_dir = "./data/locating/db_query(parsed)/LPG_format/"
+    csv_dir = "./data/locating/db_query(parsed)/CSV_format/"
 
     raw_dir = "./data/locating/raw/simulated_question_raw.csv"
     countries = []
@@ -263,13 +266,54 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False):
 
         country_wrapper = simulation(country_wrapper)
 
-        cql = extraction(country_wrapper)
-        if write:
+        if write and extraction_mode == "cql":
+            cql = extraction(country_wrapper)
             query_path = query_dir+f"q{question_number}.cql"
             with open(query_path, "w") as file:
                 file.write(cql)
             
             file.close()
+
+        elif write and extraction_mode == "csv":
+            import csv
+            # csv 일 때 어떻게 할 것인지: extraction 에서 write?
+            # ...
+            # mode 가 csv 인 경우
+            csv_path = csv_dir+f"q{question_number}"
+            tradenode_dict_list = [{ **{"Trading_node": key}, **country_wrapper.trading_nodes_dict[key]} for key in country_wrapper.trading_nodes_dict.keys()]
+            fieldnames = list(tradenode_dict_list[0].keys())
+            with open(csv_path+"_tradingnode.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in tradenode_dict_list:
+                    w.writerow(dictionary.values())
+
+            country_dict_list = [{ **{"country": key}, **country_wrapper.countries_dict[key]} for key in country_wrapper.countries_dict.keys()]
+            fieldnames = list(country_dict_list[0].keys())
+            with open(csv_path+"_country.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in country_dict_list:
+                    w.writerow(dictionary.values())
+
+            fieldnames = list(country_wrapper.trading_node_flow[0].keys())
+            with open(csv_path+"_flow.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in country_wrapper.trading_node_flow:
+                    w.writerow(dictionary.values())
+
+            fieldnames = list(country_wrapper.node_country[0].keys())
+            with open(csv_path+"_NodeCountry.csv", 'w') as csvf:
+                w = csv.writer(csvf)
+                w.writerow(fieldnames)
+                for dictionary in country_wrapper.node_country:
+                    w.writerow(dictionary.values())
+
+        elif write:
+            print("mode error!")
+            assert(0)
+            
 
 
 
@@ -316,6 +360,7 @@ if __name__ == "__main__":
 
     individual = False
     file=None
+    extraction_mode = "csv"
     
     if individual:
         original_wrapper = construct(file)
@@ -342,4 +387,4 @@ if __name__ == "__main__":
             
         print(f"country: {con}, options: {options}, ans: {ans}")
     else:
-        problem_gen(file=file,write=False, verbose=False, subjective=True)
+        problem_gen(file=file,write=True, verbose=False, subjective=True, extraction_mode=extraction_mode)
