@@ -58,45 +58,13 @@ def extract_sql(goods_list, building_dict):
     # table init
     query = query +"""
 
-CREATE TABLE goods
-(
-    goods_name    VARCHAR(30),
-    code    INT,
-    base_price FLOAT,
-    current_price FLOAT,
-    pop_demand FLOAT,
-   CONSTRAINT code PRIMARY KEY (code)
-);
+CREATE TABLE goods(    goods_name    VARCHAR(30),    code    INT,    base_price FLOAT,    current_price FLOAT,    pop_demand FLOAT, PRIMARY KEY (code));
 
-CREATE TABLE building
-(
-    id BOOLEAN
-    name VARCHAR(30),
-    max_supply FLOAT,
-    max_demand FLOAT,
-    level INT,
-   CONSTRAINT id PRIMARY KEY (id)
-);
+CREATE TABLE building(    id INT,    name VARCHAR(80),    level INT, PRIMARY KEY (id));
 
-CREATE TABLE supply
-(
-    goods_id INT,
-    building_id INT,
-    max_supply FLOAT,
-    current_output FLOAT,
-    level INT,
-   CONSTRAINT goods_id, building_id PRIMARY KEY (goods_id, building_id)
-);
+CREATE TABLE supply(    goods_id INT,    building_id INT,    max_supply FLOAT,    current_output FLOAT,    level INT, PRIMARY KEY (goods_id, building_id));
 
-CREATE TABLE demand
-(
-    goods_id INT,
-    building_id INT,
-    max_demand FLOAT,
-    current_input FLOAT,
-    level INT,
-   CONSTRAINT goods_id, building_id PRIMARY KEY (goods_id, building_id)
-);
+CREATE TABLE demand(    goods_id INT,    building_id INT,    max_demand FLOAT,    current_input FLOAT,    level INT,   PRIMARY KEY (goods_id, building_id));
     
 """
 
