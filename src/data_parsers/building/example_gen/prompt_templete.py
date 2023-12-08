@@ -8,6 +8,6 @@ The supply of Goods is defined by the sum of "current_output" of all Supplies co
 The "current_input" of Demand is determined by the ratio of connected Building's "max_demand" to connected Goods' demand, and multiplied by the supply of Goods.
 The "current_output" of Supply is determined by the average ratio of the connected Building's "current_input" to connected Goods' "max_demand", and multiplied by the "max_supply" of Supply.
 The "current_price" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).
-Which building id should we increase a level for decreasing the market price of {goods}?"""
+Which building id should we increase a level by 5 to maximally decrease the market price of {goods}?"""
 
     return situation_query
