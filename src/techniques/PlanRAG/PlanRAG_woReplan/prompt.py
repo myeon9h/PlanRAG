@@ -13,7 +13,7 @@ Thought: you should always think about the Current step.
 Action: a suitable database name, MUST be one of [{tool_names}].
 Action input: a syntactically correct query statement only, MUST be written by one of [MySQL, Cypher query language].
 Observation: the data from the database.
-... (a process of Plan, Current step, Thought, Action, Action input, and Observation can repeat N times)
+... (a process of Current step, Thought, Action, Action input, and Observation can repeat N times)
 Thought: I now know the answer.
 Final answer: the final answer to the question based on the observed data."""
 
