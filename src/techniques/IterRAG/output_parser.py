@@ -12,7 +12,7 @@ from langchain.base_language import BaseLanguageModel
 from langchain.output_parsers import OutputFixingParser
 from langchain.schema import AgentAction, AgentFinish, OutputParserException
 
-from techniques.RAG.prompt import FORMAT_INSTRUCTIONS
+from techniques.IterRAG.prompt import FORMAT_INSTRUCTIONS
 
 FINAL_ANSWER_ACTION = "Final answer:"
 

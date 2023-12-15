@@ -16,10 +16,10 @@ from langchain.prompts.chat import (
 from langchain.schema import AgentAction
 from langchain.tools import BaseTool
 
-from techniques.RAG.prompt import (
+from techniques.IterRAG.prompt import (
     FORMAT_INSTRUCTIONS, PREFIX, SUFFIX, HUMAN_MESSAGE_TEMPLATE,
 )
-from techniques.RAG.output_parser import TaskManagerOutputParserWithRetries
+from techniques.IterRAG.output_parser import TaskManagerOutputParserWithRetries
 
 class TaskManagerAgent(Agent):
     output_parser: AgentOutputParser = Field(
