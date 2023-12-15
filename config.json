@@ -1,7 +1,7 @@
 {
     "OPENAI_API_KEY": "",
     "NEO4J": {
-        "HOST": "",
+        "HOST": "bolt://localhost:7687",
         "USER": "neo4j",
         "PASSWORD": ""
     },
