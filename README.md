@@ -111,3 +111,7 @@ export PYTHONPATH=.
 python ./src/data_parsers/building/queries_gen/simulator.py
 python ./src/data_parsers/building/example_gen/main.py
 ```
+
+## Notice in database schema
+In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
+Also, "base_trading_power" and "calculated_trading_power" are both mean "TP_country" in our paper.
