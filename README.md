@@ -1,12 +1,13 @@
-# PlanRAG: A Plan-then-Retrieval Augmented Generation Technique for Decision-makings
+# PlanRAG: An Iterative Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers
 
 Our contents are provided under the MIT license.
 
 ***
 ## Setup 
-### Database (Neo4j)
-Our baselines (Single-turn RAG, Iterative RAG and PlanRAG) use Neo4j as a tool for accessing Labeled Property Graph (LPG) data in Decision QA datasets.  
-Therefore, you should prepare it with the following commands and instructions:
+### Databases
+#### 1. Graph database
+Our RAG-based decision makers use Neo4j as a tool to access Labeled Property Graph (LPG) data in DQA benchmark.
+Therefore, you should prepare Neo4j with the following commands and instructions:
 ```bash
 # Ubuntu
 sudo apt update
@@ -20,9 +21,28 @@ sudo apt install cypher-shell
 cypher-shell -u neo4j
 # Then, change to a new password and enter ':exit' to return to the terminal.
 ```
+#### 2. Relational database
+For relational data in DQA benchmark, you should prepare MySQL with the following commands and instructions:
+```bash
+# Ubuntu
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.14-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.14-1_all.deb
+# Then, select 'OK' to proceed to the next step.
+sudo apt update
+sudo apt install -y mysql-server
+
+# Login with root user to create the default database 'DQA_rdb'.
+sudo mysql -u root
+mysql> CREATE DATABASE DQA_rdb;
+# (Optional) Make MySQL accessible without sudo privilege in the Python environment.
+mysql> USE mysql;
+mysql> update user set plugin='mysql_native_password' where user='root';
+mysql> flush privileges;
+# Then, enter ':exit' to return to the terminal.
+```
 ### Configuration
-Our baselines use OpenAI's GPT-4.0 as a base LLM. Therefore, an OpenAI API key is required to run the baselines.   
-Please fill the values in "config.json" file with your API key and Neo4j connection information.
+Our decision makers use OpenAI's GPT-4.0 as a generative LM, so an OpenAI API key is required.   
+Please fill the values in "config.json" file with your API key and database connection information.
 ```json
 {
     "OPENAI_API_KEY": "Your OpenAI API key",
@@ -30,6 +50,10 @@ Please fill the values in "config.json" file with your API key and Neo4j connect
         "HOST": "Neo4j host address (default: 'bolt://localhost:7687')", 
         "USER": "User id (default: 'neo4j')",
         "PASSWORD": "User password (Do not fill with the default password 'neo4j')"
+    }
+    "MYSQL": {
+        "HOST": "MySQL host address (default: 'localhost')",
+        "USER": "User id (default: 'root')"
     }
 }
 ```
@@ -43,18 +67,18 @@ pip install -r requirements.txt
 ## Execution examples
 + PlanRAG (ours)
   ```bash
-  # locating scenario
-  python src/main.py --technique PlanRAG --dataset locating --question_num 1
-  # building scenario
-  python src/main.py --technique PlanRAG --dataset building --question_num 1
+  # locating scenario with relational database
+  python src/main.py --technique PlanRAG --scenario locating --database relational --question_num 1
+  # building scenario with graph database
+  python src/main.py --technique PlanRAG --scenario building --database graph --question_num 1
   ```
 + Iterative RAG
   ```bash
-  python src/main.py --technique RAG --dataset locating --question_num 1
+  python src/main.py --technique IterRAG --scenario locating --database graph --question_num 1
   ```
 + Single-turn RAG
   ```bash
-  python src/main.py --technique SingleRAG --dataset locating --question_num 1
+  python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
 ## Simulators
