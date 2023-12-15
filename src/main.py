@@ -26,9 +26,9 @@ def load_db(db_engine, db_file_path, database_type):
     elif database_type == "relational":
         file=open(db_file_path, "r")
         queries_list = file.readlines()
-        db_engine.query("drop database decisionQA_rdb;")
-        db_engine.query("create database decisionQA_rdb;")
-        db_engine.query("use decisionQA_rdb;")
+        db_engine.query("drop database DQA_rdb;")
+        db_engine.query("create database DQA_rdb;")
+        db_engine.query("use DQA_rdb;")
 
         for line in tqdm(queries_list):
             db_engine.query(line)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
         db_name = "neo4j"
         db_config = config['NEO4J']
         db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
-        
+
         tool_name = "Graph DB"
         tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a Cypher query statement to interact with this tool):""" + GDB_INFO
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             db_file_path = f"./data/{scenario}/db_query(parsed)/LPG_format/q{question_num}.cql"
 
     elif database_type == "relational":
-        db_name = "decisionQA_rdb"
+        db_name = "DQA_rdb"
         db_config = config['MYSQL']
         db_engine = SQLDatabase.from_uri(f"mysql+pymysql://{db_config['USER']}@{db_config['HOST']}/{db_name}")
 
