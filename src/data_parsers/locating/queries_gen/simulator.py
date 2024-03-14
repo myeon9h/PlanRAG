@@ -272,7 +272,7 @@ def option_gen(wrapper, con):
                 options.append(node)
         return options 
 
-def problem_gen(file=None, write = True, verbose = True, subjective=False, extraction_modes = ["cql"]):
+def problem_gen(file=None, write = True, verbose = True, extraction_modes = ["cql"]):
     global question_number
 
     original_wrapper = construct(file)
@@ -296,7 +296,6 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
     questions = []
     for con in countries:
 
-        
         copied_original_wrapper = copy.deepcopy(original_wrapper)
         question_number = question_number+1
 
@@ -309,28 +308,18 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
             query_path = cql_dir+f"q{question_number}.cql"
             with open(query_path, "w") as file:
                 file.write(cql)
-            
             file.close()
 
-        elif write and ("sql" in extraction_modes):
+        if write and ("sql" in extraction_modes):
             sql = extraction_sql(country_wrapper)
             query_path = sql_dir+f"q{question_number}.sql"
             with open(query_path, "w") as file:
                 file.write(sql)
+            file.close()
 
-        elif write:
-            print("mode error!")
-            assert(0)
-            
-
-
-
-        if subjective:
-            options = list(country_wrapper.trading_nodes_dict.keys())
-            options.remove(country_wrapper.countries_dict[con]["trade_port"])
-        else:
-            options = option_gen(country_wrapper, con)
-            assert(len(options) == 4)
+        options = list(country_wrapper.trading_nodes_dict.keys())
+        options.remove(country_wrapper.countries_dict[con]["trade_port"])
+        
 
         profit_prev = 0
         ans = None
@@ -354,17 +343,9 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
             print(f"q{question_number} country: {con}, ans: {ans}")
         options.remove(ans)
 
-        if subjective:
-            questions.append([con]+ [ans])
-        else:
-            questions.append([con]+ [ans]+options)
+        questions.append([con]+ [ans])
 
-    if subjective:
-        df = pd.DataFrame(data=questions, index= range(len(questions)), columns = ["Country","Answer"])
-
-    else:
-        df = pd.DataFrame(data=questions, index= range(len(questions)), columns = ["Country","Answer", "Example 1", "Example 2", "Example 3"])
-
+    df = pd.DataFrame(data=questions, index= range(len(questions)), columns = ["Country","Answer"])
 
     if write:
         df.to_csv(raw_dir)

@@ -716,7 +716,7 @@ INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, ou
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("zanzibar", 3.341, FALSE, 759.1819999999999, 0.008890307530488075, 1.0417022413058419);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("cape_of_good_hope", 0.0, FALSE, 0.0, 0, 0.6133423020444126);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("basra", 3.202, FALSE, 671.3940000000001, 1.1302256071026668, 0.5174104993436268);
-INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("samarkand", 4.509, TRUE, 677.8619999999999, 1.395512276124377, 1.0686880772074092);
+INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("samarkand", 4.509, TRUE, 677.8619999999999, 1.395512276124377, 1.068688077207409);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("persia", 6.085, TRUE, 1291.696, 1.0057982936893344, 1.8530300903384833);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("aleppo", 4.268, FALSE, 524.6519999999999, 1.4096344363507498, 1.1214125479158006);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("alexandria", 6.764, FALSE, 694.4360000000001, 1.811228799013954, 1.1967493909546574);
@@ -745,7 +745,7 @@ INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, ou
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("st_lawrence", 2.925, FALSE, 197.89, 0.0, 0.23757015106903612);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("white_sea", 1.476, FALSE, 117.41399999999999, 0.6434145100901488, 0.39802935323786304);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("north_sea", 4.317, FALSE, 1066.7179999999996, 0.9671373507319126, 0.6755852355946563);
-INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("lubeck", 5.818, FALSE, 1206.6480000000001, 0.5510622348899942, 2.864694936219239);
+INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("lubeck", 5.818, FALSE, 1206.6480000000001, 0.5510622348899942, 2.8646949362192395);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("bordeaux", 4.182, FALSE, 441.022, 0.9417814894096243, 0.05441251731310385);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("sevilla", 7.256, FALSE, 632.968, 0.36091582997755006, 0.8289437666063801);
 INSERT INTO trading_node(trading_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES ("champagne", 7.497, TRUE, 1388.8780000000002, 1.5711398278606261, 1.818194369527995);

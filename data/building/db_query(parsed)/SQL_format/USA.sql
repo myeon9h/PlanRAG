@@ -1,5 +1,5 @@
 
-
+  
 CREATE TABLE goods(    goods_name    VARCHAR(30),    code    INT,    base_price FLOAT,    current_price FLOAT,    pop_demand FLOAT, PRIMARY KEY (code));
 
 CREATE TABLE building(    id INT,    name VARCHAR(80),    level INT, PRIMARY KEY (id));

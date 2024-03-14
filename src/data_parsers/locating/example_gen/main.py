@@ -14,10 +14,10 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
     for raw_dir in raw_dirs:
         f = open(raw_dir, "r")
         df = pd.read_csv(f)
-        example_and_answers = dict()
+        question_and_answers = dict()
         
         for _, row in df.iterrows():
-            example_and_answers[row["Country"]] = [row["Answer"], row["Example 1"], row["Example 2"], row["Example 3"]]
+            question_and_answers[row["Country"]] = [row["Answer"]]
             
             
 
@@ -27,18 +27,17 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
         country_tradeprovince_dict = country_parser(savefile_path)
         province_node_dict = province_parser(savefile_path)
         situation_text = situation()
-        for con in example_and_answers.keys():
+        for con in question_and_answers.keys():
             con_dict = dict()
             
             trade_port = country_tradeprovince_dict[con]["trade_port"]
-            question_text = question(con, province_node_dict[trade_port], sorted(example_and_answers[con]))
+            question_text = question(con, province_node_dict[trade_port], sorted(question_and_answers[con]))
             goal_text = goal(province_node_dict[trade_port])
             prompt = situation_text+question_text
             con_dict["question"] = prompt
             con_dict["goal"] = goal_text
 
-            con_dict["answer"] = example_and_answers[con][0]
-            con_dict["examples"] = sorted(example_and_answers[con])
+            con_dict["answer"] = question_and_answers[con][0]
             con_dict["home"] = province_node_dict[trade_port]
             con_dict["country"] = con
 

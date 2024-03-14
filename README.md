@@ -99,9 +99,6 @@ python ./src/data_parsers/locating/example_gen/main.py
 
 <!-- savefile 여러개를 넣어줘야 함. 이름은 연도를 따라 raw1444.eu4 등으로 작성할 것-->
 
-
-
-
 ### The building scenario
 
 
@@ -114,6 +111,8 @@ export PYTHONPATH=.
 python ./src/data_parsers/building/queries_gen/simulator.py
 python ./src/data_parsers/building/example_gen/main.py
 ```
+
+<!-- By this code, you can get `simulated_question.json` in `./PlanRAG/data/building/questions` directory and several LPG, SQL codes in `./PlanRAG/data/building/db_query(parsed)` -->
 
 ## Notice in database schema
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)

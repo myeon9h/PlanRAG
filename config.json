@@ -1,5 +1,5 @@
 {
-    "OPENAI_API_KEY": "",
+    "OPENAI_API_KEY": "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",
     "HUGGINGFACEHUB_API_TOKEN": "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",
     "NEO4J": {
         "HOST": "bolt://localhost:7687",
