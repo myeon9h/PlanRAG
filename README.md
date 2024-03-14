@@ -84,11 +84,10 @@ pip install -r requirements.txt
 ## Simulators
 
 
-<!-- 시뮬레이터 어떻게 사용하여야 하는지 -->
 
 ### The locating scenario
 
-To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide a `test.eu4` file in `/data/locating/raw/` for data generation.
+To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide three raw files: `raw1445.eu4`, `raw1618.eu4` and `raw1701.eu4` in `/data/locating/raw/` for data generation.
 
 You can create the `simulated_question.json` in `/data/locating/questions/standard/` by sequentially executing the following code:
 
@@ -97,6 +96,10 @@ export PYTHONPATH=.
 python ./src/data_parsers/locating/queries_gen/simulator.py
 python ./src/data_parsers/locating/example_gen/main.py
 ```
+
+<!-- savefile 여러개를 넣어줘야 함. 이름은 연도를 따라 raw1444.eu4 등으로 작성할 것-->
+
+
 
 
 ### The building scenario

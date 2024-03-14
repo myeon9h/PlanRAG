@@ -20,7 +20,7 @@ find_flow_cache = dict()
 def construct(file=None):
     wrapper = lpg.LPGwrapper()
     if file:
-        wrapper.generate(file)
+        wrapper.generate(game_savefile=file)
     else:
         wrapper.generate()
     return wrapper
@@ -272,8 +272,8 @@ def option_gen(wrapper, con):
                 options.append(node)
         return options 
 
-def problem_gen(file=None, write = True, verbose = True, subjective=False, extraction_mode = "cql"):
-    
+def problem_gen(file=None, write = True, verbose = True, subjective=False, extraction_modes = ["cql"]):
+    global question_number
 
     original_wrapper = construct(file)
 
@@ -285,7 +285,7 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
     cql_dir = "./data/locating/db_query(parsed)/LPG_format/"
     sql_dir = "./data/locating/db_query(parsed)/SQL_format/"
 
-    raw_dir = "./data/locating/raw/simulated_question_raw.csv"
+    raw_dir = "./data/locating/raw/simulated_question_raw{}.csv".format(file[-8:-4])
     countries = []
     for con in original_wrapper.countries_dict.keys():
         if original_wrapper.countries_dict[con]["development"]>50:
@@ -294,7 +294,6 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
     print(f"target_countries : {countries}")
 
     questions = []
-    question_number = 0
     for con in countries:
 
         
@@ -305,7 +304,7 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
 
         country_wrapper = simulation(country_wrapper)
 
-        if write and extraction_mode == "cql":
+        if write and ("cql" in extraction_modes):
             cql = extraction_cql(country_wrapper)
             query_path = cql_dir+f"q{question_number}.cql"
             with open(query_path, "w") as file:
@@ -313,7 +312,7 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
             
             file.close()
 
-        elif write and extraction_mode == "sql":
+        elif write and ("sql" in extraction_modes):
             sql = extraction_sql(country_wrapper)
             query_path = sql_dir+f"q{question_number}.sql"
             with open(query_path, "w") as file:
@@ -354,12 +353,20 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
         else:
             print(f"q{question_number} country: {con}, ans: {ans}")
         options.remove(ans)
-        questions.append([con]+ [ans]+options)
 
-    if (not subjective):
+        if subjective:
+            questions.append([con]+ [ans])
+        else:
+            questions.append([con]+ [ans]+options)
+
+    if subjective:
+        df = pd.DataFrame(data=questions, index= range(len(questions)), columns = ["Country","Answer"])
+
+    else:
         df = pd.DataFrame(data=questions, index= range(len(questions)), columns = ["Country","Answer", "Example 1", "Example 2", "Example 3"])
-        print(df)
-    if (not subjective and write):
+
+
+    if write:
         df.to_csv(raw_dir)
 
 
@@ -368,11 +375,14 @@ def problem_gen(file=None, write = True, verbose = True, subjective=False, extra
 if __name__ == "__main__":
 
     individual = False
-    file=None
-    extraction_mode = "sql"
+    files = ["./data/locating/raw/raw1445.eu4", "./data/locating/raw/raw1618.eu4", "./data/locating/raw/raw1701.eu4"]
+    extraction_modes = ["sql", "cql"]
     
+    question_number = 0
+
+
     if individual:
-        original_wrapper = construct(file)
+        original_wrapper = construct(file=None)
         
         for k in original_wrapper.trading_nodes_dict.keys():
             find_flow_cache[k] = dict()
@@ -396,4 +406,5 @@ if __name__ == "__main__":
             
         print(f"country: {con}, options: {options}, ans: {ans}")
     else:
-        problem_gen(file=file,write=True, verbose=False, subjective=True, extraction_mode=extraction_mode)
+        for file in files:
+            problem_gen(file=file,write=True, verbose=False, extraction_modes=extraction_modes)

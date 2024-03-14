@@ -20,9 +20,9 @@ class LPGwrapper:
         nodes_dict = node_parser(structure_file_name)
         nodes_dict = node_value_injector(nodes_dict, game_savefile)
 
-        merchant_list = merchant_parser()
-        province_dict = province_parser()
-        country_dict = country_parser() 
+        merchant_list = merchant_parser(file_name=game_savefile)
+        province_dict = province_parser(file_name=game_savefile)
+        country_dict = country_parser(file_name=game_savefile) 
 
 
         for node in nodes_dict.values():

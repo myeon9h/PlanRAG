@@ -25,7 +25,7 @@ class MerchantState(Enum):
 
 
 def node_value_injector(nodes_dict, save_file):
-    file = open(save_file,"r")
+    file = open(save_file,"r", encoding='utf-8')
     data_list = file.readlines()
 
     count  = 0
