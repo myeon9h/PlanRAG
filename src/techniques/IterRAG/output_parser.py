@@ -21,6 +21,7 @@ class TaskManagerOutputParser(AgentOutputParser):
         return FORMAT_INSTRUCTIONS
 
     def parse(self, text: str) -> Union[AgentAction, AgentFinish]:
+        text = text.replace("Human: ", "")
         includes_answer = FINAL_ANSWER_ACTION in text
         regex = (
             r"Action\s*\d*\s*:[\s]*(.*?)[\s]*Action\s*\d*\s*input\s*\d*\s*:[\s]*(.*)"

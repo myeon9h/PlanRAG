@@ -50,6 +50,8 @@ if __name__ == "__main__":
     parser.add_argument("--scenario", help="locating or building", type=str, default="locating")
     parser.add_argument("--database", help="graph or relational", type=str, default="graph")
     parser.add_argument("--question_num", type=int, default=1)
+    parser.add_argument("--device", type=int, default=0)
+    parser.add_argument("--model", type=str, default="gpt-4")
     args = parser.parse_args()
     print_args(args)
 
@@ -135,6 +137,41 @@ if __name__ == "__main__":
     else:
         assert(0)
 
-    llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+    # llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = config['HUGGINGFACEHUB_API_TOKEN']
+
+    # from langchain_community.llms import HuggingFaceHub
+    # from langchain_community.chat_models.huggingface import ChatHuggingFace
+    # repo_id = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    # llm = HuggingFaceHub(
+    #     repo_id="HuggingFaceH4/zephyr-7b-beta",
+    #     task="text-generation",
+    # )
+
+    # from langchain.llms import HumanInputLLM
+
+
+
+    from langchain.llms.huggingface_pipeline import HuggingFacePipeline
+    from langchain_community.llms import HuggingFaceHub
+    from langchain_community.chat_models.huggingface import ChatHuggingFace
+
+    # server_url = "https://localhost:3000"
+    # llm = OpenLLM(server_url=server_url)
+    # llm = Ollama(model = "phi", temperature = 0)
+    # llm = HumanInputLLM()
+    if "gpt" in args.model:
+        llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+    else:
+        llm =  HuggingFacePipeline.from_model_id(
+        # model_id="meta-llama/Llama-2-13b-hf",
+        model_id = args.model,
+        task="text-generation",
+        pipeline_kwargs={"temperature": 0.1, "max_length": 2048},
+        device = args.device
+        )
+
+    
+
     taskManager = TaskManager.from_llm_and_tools(llm=llm, tools=databases, verbose = True)
     taskManager.run(question)
