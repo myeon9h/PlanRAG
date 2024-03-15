@@ -41,10 +41,11 @@ class Building:
         old_level = self.level
         self.level = level
         for d in self.max_demand.keys():
-            self.max_demand[d] = int((level/old_level)*self.max_demand[d])
+            self.max_demand[d] = float((level/old_level)*self.max_demand[d])
         
         for s in self.max_supply.keys():
-            self.max_supply[s] = int((level/old_level)*self.max_supply[s])
+            self.max_supply[s] = float((level/old_level)*self.max_supply[s])
+
 
         return
 
@@ -119,14 +120,16 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
             if line == "}\n":
                 for i in building.current_input.keys():
                     building.max_demand[i] = ((building.current_input[i]/building.throughput) if building.throughput > 0 else building.current_input[i])
-                    if building.max_demand[i] < 0:
-                        print(building, building.current_input)
+                    if building.max_demand[i] <= 0:
                         assert(0)
                 for j in building.current_output.keys():
                     building.max_supply[j] = (building.current_output[j]/building.throughput) if building.throughput > 0 else building.current_output[j]
                 
                 if building.state >0:
                     building_dict[building.id] = (building)
+                    
+                    assert(building.level != -1)
+
 
                 state = State.BUILDING_FINDING
                 continue
@@ -137,8 +140,21 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
                 rightside = line.split("=")[1]
                 if leftside == "building":
                     building.name = rightside.split()[0]
-                    building.level = int(line.split("=")[2])
-                
+                    try:
+                        building.level = int(line.split("=")[2])
+                    except:
+                        pass
+                    
+                    if int(building.level) == 0:
+                        state=State.BUILDING_FINDING
+                        # there is no level-zero building.
+
+                elif leftside == "level":
+                    if int(rightside) == 0:
+                        state=State.BUILDING_FINDING
+                    else:
+                        building.level = int(rightside)
+
                 elif leftside == "state":
                     building.state = int(rightside)
                 
@@ -176,6 +192,7 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
 
                 leftside = line.split("=")[0]
                 rightside = line.split("=")[1]
+                
                 if float(rightside) != 0:
                     input_dict[int(leftside)] = float(rightside)
 
@@ -220,5 +237,5 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
 
 if __name__ == "__main__":
 
-    game_savefile = "./data/building/raw/test.v3"
-    extract_building(game_savefile)
+    game_savefile = "./data/building/raw/raw1849.v3"
+    print(extract_building(game_savefile))

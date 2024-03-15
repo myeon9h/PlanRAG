@@ -1,8 +1,5 @@
 # PlanRAG: An Iterative Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers
 
-Our contents are provided under the MIT license.
-
-***
 ## Setup 
 ### Databases
 #### 1. Graph database
@@ -81,9 +78,18 @@ pip install -r requirements.txt
   python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
+
+## Using different models by vllm
+
+
+
+## Using different models by Huggingface's library (not recommanded)
+
+...
+
+Note: As this code is reletively slow rather than vllm's one, we are not recommanded to run this.
+
 ## Simulators
-
-
 
 ### The locating scenario
 
@@ -117,3 +123,7 @@ python ./src/data_parsers/building/example_gen/main.py
 ## Notice in database schema
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
 Also, "base_trading_power" and "calculated_trading_power" are both mean "TP_country" in our paper.
+
+## Licenses
+
+Our contents are provided under the MIT license.

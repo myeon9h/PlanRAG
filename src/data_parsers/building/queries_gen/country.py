@@ -321,10 +321,13 @@ def pops_consume(pop: Pop, culture_dict, demand_section_dict, wealth_demand_list
         demand_idx = demand_section_dict[demand]
 
         weight_dict = culture_weight_dict[demand_idx]
-
+        
         for key in weight_dict.keys():
-
-            return_dict[key] = ((pop_workforce+0.5*pop_dependents)/10000) * (PEASANTS if pop.type == "peasants" else 1)*(1/goods_list[key].base_price)*(weight_dict[key]/sum(weight_dict.values()))*demand_dict[demand]
+            
+            if sum(weight_dict.values()) == 0:
+                return_dict[key] = 0
+            else:
+                return_dict[key] = ((pop_workforce+0.5*pop_dependents)/10000) * (PEASANTS if pop.type == "peasants" else 1)*(1/goods_list[key].base_price)*(weight_dict[key]/sum(weight_dict.values()))*demand_dict[demand]
 
 
 

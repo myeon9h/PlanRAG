@@ -7,9 +7,12 @@ import pandas as pd
 
 def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
-    cnt = country.country_extracting(file_path, country_code)
-    goods_list = initialize_goods(cnt)
-    building_dict = initialize_buildings(cnt)
+    try:
+        cnt = country.country_extracting(file_path, country_code)
+    except:
+        return (None, None, None)
+    goods_list = initialize_goods(cnt, goods_file=goods_file_path)
+    building_dict = initialize_buildings(cnt, file_path=file_path, goods_file_path=goods_file_path)
 
     return (cnt, goods_list, building_dict)
 
@@ -27,7 +30,7 @@ def initialize_goods(cnt: country.Country,goods_file = "./data/building/raw/good
 def initialize_buildings(cnt:country.Country, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
     
 
-    building_dict = building.extract_building()
+    building_dict = building.extract_building(file_path=file_path)
 
     filtered_building_dict = dict()
 
@@ -119,8 +122,12 @@ if __name__ == "__main__":
 
     write = True
     
+    # savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
+
+    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
+
     # sql or cql 
-    extraction_mode = "sql" 
+    extraction_mode = ["sql", "cql"]
 
     # country list
     country_code_list = ["USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP"]
@@ -128,65 +135,69 @@ if __name__ == "__main__":
 
     questions = []
 
-    for country_code in country_code_list:
-
-        (_, goods_list, building_dict) = initialize(country_code)
-        base_goods_list, base_building_dict=simulate(goods_list, building_dict, cycle = 100)
+    for savefile_path in savefile_path_list:
         
-        # base query
-        if write and extraction_mode == "cql":
-            cql = extract_cql(base_goods_list, base_building_dict)
-            query_path = cql_dir + f"{country_code}.cql"
-            with open(query_path,"w") as file:
-                file.write(cql)
+        year = savefile_path[-7:-3]
+
+        print("extracting on {}".format(savefile_path))
+
+        for country_code in country_code_list:
+
+            (_, goods_list, building_dict) = initialize(country_code, file_path=savefile_path)
             
-            file.close()
-        elif write and extraction_mode == "sql":
-            sql = extract_sql(base_goods_list, base_building_dict)
-            query_path = sql_dir + f"{country_code}.sql"
-            with open(query_path,"w") as file:
-                file.write(sql)
+            if goods_list == None:
+                continue
+
+            base_goods_list, base_building_dict=simulate(goods_list, building_dict, cycle = 100)
             
+            # base query
+            if write and ("cql" in extraction_mode):
+                cql = extract_cql(base_goods_list, base_building_dict)
+                query_path = cql_dir + f"{country_code}{year}.cql"
+                with open(query_path,"w") as file:
+                    file.write(cql)
+                file.close()
 
-
-        elif write:
-            print("mode error")
-            assert(0)
-
-        else:
-            continue
-
-        for goods_id in tqdm(range(len(goods_list))):
-            
-            assert(goods_id != -1)
-
-            max_result = None
-            min_result = None
-
-            max_building_id = -1
-            min_building_id = -1
-
-            max_val = base_goods_list[goods_id].current_price
-            min_val = base_goods_list[goods_id].current_price
-            for b in base_building_dict.values():
-                goods_list = copy.deepcopy(base_goods_list)
-                building_dict = copy.deepcopy(base_building_dict)
-                building_dict = modification(building_dict, b.id, BUILDING_INCR)
+            if write and ("sql" in extraction_mode):
+                sql = extract_sql(base_goods_list, base_building_dict)
+                query_path = sql_dir + f"{country_code}{year}.sql"
+                with open(query_path,"w") as file:
+                    file.write(sql)
+                file.close()
                 
-                goods_list, building_dict = simulate(goods_list, building_dict)
+            for goods_id in tqdm(range(len(goods_list))):
                 
-                if goods_list[goods_id].current_price > max_val:
-                    # max_result = copy.deepcopy(goods_list[goods_id])
-                    max_val = goods_list[goods_id].current_price
-                    max_building_id = b.id
-                elif goods_list[goods_id].current_price < min_val:
-                    # min_result = copy.deepcopy(goods_list[goods_id])
-                    min_building_id = b.id
-                    min_val = goods_list[goods_id].current_price
+                assert(goods_id != -1)
 
-            if (min_building_id != -1) and ( goods_id in building_dict[min_building_id].max_supply.keys()):
-                questions.append([country_code] + [goods_list[goods_id].name] + [min_building_id])
-            
+                max_result = None
+                min_result = None
+
+                max_building_id = -1
+                min_building_id = -1
+
+                max_val = base_goods_list[goods_id].current_price
+                min_val = base_goods_list[goods_id].current_price
+                for b in base_building_dict.values():
+                    goods_list = copy.deepcopy(base_goods_list)
+                    building_dict = copy.deepcopy(base_building_dict)
+                    building_dict = modification(building_dict, b.id, BUILDING_INCR)
+                    
+                    goods_list, building_dict = simulate(goods_list, building_dict)
+                    
+                    if goods_list[goods_id].current_price > max_val:
+                        # max_result = copy.deepcopy(goods_list[goods_id])
+                        max_val = goods_list[goods_id].current_price
+                        max_building_id = b.id
+                    elif goods_list[goods_id].current_price < min_val:
+                        # min_result = copy.deepcopy(goods_list[goods_id])
+                        min_building_id = b.id
+                        min_val = goods_list[goods_id].current_price
+
+                if (min_building_id != -1) and (goods_id in building_dict[min_building_id].max_supply.keys()):
+                    questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
+
+
+
     df = pd.DataFrame(data=questions, index=range(len(questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
     df.to_csv(raw_dir)
 

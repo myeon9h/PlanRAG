@@ -145,7 +145,7 @@ if __name__ == "__main__":
     from langchain_community.chat_models.huggingface import ChatHuggingFace
 
     if "gpt" in args.model:
-        llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+        llm = ChatOpenAI(temperature=0, model_name=args.model, max_retries=40)
     else:
         llm =  HuggingFacePipeline.from_model_id(
         model_id = args.model,
