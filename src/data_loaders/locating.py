@@ -59,8 +59,10 @@ def locating_dataloader(question_number, question_path = "./data/trading/questio
         
     f.close()
 
+    text_question = target_question["business_rules"]+target_question["question"]+target_question['goal']
+
     if option:
-        text_question = target_question["question"]+target_question['goal']+"""
+        text_question = text_question+"""
         Here are possible options:
         """ 
 
@@ -68,8 +70,6 @@ def locating_dataloader(question_number, question_path = "./data/trading/questio
         for option in target_question["examples"]:
             text_question = text_question + f"{idx}: {option}\n"
             idx += 1
-    else:
-        text_question = target_question["question"]+target_question['goal']
 
     tabular_db_name = target_question["target_rdb"]
     graph_db_name = target_question["target_gdb"]

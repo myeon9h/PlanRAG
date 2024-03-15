@@ -1,6 +1,6 @@
 import json
 from parser import province_parser, country_parser, merchant_parser
-from prompt_templete import situation, question, strategy, goal
+from prompt_templete import business_rules, question, goal
 import os
 import pandas as pd
 
@@ -15,6 +15,8 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
         f = open(raw_dir, "r")
         df = pd.read_csv(f)
         question_and_answers = dict()
+
+        year = raw_dir[-8:-4]
         
         for _, row in df.iterrows():
             question_and_answers[row["Country"]] = [row["Answer"]]
@@ -26,20 +28,22 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
         print("savefile:", savefile_path)
         country_tradeprovince_dict = country_parser(savefile_path)
         province_node_dict = province_parser(savefile_path)
-        situation_text = situation()
+        situation_text = business_rules()
+
         for con in question_and_answers.keys():
             con_dict = dict()
             
             trade_port = country_tradeprovince_dict[con]["trade_port"]
-            question_text = question(con, province_node_dict[trade_port], sorted(question_and_answers[con]))
+            question_text = question(con, province_node_dict[trade_port], year)
             goal_text = goal(province_node_dict[trade_port])
-            prompt = situation_text+question_text
-            con_dict["question"] = prompt
+            con_dict["business_rules"] = situation_text
+            con_dict["question"] = question_text
             con_dict["goal"] = goal_text
 
             con_dict["answer"] = question_and_answers[con][0]
             con_dict["home"] = province_node_dict[trade_port]
             con_dict["country"] = con
+            con_dict["year"] = year
 
             con_dict["target_rdb"] = "eu4_1445"
             con_dict["target_gdb"] = "eu4"
@@ -54,7 +58,7 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
     file.close()
     return
 
-def example_generator(indices, json_file_dir="./data/locating/questions/example.json"):
+def example_generator(indices, json_file_dir):
     
     with open(json_file_dir) as file:
         json_obj = json.load(file)
@@ -62,11 +66,11 @@ def example_generator(indices, json_file_dir="./data/locating/questions/example.
     
     prompt_list = []
     
-    situation_text = situation()
+    situation_text = business_rules()
     
     for idx in indices:
         problem = json_obj[idx]
-        question_text = question(problem["country"], problem["homenode"], problem["examples"])
+        question_text = question(problem["country"], problem["homenode"],problem["year"])
         
         # prompt = situaton_text+strategy_text+question_text
         prompt = situation_text+question_text

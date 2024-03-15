@@ -1,7 +1,5 @@
-def situation(mode = "eu4"):
-    
-    if mode == "eu4":
-        situation = """
+def business_rules():
+    situation = """
 A "Trading node" has a "local_value," “total_power", “outgoing”, “ingoing” and **whether it's inland**.
 
 A "Country" has a "name", “development” and a "trade_port" (home node).
@@ -20,32 +18,15 @@ If a specific trading node has more than one downstream node, and a country that
     """
     return situation
 
-def strategy(mode="eu4"):
-    if mode == "eu4":
-        strategy = """
-==========
-These are the famous strategy to raise overall profit.
-1. It is highly encoraged to place merchants on directly connected nodes.
-2. It is advantageous to place merchants on nodes with high local value. 
-    """
-    return strategy
 
-def question(country, home, examples, year="1444"):
-
-    examples_text = ""
-    count = 1
-    for example in examples:
-        examples_text = examples_text + "{}. {}\n".format(count,example)
-        count = count+1
-
-
+def question(country, home, year="1444"):
     question = """
 ================
 <Question>
 
-Assume that you are the ruler of the country named "{0}". You and your competitions are on the system of trade in {3}.
+Assume that you are the ruler of the country named "{0}". You and your competitions are on the system of trade in {2}.
 You have one merchant to work on trade system. Our home node is "{1}". where should I allocate my merchant to steer trade to "{1}"?
-""".format(country, home, examples_text, year)
+""".format(country, home, year)
 
     return question
 

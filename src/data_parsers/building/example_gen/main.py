@@ -1,5 +1,5 @@
 import json
-from prompt_templete import question
+from prompt_templete import question, business_rules
 import os
 import pandas as pd
 
@@ -24,6 +24,7 @@ def json_example_generator(file_dir="./data/building/questions/simulated_questio
         con_dict["country"] = con
         con_dict["question_num"] = idx
         con_dict["question"] = question(example[1])
+        con_dict["business_rules"] = business_rules()
         con_dict["goods"] = example[1]
         con_dict["target_gdb"] = "gdb-2hop-001"
         con_dict["answer"] = example[2]
