@@ -79,13 +79,32 @@ pip install -r requirements.txt
   ```
 
 
-## Using different models by vllm
+## Using open models by vllm
+
+For using open models in our experiment, you should install vllm library in your environment (e.g. conda environment). You can install it by following command. 
+```bash
+pip install vllm
+```
+You can also check official documentation in [here](https://docs.vllm.ai/en/latest/getting_started/installation.html).
+
+Following code is an example for executing our code by using `meta-llama/Llama-2-70b-chat-hf` model. 
+
+```bash
+# First, you should deploy your model as a server by vllm.
+python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-2-70b-chat-hf
+
+# Now, you can try open-model experiments.
+python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-70b-chat-hf
+```
 
 
+## Using open models by Huggingface's library (not recommanded)
 
-## Using different models by Huggingface's library (not recommanded)
+You can also try to use Huggingface library. Following code is for executing `meta-llama/Llama-2-13b-chat-hf` and do experiment by Huggingface pipeline function:
 
-...
+```bash
+python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-13b-chat-hf --open_model_method huggingface
+```
 
 Note: As this code is reletively slow rather than vllm's one, we are not recommanded to run this.
 

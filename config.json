@@ -1,6 +1,6 @@
 {
     "OPENAI_API_KEY": "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",
-    "HUGGINGFACEHUB_API_TOKEN": "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",
+    "HUGGINGFACEHUB_API_TOKEN": "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",
     "NEO4J": {
         "HOST": "bolt://localhost:7687",
         "USER": "neo4j",
