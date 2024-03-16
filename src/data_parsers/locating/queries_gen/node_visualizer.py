@@ -10,8 +10,8 @@ def node_visualizer(nodes_dict, file_name):
     nodes_string = list(nodes_dict.keys())
     edges_string = list()
     
-    for upstream in nodes_dict.values():
-        edges_string = edges_string + [(upstream.name, downstream_name) for downstream_name in upstream.out_going]
+    for source in nodes_dict.values():
+        edges_string = edges_string + [(source.name, dest_name) for dest_name in source.out_going]
     
     G.add_nodes_from(nodes_string)
     G.add_edges_from(edges_string)

@@ -22,7 +22,7 @@ class Blob(BaseModel):
     """Blob represents raw data by either reference or value.
 
     Provides an interface to materialize the blob in different representations, and
-    help to decouple the development of data loaders from the downstream parsing of
+    help to decouple the development of data loaders from the dest parsing of
     the raw data.
 
     Inspired by: https://developer.mozilla.org/en-US/docs/Web/API/Blob
@@ -33,7 +33,7 @@ class Blob(BaseModel):
     encoding: str = "utf-8"  # Use utf-8 as default encoding, if decoding to string
     # Location where the original content was found
     # Represent location on the local file system
-    # Useful for situations where downstream code assumes it must work with file paths
+    # Useful for situations where dest code assumes it must work with file paths
     # rather than in-memory content.
     path: Optional[PathLike] = None
 

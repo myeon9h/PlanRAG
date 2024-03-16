@@ -17,6 +17,9 @@ class Goods:
     def price_calculate(self):
 
         demand = self.pop_demand + self.building_demand
+        
+        assert(self.supply >= 0)
+        
         if demand == 0 and self.supply == 0:
             self.current_price  = self.base_price
         else:

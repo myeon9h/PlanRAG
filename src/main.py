@@ -50,6 +50,10 @@ if __name__ == "__main__":
     parser.add_argument("--scenario", help="locating or building", type=str, default="locating")
     parser.add_argument("--database", help="graph or relational", type=str, default="graph")
     parser.add_argument("--question_num", type=int, default=1)
+    parser.add_argument("--device", type=int, default=0)
+    parser.add_argument("--model", type=str, default="gpt-4")
+
+    parser.add_argument("--open_model_method", help="vllm or huggingface", type=str, default="vllm")
     args = parser.parse_args()
     print_args(args)
 
@@ -82,6 +86,7 @@ if __name__ == "__main__":
         tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a Cypher query statement to interact with this tool):""" + GDB_INFO
 
         if scenario == "building":
+            # example country name: USA1836
             db_file_path = f"./data/{scenario}/db_query(parsed)/LPG_format/{country}.cql"
         elif scenario == "locating":
             db_file_path = f"./data/{scenario}/db_query(parsed)/LPG_format/q{question_num}.cql"
@@ -135,6 +140,34 @@ if __name__ == "__main__":
     else:
         assert(0)
 
-    llm = ChatOpenAI(temperature=0, model_name="gpt-4", max_retries=40)
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = config['HUGGINGFACEHUB_API_TOKEN']
+
+
+    if "gpt" in args.model:
+        llm = ChatOpenAI(temperature=0, model_name=args.model, max_retries=40)
+    elif args.open_model_method == "huggingface":
+        from langchain.llms.huggingface_pipeline import HuggingFacePipeline
+
+        llm =  HuggingFacePipeline.from_model_id(
+        model_id = args.model,
+        task="text-generation",
+        pipeline_kwargs={"temperature": 0.1, "max_length": 2048},
+        device = args.device
+        )
+    elif args.open_model_method == "vllm":
+        from langchain.llms import VLLMOpenAI
+
+        llm = VLLMOpenAI(
+            openai_api_key="EMPTY",
+            openai_api_base="http://localhost:8000/v1",
+            model_name=args.model,
+            )
+
+    else:
+        print("invalid model!")
+        assert(0)
+
+    
+
     taskManager = TaskManager.from_llm_and_tools(llm=llm, tools=databases, verbose = True)
     taskManager.run(question)

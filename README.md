@@ -1,8 +1,5 @@
 # PlanRAG: An Iterative Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers
 
-Our contents are provided under the MIT license.
-
-***
 ## Setup 
 ### Databases
 #### 1. Graph database
@@ -81,14 +78,41 @@ pip install -r requirements.txt
   python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
+
+## Using open models by vllm
+
+For using open models in our experiment, you should install vllm library in your environment (e.g. conda environment). You can install it by following command. 
+```bash
+pip install vllm
+```
+You can also check official documentation in [here](https://docs.vllm.ai/en/latest/getting_started/installation.html).
+
+Following code is an example for executing our code by using `meta-llama/Llama-2-70b-chat-hf` model. 
+
+```bash
+# First, you should deploy your model as a server by vllm.
+python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-2-70b-chat-hf
+
+# Now, you can try open-model experiments.
+python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-70b-chat-hf
+```
+
+
+## Using open models by Huggingface's library (not recommanded)
+
+You can also try to use Huggingface library. Following code is for executing `meta-llama/Llama-2-13b-chat-hf` and do experiment by Huggingface pipeline function:
+
+```bash
+python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-13b-chat-hf --open_model_method huggingface
+```
+
+Note: As this code is reletively slow rather than vllm's one, we are not recommanded to run this.
+
 ## Simulators
-
-
-<!-- 시뮬레이터 어떻게 사용하여야 하는지 -->
 
 ### The locating scenario
 
-To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide a `test.eu4` file in `/data/locating/raw/` for data generation.
+To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide three raw files: `raw1445.eu4`, `raw1618.eu4` and `raw1701.eu4` in `/data/locating/raw/` for data generation.
 
 You can create the `simulated_question.json` in `/data/locating/questions/standard/` by sequentially executing the following code:
 
@@ -98,11 +122,12 @@ python ./src/data_parsers/locating/queries_gen/simulator.py
 python ./src/data_parsers/locating/example_gen/main.py
 ```
 
+<!-- savefile 여러개를 넣어줘야 함. 이름은 연도를 따라 raw1444.eu4 등으로 작성할 것-->
 
 ### The building scenario
 
 
-To generate questions for the building scenario, you will need a Victoria 3 game savefile. We provide a `test.v3` file in `/data/building/raw/` for data generation.
+To generate questions for the building scenario, you will need a Victoria 3 game savefile.  We provide three raw files: `raw1836.v3`, `raw1839.v3` and `raw1849.v3` in `/data/building/raw/` for data generation.
 
 You can create the `simulated_questions.json` in `/data/building/questions/standard/` by sequentially executing the following code:
 
@@ -112,6 +137,13 @@ python ./src/data_parsers/building/queries_gen/simulator.py
 python ./src/data_parsers/building/example_gen/main.py
 ```
 
+<!-- By this code, you can get `simulated_question.json` in `./PlanRAG/data/building/questions` directory and several LPG, SQL codes in `./PlanRAG/data/building/db_query(parsed)` -->
+
 ## Notice in database schema
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
 Also, "base_trading_power" and "calculated_trading_power" are both mean "TP_country" in our paper.
+
+<!-- ## Licenses
+
+Our contents are provided under the MIT license. -->
+

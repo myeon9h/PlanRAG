@@ -25,7 +25,7 @@ class MerchantState(Enum):
 
 
 def node_value_injector(nodes_dict, save_file):
-    file = open(save_file,"r")
+    file = open(save_file,"r", encoding='utf-8')
     data_list = file.readlines()
 
     count  = 0
@@ -150,7 +150,7 @@ def merchant_parser(file_name="./data/locating/raw/test.eu4"):
         line = line.replace("\n", "")
 
         if line == "\t\tmerchant_construction={" and state == MerchantState.LINE:
-            state = MerchantState.MERCHANT_REGISTER
+            state = has_merchantState.MERCHANT_REGISTER
             path_dict = dict()
         
         elif state == MerchantState.MERCHANT_REGISTER:

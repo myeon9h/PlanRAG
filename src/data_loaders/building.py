@@ -31,7 +31,7 @@ def building_dataloader(question_number, question_path = "./data/building/questi
 
     f.close()
 
-    text_question = target_question["question"]
+    text_question = target_question["business_rules"]+target_question["question"]
 
     graph_db_name = target_question["target_gdb"]
 

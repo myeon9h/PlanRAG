@@ -125,7 +125,7 @@ class LLMResult(BaseModel):
         Unpack List[List[Generation]] -> List[LLMResult] where each returned LLMResult
             contains only a single Generation. If token usage information is available,
             it is kept only for the LLMResult corresponding to the top-choice
-            Generation, to avoid over-counting of token usage downstream.
+            Generation, to avoid over-counting of token usage dest.
 
         Returns:
             List of LLMResults where each returned LLMResult contains a single

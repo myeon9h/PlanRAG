@@ -76,15 +76,15 @@ def node_parser(file_name):
 
         if line[0] != "\t" and line[0] != "}":
             assert(state == State.LINE)
-            node_name = line.split("=")[0]
-            node = Node(node_name)
+            trade_node = line.split("=")[0]
+            node = Node(trade_node)
             state = State.NODE_REGISTER
         
         elif line[0] == "}":
             assert(state == State.NODE_REGISTER)
             state = State.LINE
 
-            nodes_dict[node_name] = node
+            nodes_dict[trade_node] = node
             node = None
 
 
