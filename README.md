@@ -108,7 +108,7 @@ python ./src/data_parsers/locating/example_gen/main.py
 ### The building scenario
 
 
-To generate questions for the building scenario, you will need a Victoria 3 game savefile. We provide a `test.v3` file in `/data/building/raw/` for data generation.
+To generate questions for the building scenario, you will need a Victoria 3 game savefile.  We provide three raw files: `raw1836.v3`, `raw1839.v3` and `raw1849.v3` in `/data/building/raw/` for data generation.
 
 You can create the `simulated_questions.json` in `/data/building/questions/standard/` by sequentially executing the following code:
 
@@ -124,6 +124,7 @@ python ./src/data_parsers/building/example_gen/main.py
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
 Also, "base_trading_power" and "calculated_trading_power" are both mean "TP_country" in our paper.
 
-## Licenses
+<!-- ## Licenses
 
-Our contents are provided under the MIT license.
+Our contents are provided under the MIT license. -->
+

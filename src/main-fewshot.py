@@ -21,16 +21,16 @@ Assume that you are the ruler of the country named \"TUR\". You and your competi
 Note that my goal is maximizing my profit on \"constantinople\".
 
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of the "english_channel". 
+[Step 1: Identify the trading nodes that are source of the "english_channel". 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there. 
  Step 3: Identify the node with the highest potential profit increase.]
 
 Current step: Step 1
-Thought: To identify the trading nodes that are upstream of the "english_channel", I need to query the "flow" table in the relational database.
+Thought: To identify the trading nodes that are source of the "english_channel", I need to query the "flow" table in the relational database.
 Action: Relational DB
-Action input: SELECT upstream FROM flow WHERE downstream = 'english_channel';
+Action input: SELECT source FROM flow WHERE dest = 'english_channel';
 Observation:
-         upstream
+         source
 0       champagne
 1  chesapeake_bay
 2     ivory_coast
@@ -38,12 +38,12 @@ Observation:
 4       north_sea
 Re-plan: N
 Current step: Step 2
-Thought: To calculate the potential profit increase for each of these nodes if a merchant is placed there, I need to consider several factors. These include the local value and ingoing of the node, the base trading power of ENG in the node, the total trading power of the node, and the development of ENG. I need to query the "trading_node" and "node_country" tables in the relational database.
+Thought: To calculate the potential profit increase for each of these nodes if a merchant is placed there, I need to consider several factors. These include the local value and ingoing of the node, the base trading power of ENG in the node, the total trading power of the node, and the development of ENG. I need to query the "trade_node" and "node_country" tables in the relational database.
 Action: Relational DB
-Action input: SELECT t.trading_node, t.local_value, t.ingoing, t.total_power, n.base_trading_power, c.development FROM trading_node t JOIN node_country n ON t.trading_node = n.node_name JOIN country c ON n.country_name = c.country_name WHERE n.country_name = 'ENG' AND t.trading_node IN ('champagne', 'chesapeake_bay', 'ivory_coast', 'lubeck', 'north_sea');
+Action input: SELECT t.trade_node, t.local_value, t.ingoing, t.total_power, n.base_trading_power, c.development FROM trade_node t JOIN node_country n ON t.trade_node = n.trade_node JOIN country c ON n.country_name = c.country_name WHERE n.country_name = 'ENG' AND t.trade_node IN ('champagne', 'chesapeake_bay', 'ivory_coast', 'lubeck', 'north_sea');
 
 Observation:
-  trading_node  local_value  ...  base_trading_power  development
+  trade_node  local_value  ...  base_trading_power  development
 0    champagne        7.497  ...              87.799      315.602
 1       lubeck        5.818  ...              38.179      315.602
 2    north_sea        4.317  ...              51.979      315.602
@@ -51,18 +51,18 @@ Observation:
 [3 rows x 6 columns]
 Re-plan: Y
 New Plan: 
-[Step 1: Identify the trading nodes that are upstream of the "english_channel". 
+[Step 1: Identify the trading nodes that are source of the "english_channel". 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there. 
  Step 3: Identify the node with the highest potential profit increase.
  Step 4: Check if the nodes are inland or not.]
 
 Current step: Step 4
-Thought: To check if the nodes are inland or not, I need to query the "trading_node" table in the relational database.
+Thought: To check if the nodes are inland or not, I need to query the "trade_node" table in the relational database.
 Action: Relational DB
-Action input: SELECT trading_node, node_inland FROM trading_node WHERE trading_node IN ('champagne', 'lubeck', 'north_sea');
+Action input: SELECT trade_node, node_inland FROM trade_node WHERE trade_node IN ('champagne', 'lubeck', 'north_sea');
 
 Observation:
-  trading_node  node_inland
+  trade_node  node_inland
 0    champagne            1
 1       lubeck            0
 2    north_sea            0
@@ -240,38 +240,38 @@ Note that my goal is maximizing my profit on \"english_channel\".
 Thought: 
 To answer this question, I need to find the trading node that will maximize the profit for the country "ENG" if a merchant is placed there. The profit is proportional to the local value and ingoing of the node, and the ratio of the country's trading power to the total trading power of the node. The merchant increases the trading power of the country's trading node by 2 and amplifies it by 1.05 times. If the node is inland, the added value changes to 2+max(development/3, 50). 
 
-First, I need to find the trading nodes that are upstream of the home node "english_channel". Then, I need to calculate the potential profit for each of these nodes if a merchant is placed there. The node with the highest potential profit is the one where the merchant should be placed.
+First, I need to find the trading nodes that are source of the home node "english_channel". Then, I need to calculate the potential profit for each of these nodes if a merchant is placed there. The node with the highest potential profit is the one where the merchant should be placed.
 
 Action: Relational DB
 Action input: 
-SELECT upstream FROM flow WHERE downstream = 'english_channel';
+SELECT source FROM flow WHERE dest = 'english_channel';
 Observation:
-         upstream
+         source
 0       champagne
 1  chesapeake_bay
 2     ivory_coast
 3          lubeck
 4       north_sea
 Thought: 
-Now I have the list of upstream nodes of "english_channel". I need to calculate the potential profit for each of these nodes if a merchant is placed there. The profit is proportional to the local value and ingoing of the node, and the ratio of the country's trading power to the total trading power of the node. The merchant increases the trading power of the country's trading node by 2 and amplifies it by 1.05 times. If the node is inland, the added value changes to 2+max(development/3, 50). 
+Now I have the list of source nodes of "english_channel". I need to calculate the potential profit for each of these nodes if a merchant is placed there. The profit is proportional to the local value and ingoing of the node, and the ratio of the country's trading power to the total trading power of the node. The merchant increases the trading power of the country's trading node by 2 and amplifies it by 1.05 times. If the node is inland, the added value changes to 2+max(development/3, 50). 
 
 Action: Relational DB
 Action input: 
-SELECT t.trading_node, t.local_value, t.ingoing, t.total_power, t.node_inland, n.base_trading_power, n.calculated_trading_power, c.development
-FROM trading_node t
-JOIN node_country n ON t.trading_node = n.node_name
+SELECT t.trade_node, t.local_value, t.ingoing, t.total_power, t.node_inland, n.base_trading_power, n.calculated_trading_power, c.development
+FROM trade_node t
+JOIN node_country n ON t.trade_node = n.trade_node
 JOIN country c ON n.country_name = c.country_name
-WHERE t.trading_node IN ('champagne', 'chesapeake_bay', 'ivory_coast', 'lubeck', 'north_sea') AND n.country_name = 'ENG';
+WHERE t.trade_node IN ('champagne', 'chesapeake_bay', 'ivory_coast', 'lubeck', 'north_sea') AND n.country_name = 'ENG';
 
 Observation:
-  trading_node  local_value  ...  calculated_trading_power  development
+  trade_node  local_value  ...  calculated_trading_power  development
 0    champagne        7.497  ...                    87.799      315.602
 1       lubeck        5.818  ...                    38.179      315.602
 2    north_sea        4.317  ...                    51.979      315.602
 
 [3 rows x 8 columns]
 Thought: 
-Now I have the necessary data to calculate the potential profit for each of the upstream nodes of "english_channel". The profit is proportional to the local value and ingoing of the node, and the ratio of the country's trading power to the total trading power of the node. The merchant increases the trading power of the country's trading node by 2 and amplifies it by 1.05 times. If the node is inland, the added value changes to 2+max(development/3, 50). 
+Now I have the necessary data to calculate the potential profit for each of the source nodes of "english_channel". The profit is proportional to the local value and ingoing of the node, and the ratio of the country's trading power to the total trading power of the node. The merchant increases the trading power of the country's trading node by 2 and amplifies it by 1.05 times. If the node is inland, the added value changes to 2+max(development/3, 50). 
 
 Action: Self thinking
 Action input: 
@@ -287,7 +287,7 @@ The potential profit for each node is as follows:
 - north_sea: 4.317
 
 Thought: 
-Now I know the potential profit for each of the upstream nodes of "english_channel". The node with the highest potential profit is the one where the merchant should be placed.
+Now I know the potential profit for each of the source nodes of "english_channel". The node with the highest potential profit is the one where the merchant should be placed.
 
 Final answer: 
 The merchant should be placed at the "champagne" node to maximize the profit on "english_channel".

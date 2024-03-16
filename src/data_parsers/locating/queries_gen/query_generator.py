@@ -19,14 +19,14 @@ def cql_gen(nodes_dict, dir_path, anony=False):
     
     # node relationship generation
     for node in nodes_dict.values():
-        for downstream in node.out_going:
+        for dest in node.out_going:
             if anony:
 
-                query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:UPSTREAM]->({1});\n".format(node.anony_name, nodes_dict[downstream].anony_name)
+                query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:source]->({1});\n".format(node.anony_name, nodes_dict[dest].anony_name)
             else:
-                # query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:DOWNSTREAM]->({1});\n".format(node.name, downstream)
+                # query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:dest]->({1});\n".format(node.name, dest)
                 
-                query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:UPSTREAM]->({1});\n".format(node.name, downstream)
+                query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Trade_node {{name:\"{1}\"}}) CREATE ({0})-[r:source]->({1});\n".format(node.name, dest)
 
     
     file.write(query)
@@ -146,10 +146,10 @@ def sql_gen(nodes_dict, dir_path, anony=False, norm = False):
     else:
         query = query + """CREATE TABLE trading
             (
-                node_name VARCHAR(30),
+                trade_node VARCHAR(30),
                 country_code    VARCHAR(5),
                 val FLOAT,
-                CONSTRAINT country_code PRIMARY KEY (node_name, country_code)
+                CONSTRAINT country_code PRIMARY KEY (trade_node, country_code)
             );
             """
                 # type_ INT,
@@ -183,7 +183,7 @@ def sql_gen(nodes_dict, dir_path, anony=False, norm = False):
                 structure = "country_code"
                 values = "\'{}\'".format(country_code)
             else:
-                structure = "node_name, country_code"
+                structure = "trade_node, country_code"
                 values = "\'{}\',\'{}\'".format(name, country_code)
             
             

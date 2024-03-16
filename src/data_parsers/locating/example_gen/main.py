@@ -33,15 +33,15 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
         for con in question_and_answers.keys():
             con_dict = dict()
             
-            trade_port = country_tradeprovince_dict[con]["trade_port"]
-            question_text = question(con, province_node_dict[trade_port], year)
-            goal_text = goal(province_node_dict[trade_port])
+            home_node = country_tradeprovince_dict[con]["home_node"]
+            question_text = question(con, province_node_dict[home_node], year)
+            goal_text = goal(province_node_dict[home_node])
             con_dict["business_rules"] = situation_text
             con_dict["question"] = question_text
             con_dict["goal"] = goal_text
 
             con_dict["answer"] = question_and_answers[con][0]
-            con_dict["home"] = province_node_dict[trade_port]
+            con_dict["home"] = province_node_dict[home_node]
             con_dict["country"] = con
             con_dict["year"] = year
 

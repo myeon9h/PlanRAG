@@ -150,7 +150,7 @@ def merchant_parser(file_name="./data/locating/raw/test.eu4"):
         line = line.replace("\n", "")
 
         if line == "\t\tmerchant_construction={" and state == MerchantState.LINE:
-            state = MerchantState.MERCHANT_REGISTER
+            state = has_merchantState.MERCHANT_REGISTER
             path_dict = dict()
         
         elif state == MerchantState.MERCHANT_REGISTER:

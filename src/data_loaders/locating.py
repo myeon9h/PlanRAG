@@ -3,48 +3,48 @@ RDB_INFO = """
 CREATE TABLE country
 (
     country_name    VARCHAR(30),
-    trade_port    VARCHAR(30),
+    home_node    VARCHAR(30),
     development FLOAT,
    PRIMARY KEY (country_name)
 );
 
-CREATE TABLE trading_node
+CREATE TABLE trade_node
 (
-    trading_node    VARCHAR(30),
+    trade_node    VARCHAR(30),
     local_value FLOAT,
     node_inland BOOLEAN
     total_power FLOAT,
     outgoing FLOAT,
     ingoing FLOAT,
-   PRIMARY KEY (trading_node)
+   PRIMARY KEY (trade_node)
 );
 
 CREATE TABLE flow
 (
-    upstream    VARCHAR(30),
-    downstream VARCHAR(30),
+    source    VARCHAR(30),
+    dest VARCHAR(30),
     flow FLOAT,
-   PRIMARY KEY (upstream, downstream)
+   PRIMARY KEY (source, dest)
 );
 
 CREATE TABLE node_country
 (
-    node_name     VARCHAR(30),
+    trade_node     VARCHAR(30),
     country_name    VARCHAR(30),
     is_home BOOLEAN,
-    merchant BOOLEAN,
+    has_merchant BOOLEAN,
     base_trading_power FLOAT,
     calculated_trading_power FLOAT,
-   PRIMARY KEY (node_name, country_name)
+   PRIMARY KEY (trade_node, country_name)
 );
 """
 
 GDB_INFO = """
 (n:Trade_node {{name, local_value, node_inland, total_power, outgoing, ingoing}});
-(m:Country {{name, trade_port, development}});
+(m:Country {{name, home_node, development}});
 
-(Trade_node)-[r:UPSTREAM {{flow}}]->[Trade_node]
-(Country)-[NodeCountry{{is_home, merchant,base_trading_power,calculated_trading_power}}]->(Trade_node)
+(Trade_node)-[r:source {{flow}}]->[Trade_node]
+(Country)-[NodeCountry{{is_home, has_merchant,base_trading_power,calculated_trading_power}}]->(Trade_node)
 """
 
 import json

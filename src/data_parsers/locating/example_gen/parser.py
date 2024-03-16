@@ -154,7 +154,7 @@ def country_parser(file_name="./data/locating/raw/test.eu4"):
 
             elif (line_list[0] == "\t}"):
                 state = CountryState.COUNTRY_REGISTER
-                country_dict[country_code]={"development": float(development),"trade_port": int(province_trade)}
+                country_dict[country_code]={"development": float(development),"home_node": int(province_trade)}
                 development = -1
                 province_trade = -1
             else:
