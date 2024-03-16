@@ -1,5 +1,5 @@
 #!/bin/bash
-for ((var=1;var<=59;var++))
+for ((var=1;var<=112;var++))
 #for var in 1 2
 do
        echo $var
