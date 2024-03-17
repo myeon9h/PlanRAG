@@ -51,7 +51,7 @@ if __name__ == "__main__":
     parser.add_argument("--database", help="graph or relational", type=str, default="graph")
     parser.add_argument("--question_num", type=int, default=1)
     parser.add_argument("--device", type=int, default=0)
-    parser.add_argument("--model", type=str, default="gpt-4")
+    parser.add_argument("--model", type=str, default="gpt-4-0125-preview")
 
     parser.add_argument("--open_model_method", help="vllm or huggingface", type=str, default="vllm")
     args = parser.parse_args()

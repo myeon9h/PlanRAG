@@ -452,6 +452,8 @@ class SQLDatabase:
 
     # Similar to run, but return results in more structured form 
     def query(self, command: str) -> str:
+        
+        command = "\n".join([q for q in command.split("\n") if "```" not in q])
         with self._engine.begin() as connection:
             try:
                 result = pd.read_sql_query(sql=command, con=connection)

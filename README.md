@@ -78,8 +78,19 @@ pip install -r requirements.txt
   python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
+### One-shot examples
 
-## Using open models by vllm
+(Should be filled)
+
+```bash
+python src/main.py --technique PlanRAG --scenario locating --database relational --question_num 2 --
+```
+
+Note: As DQA has relatively long questions, we recommand to use one-shot execution only with GPT-4 or GPT-3.5
+
+## Open models
+
+### Using open models by vllm
 
 For using open models in our experiment, you should install vllm library in your environment (e.g. conda environment). You can install it by following command. 
 ```bash
@@ -98,7 +109,7 @@ python src/main.py --technique IterRAG --scenario locating --database relational
 ```
 
 
-## Using open models by Huggingface's library (not recommanded)
+### Using open models by Huggingface's library (not recommanded)
 
 You can also try to use Huggingface library. Following code is for executing `meta-llama/Llama-2-13b-chat-hf` and do experiment by Huggingface pipeline function:
 
