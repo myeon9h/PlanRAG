@@ -5,22 +5,22 @@ def locating_fewshot(technique, database_type):
         if database_type == "relational":
             prompt = """
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of "kiev". 
+[Step 1: Identify the trading nodes that are source of "kiev". 
  Step 2: For each of these nodes, calculate the potential increase in profit if the merchant is placed there. 
  Step 3: Compare the potential profits and identify the node that would result in the highest profit.]
 
 Current step: Step 1
-Thought: I need to identify the trading nodes that are upstream of "kiev". This requires accessing the "flow" table in the relational database.
+Thought: I need to identify the trading nodes that are source of "kiev". This requires accessing the "flow" table in the relational database.
 Action: Relational DB
-Action input: SELECT upstream FROM flow WHERE downstream = "kiev";
+Action input: SELECT source FROM flow WHERE dest = "kiev";
 Observation:
-  upstream
+  source
 0   crimea
 Re-plan: N
 Current step: Step 2
-Thought: Now that I know "crimea" is the upstream node of "kiev", I need to calculate the potential increase in profit if the merchant is placed there. This requires accessing the "trading_node" and "node_country" tables in the relational database.
+Thought: Now that I know "crimea" is the source node of "kiev", I need to calculate the potential increase in profit if the merchant is placed there. This requires accessing the "trade_node" and "node_country" tables in the relational database.
 Action: Relational DB
-Action input: SELECT local_value, ingoing, total_power FROM trading_node WHERE trading_node = "crimea";
+Action input: SELECT local_value, ingoing, total_power FROM trade_node WHERE trade_node = "crimea";
 
 Observation:
    local_value   ingoing  total_power
@@ -29,7 +29,7 @@ Re-plan: N
 Current step: Step 2
 Thought: Now I have the local_value, ingoing, and total_power for the "crimea" node. I also need to know the base_trading_power of "LIT" in "crimea" to calculate the potential increase in profit.
 Action: Relational DB
-Action input: SELECT base_trading_power FROM node_country WHERE node_name = "crimea" AND country_name = "LIT";
+Action input: SELECT base_trading_power FROM node_country WHERE trade_node = "crimea" AND country_name = "LIT";
 
 Observation:
    base_trading_power
@@ -44,7 +44,7 @@ Observation:
 The potential increase in profit if the merchant is placed in "crimea" is (4.205+0.493131)*(85.019/816.098) = 0.448.
 Re-plan: N
 Current step: Step 3
-Thought: Now that I have calculated the potential increase in profit if the merchant is placed in "crimea", I need to compare this with the potential profits from other nodes. However, since "crimea" is the only upstream node of "kiev", there are no other nodes to compare with. Therefore, the merchant should be placed in "crimea".
+Thought: Now that I have calculated the potential increase in profit if the merchant is placed in "crimea", I need to compare this with the potential profits from other nodes. However, since "crimea" is the only source node of "kiev", there are no other nodes to compare with. Therefore, the merchant should be placed in "crimea".
 Action: Self thinking
 Action input: Compare the potential profits from different nodes.
 
@@ -57,32 +57,32 @@ Final answer: The merchant should be allocated to the "crimea" trading node to m
         elif database_type == "graph":
             prompt = """
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of "kiev", 
+[Step 1: Identify the trading nodes that are source of "kiev", 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there, 
  Step 3: Identify the node with the highest potential profit increase]
 
 Current step: Step 1
-Thought: I need to identify the trading nodes that are upstream of "kiev". This will require querying the Graph DB.
+Thought: I need to identify the trading nodes that are source of "kiev". This will require querying the Graph DB.
 Action: Graph DB
-Action input: MATCH (n:Trade_node)-[r:UPSTREAM]->(m:Trade_node {name: "kiev"}) RETURN n.name
+Action input: MATCH (n:Trade_node)-[r:source]->(m:Trade_node {name: "kiev"}) RETURN n.name
 Observation:
         0
 0  crimea
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of "kiev", 
+[Step 1: Identify the trading nodes that are source of "kiev", 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there, 
  Step 3: Identify the node with the highest potential profit increase]
 
 Current step: Step 2
-Thought: Now that I have identified the trading node "crimea" that is upstream of "kiev", I need to calculate the potential profit increase if a merchant is placed there. This will require querying the Graph DB to get the necessary data for the calculation.
+Thought: Now that I have identified the trading node "crimea" that is source of "kiev", I need to calculate the potential profit increase if a merchant is placed there. This will require querying the Graph DB to get the necessary data for the calculation.
 Action: Graph DB
-Action input: MATCH (n:Trade_node {name: "crimea"})-[r:UPSTREAM]->(m:Trade_node {name: "kiev"}), (c:Country {name: "LIT"})-[nc:NodeCountry]->(n) RETURN n.local_value, n.ingoing, nc.base_trading_power, n.total_power, c.development
+Action input: MATCH (n:Trade_node {name: "crimea"})-[r:source]->(m:Trade_node {name: "kiev"}), (c:Country {name: "LIT"})-[nc:NodeCountry]->(n) RETURN n.local_value, n.ingoing, nc.base_trading_power, n.total_power, c.development
 
 Observation:
        0         1       2        3       4
 0  4.205  0.493131  85.019  816.098  220.82
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of "kiev", 
+[Step 1: Identify the trading nodes that are source of "kiev", 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there, 
  Step 3: Identify the node with the highest potential profit increase]
 
@@ -95,12 +95,12 @@ Observation:
 The potential profit increase if a merchant is placed in "crimea" is 0.493131.
 
 Plan: 
-[Step 1: Identify the trading nodes that are upstream of "kiev", 
+[Step 1: Identify the trading nodes that are source of "kiev", 
  Step 2: Calculate the potential profit increase for each of these nodes if a merchant is placed there, 
  Step 3: Identify the node with the highest potential profit increase]
 
 Current step: Step 3
-Thought: Now that I have calculated the potential profit increase for the trading node "crimea", I need to identify if this is the node with the highest potential profit increase. Since there is only one node upstream of "kiev", "crimea" is the node with the highest potential profit increase.
+Thought: Now that I have calculated the potential profit increase for the trading node "crimea", I need to identify if this is the node with the highest potential profit increase. Since there is only one node source of "kiev", "crimea" is the node with the highest potential profit increase.
 Action: Self thinking
 Action input: {'tool_input': {'type': 'string', 'content': 'Identify the node with the highest potential profit increase.'}}
 
@@ -126,9 +126,9 @@ First, I need to find the trading power of the country "LIT" in each trading nod
 
 Action: Relational DB
 Action input: 
-SELECT node_name, base_trading_power FROM node_country WHERE country_name = 'LIT';
+SELECT trade_node, base_trading_power FROM node_country WHERE country_name = 'LIT';
 Observation:
-    node_name  base_trading_power
+    trade_node  base_trading_power
 0   astrakhan               3.026
 1  baltic_sea               6.102
 2      crimea              85.019
@@ -139,10 +139,10 @@ Now I have the base trading power of the country "LIT" in each trading node. Nex
 
 Action: Relational DB
 Action input: 
-SELECT trading_node, total_power, local_value, ingoing FROM trading_node WHERE trading_node IN ('astrakhan', 'baltic_sea', 'crimea', 'kiev', 'novgorod');
+SELECT trade_node, total_power, local_value, ingoing FROM trade_node WHERE trade_node IN ('astrakhan', 'baltic_sea', 'crimea', 'kiev', 'novgorod');
 
 Observation:
-  trading_node  total_power  local_value   ingoing
+  trade_node  total_power  local_value   ingoing
 0    astrakhan      696.798        2.908  1.260690
 1   baltic_sea      616.130        5.665  0.983534
 2       crimea      816.098        4.205  0.493131
@@ -159,7 +159,7 @@ Calculate the potential profit for each node if a merchant is placed there. The 
 Observation:
 The potential profit for each node if a merchant is placed there is as follows:
 
-    node_name  potential_profit
+    trade_node  potential_profit
 0   astrakhan          0.019
 1  baltic_sea          0.038
 2      crimea          0.448
@@ -191,7 +191,7 @@ Finally, I will compare the profit of each node and choose the one with the high
 
 Action: Graph DB
 Action input: 
-MATCH (n:Trade_node) WHERE n.name IN ['crimea', 'girin', 'lubeck', 'philippines'] RETURN n.name, n.local_value, n.ingoing, n.total_power, n.node_inland
+MATCH (n:Trade_node) WHERE n.name IN ['crimea', 'girin', 'lubeck', 'philippines'] RETURN n.name, n.local_value, n.ingoing, n.total_power, n.is_inland
 Observation:
              0      1         2         3      4
 0        girin  4.450  0.001661   638.328  False

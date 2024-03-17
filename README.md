@@ -83,7 +83,7 @@ pip install -r requirements.txt
 (Should be filled)
 
 ```bash
-python src/main.py --technique PlanRAG --scenario locating --database relational --question_num 2 --
+python src/main-fewshot.py --technique PlanRAG --scenario locating --database graph --question_num 2 --fewshot True --model gpt-3.5-turbo
 ```
 
 Note: As DQA has relatively long questions, we recommand to use one-shot execution only with GPT-4 or GPT-3.5
