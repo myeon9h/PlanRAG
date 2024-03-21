@@ -4,7 +4,7 @@
     "NEO4J": {
         "HOST": "bolt://localhost:7687",
         "USER": "neo4j",
-        "PASSWORD": "infolab1234"
+        "PASSWORD": "1234"
     },
     "MYSQL": {
         "HOST": "localhost",

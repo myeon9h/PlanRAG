@@ -12,7 +12,7 @@ CREATE TABLE trade_node
 (
     trade_node    VARCHAR(30),
     local_value FLOAT,
-    node_inland BOOLEAN
+    is_inland BOOLEAN
     total_power FLOAT,
     outgoing FLOAT,
     ingoing FLOAT,
@@ -40,7 +40,7 @@ CREATE TABLE node_country
 """
 
 GDB_INFO = """
-(n:Trade_node {{name, local_value, node_inland, total_power, outgoing, ingoing}});
+(n:Trade_node {{name, local_value, is_inland, total_power, outgoing, ingoing}});
 (m:Country {{name, home_node, development}});
 
 (Trade_node)-[r:source {{flow}}]->[Trade_node]

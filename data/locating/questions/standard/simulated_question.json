@@ -2398,29 +2398,5 @@
         "target_rdb": "eu4_1445",
         "target_gdb": "eu4",
         "question_num": 200
-    },
-    {
-        "business_rules": "\nA \"Trading node\" has a \"local_value,\" \u201ctotal_power\", \u201coutgoing\u201d, \u201cingoing\u201d and **whether it's inland**.\n\nA \"Country\" has a \"name\", \u201cdevelopment\u201d and a \"home_node\" (home node).\n\nBetween \"Trading nodes,\" there can be a directional edge [source]. It connects from a higher node to a lower node. \n\nA \"Country\" can have a non-directional connection to a trading node. Each connection has a unique \"base_trading_power\" for each node. \n\nIf a specific node is the home node of a country, that country earns profit from that node. The profit is proportional to the \u201dlocal_value\u201d plus \u201cingoing\u201d and the ratio of the country's trading power and the total trading power of that node. i.e. (local_value+ingoing)*(country_trading_power/total_trading_power)\n\nIf a specific node is source of a country's home node, the country moves a value to dest node, proportional to the ratio of the country's trading power to the node's total trading power and (\u201dlocal_value\u201d + \u201cingoing\u201d). In the dest node, the moved value is increased by 1.05 times and added to the \u201dingoing\u201d.\n\nA \"Merchant\" belongs to a country and can be assigned to a specific trading node. A \"Merchant\" belonging to a trading node adds 2 to the trading power of the country's trading node and amplifies it by 1.05 times. *If one of the edges has an inland node, the added value changes to 2+max(development/3, 50). (optional)*\n\nIf a specific trading node has more than one dest node, and a country that doesn't have that node as its home node places a \"Merchant\" on the Trading node, it can decide which dest node to move the \"current_value\" to. That is, the country can move a \"current_value\" proportional to its trading power to a specific dest node. If no merchant is placed, when there's more than one dest node, they lose the right to decide the direction. In other words, the country's \"current_value\" proportional to its trading power flows out in proportion to other outflows to the dest nodes. If there's only one dest node, it doesn't matter.\n    ",
-        "question": "\n================\n<Question>\n\nAssume that you are the ruler of the country named \"C11\". You and your competitions are on the system of trade in 1701.\nYou have one merchant to work on trade system. Our home node is \"lima\". where should I allocate my merchant to steer trade to \"lima\"?\n",
-        "goal": "Note that my goal is maximizing my profit on \"lima\".",
-        "answer": "cuiaba",
-        "home": "lima",
-        "country": "C11",
-        "year": "1701",
-        "target_rdb": "eu4_1445",
-        "target_gdb": "eu4",
-        "question_num": 201
-    },
-    {
-        "business_rules": "\nA \"Trading node\" has a \"local_value,\" \u201ctotal_power\", \u201coutgoing\u201d, \u201cingoing\u201d and **whether it's inland**.\n\nA \"Country\" has a \"name\", \u201cdevelopment\u201d and a \"home_node\" (home node).\n\nBetween \"Trading nodes,\" there can be a directional edge [source]. It connects from a higher node to a lower node. \n\nA \"Country\" can have a non-directional connection to a trading node. Each connection has a unique \"base_trading_power\" for each node. \n\nIf a specific node is the home node of a country, that country earns profit from that node. The profit is proportional to the \u201dlocal_value\u201d plus \u201cingoing\u201d and the ratio of the country's trading power and the total trading power of that node. i.e. (local_value+ingoing)*(country_trading_power/total_trading_power)\n\nIf a specific node is source of a country's home node, the country moves a value to dest node, proportional to the ratio of the country's trading power to the node's total trading power and (\u201dlocal_value\u201d + \u201cingoing\u201d). In the dest node, the moved value is increased by 1.05 times and added to the \u201dingoing\u201d.\n\nA \"Merchant\" belongs to a country and can be assigned to a specific trading node. A \"Merchant\" belonging to a trading node adds 2 to the trading power of the country's trading node and amplifies it by 1.05 times. *If one of the edges has an inland node, the added value changes to 2+max(development/3, 50). (optional)*\n\nIf a specific trading node has more than one dest node, and a country that doesn't have that node as its home node places a \"Merchant\" on the Trading node, it can decide which dest node to move the \"current_value\" to. That is, the country can move a \"current_value\" proportional to its trading power to a specific dest node. If no merchant is placed, when there's more than one dest node, they lose the right to decide the direction. In other words, the country's \"current_value\" proportional to its trading power flows out in proportion to other outflows to the dest nodes. If there's only one dest node, it doesn't matter.\n    ",
-        "question": "\n================\n<Question>\n\nAssume that you are the ruler of the country named \"C12\". You and your competitions are on the system of trade in 1701.\nYou have one merchant to work on trade system. Our home node is \"cuiaba\". where should I allocate my merchant to steer trade to \"cuiaba\"?\n",
-        "goal": "Note that my goal is maximizing my profit on \"cuiaba\".",
-        "answer": "amazonas_node",
-        "home": "cuiaba",
-        "country": "C12",
-        "year": "1701",
-        "target_rdb": "eu4_1445",
-        "target_gdb": "eu4",
-        "question_num": 202
     }
 ]

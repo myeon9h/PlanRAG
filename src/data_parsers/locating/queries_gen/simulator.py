@@ -15,6 +15,8 @@ CARAVAN_MAX = 50
 HOP_MUL = 1.05
 RANDOM_SEED = 1
 
+MAX_QUESTION_NUM=200
+
 find_flow_cache = dict()
 
 def construct(file=None):
@@ -295,6 +297,9 @@ def problem_gen(file=None, write = True, verbose = True, extraction_modes = ["cq
 
     questions = []
     for con in countries:
+
+        # if question_number >= MAX_QUESTION_NUM:
+        #     break
 
         copied_original_wrapper = copy.deepcopy(original_wrapper)
         question_number = question_number+1

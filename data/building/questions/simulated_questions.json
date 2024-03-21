@@ -522,130 +522,130 @@
         "answer": 2634
     },
     {
-        "country": "GBR1839",
+        "country": "USA1849",
         "question_num": 59,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of small_arms?",
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of manowars?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "small_arms",
+        "goods": "manowars",
         "target_gdb": "gdb-2hop-001",
-        "answer": 94
+        "answer": 1516
     },
     {
-        "country": "GBR1839",
+        "country": "USA1849",
         "question_num": 60,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of lead?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "lead",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 158
-    },
-    {
-        "country": "GBR1839",
-        "question_num": 61,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of oil?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "oil",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 121
-    },
-    {
-        "country": "GBR1839",
-        "question_num": 62,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of steel?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "steel",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 112
-    },
-    {
-        "country": "GBR1839",
-        "question_num": 63,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of explosives?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "explosives",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 129
-    },
-    {
-        "country": "GBR1839",
-        "question_num": 64,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fine_art?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "fine_art",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 78
-    },
-    {
-        "country": "AUS1849",
-        "question_num": 65,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fabric?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "fabric",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 411
-    },
-    {
-        "country": "AUS1849",
-        "question_num": 66,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of groceries?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "groceries",
         "target_gdb": "gdb-2hop-001",
-        "answer": 395
+        "answer": 1447
     },
     {
-        "country": "AUS1849",
-        "question_num": 67,
+        "country": "USA1849",
+        "question_num": 61,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of clothes?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "clothes",
         "target_gdb": "gdb-2hop-001",
-        "answer": 402
+        "answer": 1400
     },
     {
-        "country": "AUS1849",
+        "country": "USA1849",
+        "question_num": 62,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of furniture?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "furniture",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1401
+    },
+    {
+        "country": "USA1849",
+        "question_num": 63,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of clippers?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "clippers",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1532
+    },
+    {
+        "country": "USA1849",
+        "question_num": 64,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of sulfur?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "sulfur",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1434
+    },
+    {
+        "country": "USA1849",
+        "question_num": 65,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of oil?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "oil",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1518
+    },
+    {
+        "country": "USA1849",
+        "question_num": 66,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of steel?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "steel",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1490
+    },
+    {
+        "country": "USA1849",
+        "question_num": 67,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of explosives?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "explosives",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1440
+    },
+    {
+        "country": "USA1849",
         "question_num": 68,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fertilizer?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "fertilizer",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 411
-    },
-    {
-        "country": "AUS1849",
-        "question_num": 69,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of tools?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "tools",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 33554985
-    },
-    {
-        "country": "AUS1849",
-        "question_num": 70,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of meat?",
-        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "meat",
-        "target_gdb": "gdb-2hop-001",
-        "answer": 411
-    },
-    {
-        "country": "AUS1849",
-        "question_num": 71,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of liquor?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "liquor",
         "target_gdb": "gdb-2hop-001",
-        "answer": 395
+        "answer": 1454
+    },
+    {
+        "country": "USA1849",
+        "question_num": 69,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of luxury_furniture?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "luxury_furniture",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 1439
+    },
+    {
+        "country": "AUS1849",
+        "question_num": 70,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of manowars?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "manowars",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 877
+    },
+    {
+        "country": "AUS1849",
+        "question_num": 71,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of clippers?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "clippers",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 877
     },
     {
         "country": "AUS1849",
         "question_num": 72,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of luxury_clothes?",
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of meat?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "luxury_clothes",
+        "goods": "meat",
         "target_gdb": "gdb-2hop-001",
-        "answer": 402
+        "answer": 858
     },
     {
         "country": "GBR1849",
@@ -654,7 +654,7 @@
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "ammunition",
         "target_gdb": "gdb-2hop-001",
-        "answer": 103
+        "answer": 16778022
     },
     {
         "country": "GBR1849",
@@ -663,11 +663,56 @@
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "manowars",
         "target_gdb": "gdb-2hop-001",
-        "answer": 155
+        "answer": 50336891
     },
     {
         "country": "GBR1849",
         "question_num": 75,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of wood?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "wood",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 117
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 76,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of groceries?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "groceries",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 153
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 77,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of sulfur?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "sulfur",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 171
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 78,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of lead?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "lead",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 197
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 79,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of hardwood?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "hardwood",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 134
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 80,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of oil?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "oil",
@@ -676,16 +721,16 @@
     },
     {
         "country": "GBR1849",
-        "question_num": 76,
+        "question_num": 81,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of steel?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "steel",
         "target_gdb": "gdb-2hop-001",
-        "answer": 123
+        "answer": 50337841
     },
     {
         "country": "GBR1849",
-        "question_num": 77,
+        "question_num": 82,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fertilizer?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "fertilizer",
@@ -694,20 +739,164 @@
     },
     {
         "country": "GBR1849",
-        "question_num": 78,
+        "question_num": 83,
         "question": "Which building id should we increase a level by 5 to maximally decrease the market price of explosives?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
         "goods": "explosives",
         "target_gdb": "gdb-2hop-001",
-        "answer": 141
+        "answer": 50337196
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 84,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of liquor?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "liquor",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 153
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 85,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of wine?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "wine",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 169
+    },
+    {
+        "country": "GBR1849",
+        "question_num": 86,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of luxury_furniture?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "luxury_furniture",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 16783397
     },
     {
         "country": "FRA1849",
-        "question_num": 79,
-        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of steel?",
+        "question_num": 87,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of groceries?",
         "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
-        "goods": "steel",
+        "goods": "groceries",
         "target_gdb": "gdb-2hop-001",
-        "answer": 267
+        "answer": 5974
+    },
+    {
+        "country": "FRA1849",
+        "question_num": 88,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of liquor?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "liquor",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 33560712
+    },
+    {
+        "country": "FRA1849",
+        "question_num": 89,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fine_art?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "fine_art",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 209
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 90,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of groceries?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "groceries",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 961
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 91,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of furniture?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "furniture",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 949
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 92,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of glass?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "glass",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 4782
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 93,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of tools?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "tools",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 946
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 94,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of porcelain?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "porcelain",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 939
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 95,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fruit?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "fruit",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 2064
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 96,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of liquor?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "liquor",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 966
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 97,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of luxury_clothes?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "luxury_clothes",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 2073
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 98,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of luxury_furniture?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "luxury_furniture",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 949
+    },
+    {
+        "country": "RUS1849",
+        "question_num": 99,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of fine_art?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "fine_art",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 940
+    },
+    {
+        "country": "CHI1849",
+        "question_num": 100,
+        "question": "Which building id should we increase a level by 5 to maximally decrease the market price of manowars?",
+        "business_rules": "\nGoods have a \"name\", corresponding \"code\", \"base_price\", \"current_price\", and \"pop_demand\".\nBuildings have a unique \"id\" and a \"name\" and \"level\" corresponding to their type.\nThere exists a relation called Supply from Buildings to Goods. Supply has \"max_supply\", \"current_output\", and \"level\". The level here is the same as the level of the Building. Furthermore, max_supply and level have a proportional relationship.\nThere exists a relation called Demand from Goods to Buildings. Demand has \"max_demand\", \"current_input\", and \"level\". Also, max_demand and level have a proportional relationship.\nThe demand of Goods is defined as the Goods' \"pop_demand\" plus sum of the \"max_demand\" of all Demands connected to the Goods.\nThe supply of Goods is defined by the sum of \"current_output\" of all Supplies connected to Goods.\nThe \"current_input\" of Demand is determined by the ratio of connected Building's \"max_demand\" to connected Goods' demand, and multiplied by the supply of Goods.\nThe \"current_output\" of Supply is determined by the average ratio of the connected Building's \"current_input\" to connected Goods' \"max_demand\", and multiplied by the \"max_supply\" of Supply.\nThe \"current_price\" of Goods is determined by base_price*(1+0.75(demand-supply)/max(demand,supply)).",
+        "goods": "manowars",
+        "target_gdb": "gdb-2hop-001",
+        "answer": 2399
     }
 ]

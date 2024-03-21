@@ -21,6 +21,9 @@ class Neo4jDatabase:
         params: Optional[Dict] = {}
     ) -> List[Dict[str, str]]:
         logger.debug(cypher_query)
+        # debug gpt-3.5-turbo ``` issue
+        cypher_query = "\n".join([q for q in cypher_query.split("\n") if "```" not in q])
+
         with self.driver.session(database=self.database) as session:
             try:
                 result = session.run(cypher_query, params)

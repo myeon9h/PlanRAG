@@ -5,6 +5,8 @@ from tqdm import tqdm
 import copy
 import pandas as pd
 
+MAX_QUESTION_NUM=100
+
 def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
     try:
@@ -17,7 +19,7 @@ def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_fi
     return (cnt, goods_list, building_dict)
 
 
-def initialize_goods(cnt: country.Country,goods_file = "./data/building/raw/goods/00_goods.txt"):
+def initialize_goods(cnt:country.Country, goods_file = "./data/building/raw/goods/00_goods.txt"):
     goods_list = goods.goods_finder(goods_file)
     for goods_code in range(len(goods_list)):
         # demand by pops
@@ -37,7 +39,6 @@ def initialize_buildings(cnt:country.Country, file_path = "./data/building/raw/t
     for bidx in building_dict.keys():
         if building_dict[bidx].state in cnt.states:
             filtered_building_dict[bidx] = building_dict[bidx]
-    
     return filtered_building_dict
 
 def modification(building_dict, id, mod_level):
@@ -122,9 +123,7 @@ if __name__ == "__main__":
 
     write = True
     
-    # savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
-
-    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
+    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1849.v3"]]
 
     # sql or cql 
     extraction_mode = ["sql", "cql"]
@@ -143,6 +142,9 @@ if __name__ == "__main__":
 
         for country_code in country_code_list:
 
+            if len(questions) >= MAX_QUESTION_NUM:
+                break
+            
             (_, goods_list, building_dict) = initialize(country_code, file_path=savefile_path)
             
             if goods_list == None:

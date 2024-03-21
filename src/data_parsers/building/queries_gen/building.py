@@ -98,7 +98,6 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
 
     state = State.NO_ACTION
     for line in (data_list):
-        # line.replace("\n", "")
         if state == State.NO_ACTION and line == "building_manager={\n":
             state = State.BUILDING_FINDING
             # country_num = int(data_list[line_num-2].split("=")[0])
@@ -125,7 +124,7 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
                 for j in building.current_output.keys():
                     building.max_supply[j] = (building.current_output[j]/building.throughput) if building.throughput > 0 else building.current_output[j]
                 
-                if building.state >0:
+                if building.state>0 and building.level>0:
                     building_dict[building.id] = (building)
                     
                     assert(building.level != -1)
@@ -146,12 +145,12 @@ def extract_building(file_path= "./data/building/raw/test.v3"):
                         pass
                     
                     if int(building.level) == 0:
-                        state=State.BUILDING_FINDING
+                        continue
                         # there is no level-zero building.
 
                 elif leftside == "level":
                     if int(rightside) == 0:
-                        state=State.BUILDING_FINDING
+                        continue
                     else:
                         building.level = int(rightside)
 

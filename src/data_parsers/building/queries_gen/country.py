@@ -37,7 +37,7 @@ class Pop:
 def country_extracting(file_path ,code):
     cnt = country_finder_as_code(file_path, code)
 
-    # state_list = cnt.states
+
     cnt.consume_by_pops = states_consume(file_path, cnt.states)
     
 

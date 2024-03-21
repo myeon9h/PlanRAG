@@ -78,14 +78,25 @@ pip install -r requirements.txt
   python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
+### One-shot examples
 
-## Using open models by vllm
+(Should be filled)
+
+```bash
+python src/main-fewshot.py --technique PlanRAG --scenario locating --database graph --question_num 2 --fewshot True --model gpt-3.5-turbo
+```
+
+Note: As DQA has relatively long questions, we recommand to use one-shot execution only with GPT-4 or GPT-3.5
+
+## Open models
+
+### Using open models by vllm
 
 For using open models in our experiment, you should install vllm library in your environment (e.g. conda environment). You can install it by following command. 
 ```bash
 pip install vllm
 ```
-You can also check official documentation in [here](https://docs.vllm.ai/en/latest/getting_started/installation.html).
+You can also check the official documentation in [here](https://docs.vllm.ai/en/latest/getting_started/installation.html).
 
 Following code is an example for executing our code by using `meta-llama/Llama-2-70b-chat-hf` model. 
 
@@ -98,7 +109,7 @@ python src/main.py --technique IterRAG --scenario locating --database relational
 ```
 
 
-## Using open models by Huggingface's library (not recommanded)
+### Using open models by Huggingface's library (not recommanded)
 
 You can also try to use Huggingface library. Following code is for executing `meta-llama/Llama-2-13b-chat-hf` and do experiment by Huggingface pipeline function:
 
@@ -122,12 +133,10 @@ python ./src/data_parsers/locating/queries_gen/simulator.py
 python ./src/data_parsers/locating/example_gen/main.py
 ```
 
-<!-- savefile 여러개를 넣어줘야 함. 이름은 연도를 따라 raw1444.eu4 등으로 작성할 것-->
-
 ### The building scenario
 
 
-To generate questions for the building scenario, you will need a Victoria 3 game savefile.  We provide three raw files: `raw1836.v3`, `raw1839.v3` and `raw1849.v3` in `/data/building/raw/` for data generation.
+To generate questions for the building scenario, you will need a Victoria 3 game savefile.  We provide three raw files: `raw1836.v3` <!--`raw1839.v3` --> and `raw1849.v3` in `/data/building/raw/` for data generation.
 
 You can create the `simulated_questions.json` in `/data/building/questions/standard/` by sequentially executing the following code:
 
@@ -137,13 +146,9 @@ python ./src/data_parsers/building/queries_gen/simulator.py
 python ./src/data_parsers/building/example_gen/main.py
 ```
 
-<!-- By this code, you can get `simulated_question.json` in `./PlanRAG/data/building/questions` directory and several LPG, SQL codes in `./PlanRAG/data/building/db_query(parsed)` -->
 
 ## Notice in database schema
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
 Also, "base_trading_power" and "calculated_trading_power" are both mean "TP_country" in our paper.
 
-<!-- ## Licenses
-
-Our contents are provided under the MIT license. -->
 
