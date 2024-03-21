@@ -5,6 +5,8 @@ from tqdm import tqdm
 import copy
 import pandas as pd
 
+MAX_QUESTION_NUM=100
+
 def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
     try:
@@ -140,6 +142,9 @@ if __name__ == "__main__":
 
         for country_code in country_code_list:
 
+            if len(questions) >= MAX_QUESTION_NUM:
+                break
+            
             (_, goods_list, building_dict) = initialize(country_code, file_path=savefile_path)
             
             if goods_list == None:
