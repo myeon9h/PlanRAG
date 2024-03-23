@@ -2,7 +2,7 @@
 mkdir -p outputs/IterRAG/building/relational
 
 
-for ((var=1;var<=112;var++))
+for ((var=1;var<=91;var++))
 #for var in 1 2
 do
        echo $var

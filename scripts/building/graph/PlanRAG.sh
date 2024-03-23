@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p outputs/PlanRAG/building/graph
 
-for ((var=1;var<=112;var++))
+for ((var=1;var<=91;var++))
 
 do
        echo $var

@@ -148,8 +148,8 @@ def simulation(wrapper):
     object_node = find_top_node(wrapper, simulated_nodes_name)
     while (object_node) != None:
         flow_estimation(wrapper, object_node)
-        object_node = find_top_node(wrapper, simulated_nodes_name)
         simulated_nodes_name.add(object_node)
+        object_node = find_top_node(wrapper, simulated_nodes_name)
 
     return wrapper
 

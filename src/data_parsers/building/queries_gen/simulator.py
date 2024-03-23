@@ -5,7 +5,6 @@ from tqdm import tqdm
 import copy
 import pandas as pd
 
-MAX_QUESTION_NUM=100
 
 def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
@@ -85,7 +84,7 @@ def simulate(goods_list, building_dict, cycle = 10):
     b_cnt = 0
     for b in building_dict.values():
         for goods_code in b.max_demand.keys():
-            goods_list[goods_code].building_demand = goods_list[goods_code].building_demand + b.current_input[goods_code]
+            goods_list[goods_code].building_demand = goods_list[goods_code].building_demand + b.max_demand[goods_code]
         for goods_code in b.max_supply.keys():
             goods_list[goods_code].supply = goods_list[goods_code].supply + b.max_supply[goods_code]
         b_cnt +=1
@@ -123,13 +122,13 @@ if __name__ == "__main__":
 
     write = True
     
-    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1849.v3"]]
+    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
 
     # sql or cql 
     extraction_mode = ["sql", "cql"]
 
     # country list
-    country_code_list = ["USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP"]
+    country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
     BUILDING_INCR = 5
 
     questions = []
@@ -142,15 +141,12 @@ if __name__ == "__main__":
 
         for country_code in country_code_list:
 
-            if len(questions) >= MAX_QUESTION_NUM:
-                break
-            
             (_, goods_list, building_dict) = initialize(country_code, file_path=savefile_path)
             
-            if goods_list == None:
+            if building_dict == None:
                 continue
 
-            base_goods_list, base_building_dict=simulate(goods_list, building_dict, cycle = 100)
+            base_goods_list, base_building_dict=simulate(goods_list, building_dict)
             
             # base query
             if write and ("cql" in extraction_mode):
