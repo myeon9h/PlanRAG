@@ -67,11 +67,11 @@ class Building:
 
         # demand
         for d in self.max_demand.keys():
-            query = query + "INSERT INTO demand(goods_id, building_id, max_demand, current_input, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(d, self.id, self.max_demand[d], self.level, self.current_input[d])
+            query = query + "INSERT INTO demand(goods_id, building_id, max_demand, current_input, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(d, self.id, self.max_demand[d], self.current_input[d], self.level)
         
         # supply
         for s in self.current_output.keys():
-            query = query + "INSERT INTO supply(goods_id, building_id, max_supply, current_output, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(s, self.id, self.max_supply[s], self.level, self.current_output[s])
+            query = query + "INSERT INTO supply(goods_id, building_id, max_supply, current_output, level) VALUES ({0}, {1}, {2}, {3}, {4});\n".format(s, self.id, self.max_supply[s], self.current_output[s], self.level)
 
         return query
 

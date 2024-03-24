@@ -117,6 +117,7 @@ if __name__ == "__main__":
     cql_dir = "./data/building/db_query(parsed)/LPG_format/"
     sql_dir = "./data/building/db_query(parsed)/SQL_format/"
     raw_dir = "./data/building/raw/simulated_question_raw.csv"
+    non_filtered_questions_raw_dir = "././data/building/raw/non_filtered_simulated_question_raw.csv"
 
     write = True
     
@@ -130,6 +131,7 @@ if __name__ == "__main__":
     BUILDING_INCR = 5
 
     questions = []
+    non_filtered_questions = []
 
     for savefile_path in savefile_path_list:
         
@@ -192,9 +194,15 @@ if __name__ == "__main__":
                 if (min_building_id != -1) and (goods_id in building_dict[min_building_id].max_supply.keys()):
                     questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
 
+                elif (min_building_id != -1):
+                    non_filtered_questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
+
 
 
     df = pd.DataFrame(data=questions, index=range(len(questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
+    df.to_csv(raw_dir)
+
+    df = pd.DataFrame(data=non_filtered_questions, index=range(len(non_filtered_questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
     df.to_csv(raw_dir)
 
     print(len(questions))
