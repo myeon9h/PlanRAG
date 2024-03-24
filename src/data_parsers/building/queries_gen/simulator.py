@@ -81,13 +81,11 @@ CREATE TABLE demand(    goods_id INT,    building_id INT,    max_demand FLOAT,  
 
 def simulate(goods_list, building_dict, cycle = 10):
 
-    b_cnt = 0
     for b in building_dict.values():
         for goods_code in b.max_demand.keys():
             goods_list[goods_code].building_demand = goods_list[goods_code].building_demand + b.max_demand[goods_code]
         for goods_code in b.max_supply.keys():
             goods_list[goods_code].supply = goods_list[goods_code].supply + b.max_supply[goods_code]
-        b_cnt +=1
 
 
 
