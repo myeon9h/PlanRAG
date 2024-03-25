@@ -117,21 +117,25 @@ if __name__ == "__main__":
     cql_dir = "./data/building/db_query(parsed)/LPG_format/"
     sql_dir = "./data/building/db_query(parsed)/SQL_format/"
     raw_dir = "./data/building/raw/simulated_question_raw.csv"
-    non_filtered_questions_raw_dir = "././data/building/raw/non_filtered_simulated_question_raw.csv"
+    non_filtered_questions_raw_dir = "./data/building/raw/non_filtered_simulated_question_raw.csv"
+    two_or_more_answers_questions_raw_dir = "./data/building/raw/two_or_more_answers_simulated_questions_raw.csv"
 
     write = True
     
     savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
+    # savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3"]]
 
     # sql or cql 
     extraction_mode = ["sql", "cql"]
 
     # country list
     country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
+    # country_code_list = ["NGF", "KOR"]
     BUILDING_INCR = 5
 
     questions = []
     non_filtered_questions = []
+    two_or_more_answers_question=[]
 
     for savefile_path in savefile_path_list:
         
@@ -173,6 +177,8 @@ if __name__ == "__main__":
                 max_building_id = -1
                 min_building_id = -1
 
+                answers_bids=[]
+
                 max_val = base_goods_list[goods_id].current_price
                 min_val = base_goods_list[goods_id].current_price
                 for b in base_building_dict.values():
@@ -182,28 +188,40 @@ if __name__ == "__main__":
                     
                     goods_list, building_dict = simulate(goods_list, building_dict)
                     
-                    if goods_list[goods_id].current_price > max_val:
-                        # max_result = copy.deepcopy(goods_list[goods_id])
-                        max_val = goods_list[goods_id].current_price
-                        max_building_id = b.id
-                    elif goods_list[goods_id].current_price < min_val:
-                        # min_result = copy.deepcopy(goods_list[goods_id])
+                    # if goods_list[goods_id].current_price > max_val:
+                    #     # max_result = copy.deepcopy(goods_list[goods_id])
+                    #     answers_bids=[]
+                    #     max_val = goods_list[goods_id].current_price
+                    #     max_building_id = b.id
+                    # el
+                    if goods_list[goods_id].current_price < min_val:
+                        min_result = copy.deepcopy(goods_list[goods_id])
+                        answers_bids = []
                         min_building_id = b.id
                         min_val = goods_list[goods_id].current_price
+                    elif goods_list[goods_id].current_price == min_val:
+                        answers_bids.append(b.id)
 
                 if (min_building_id != -1) and (goods_id in building_dict[min_building_id].max_supply.keys()):
                     questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
+                    if len(answers_bids) >1:
+                        two_or_more_answers_question.append([country_code+year] + [goods_list[goods_id].name] + ["{}".format(answers_bids)])
 
                 elif (min_building_id != -1):
                     non_filtered_questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
-
 
 
     df = pd.DataFrame(data=questions, index=range(len(questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
     df.to_csv(raw_dir)
 
     df = pd.DataFrame(data=non_filtered_questions, index=range(len(non_filtered_questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
-    df.to_csv(raw_dir)
+    df.to_csv(non_filtered_questions_raw_dir)
 
-    print(len(questions))
+    df = pd.DataFrame(data=two_or_more_answers_question, index=range(len(two_or_more_answers_question)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
+    df.to_csv(two_or_more_answers_questions_raw_dir)
+
+    print("questions",len(questions))
+    print("nonfiltered",len(non_filtered_questions))
+    print("two answers",len(two_or_more_answers_question))
+    
             
