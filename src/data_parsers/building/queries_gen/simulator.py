@@ -112,6 +112,7 @@ def simulate(goods_list, building_dict, cycle = 10):
     return goods_list, building_dict
 
 
+
 if __name__ == "__main__":
 
     cql_dir = "./data/building/db_query(parsed)/LPG_format/"
@@ -121,6 +122,9 @@ if __name__ == "__main__":
     two_or_more_answers_questions_raw_dir = "./data/building/raw/two_or_more_answers_simulated_questions_raw.csv"
 
     write = True
+
+    # 이어붙이기 
+    write_backword=True
     
     savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
     # savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3"]]
@@ -129,13 +133,34 @@ if __name__ == "__main__":
     extraction_mode = ["sql", "cql"]
 
     # country list
-    country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
+    # country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
+    country_code_list = ["ARG", "BEL", "BRZ", "BRE", "CHL", "CLM", "FIN", "GRE", "TUR"]
     # country_code_list = ["NGF", "KOR"]
     BUILDING_INCR = 5
 
-    questions = []
-    non_filtered_questions = []
-    two_or_more_answers_question=[]
+    if write_backword:
+        import csv
+
+        def existing_questions_loader(dir):
+            with open(dir, 'r') as f:
+                temp_list = list(csv.reader(f, delimiter=","))[1:]
+            questions = []
+            for q in temp_list:
+                questions.append(q[1:])
+
+            return questions
+        
+        questions = existing_questions_loader(raw_dir)
+        print(questions)
+        
+        non_filtered_questions = existing_questions_loader(non_filtered_questions_raw_dir)
+        two_or_more_answers_question = existing_questions_loader(two_or_more_answers_questions_raw_dir)
+        
+        print("write backword complete. length original question: ", len(questions))
+    else:
+        questions = []
+        non_filtered_questions = []
+        two_or_more_answers_question=[]
 
     for savefile_path in savefile_path_list:
         
@@ -204,7 +229,7 @@ if __name__ == "__main__":
 
                 if (min_building_id != -1) and (goods_id in building_dict[min_building_id].max_supply.keys()):
                     questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
-                    if len(answers_bids) >1:
+                    if len(answers_bids) >0:
                         two_or_more_answers_question.append([country_code+year] + [goods_list[goods_id].name] + ["{}".format(answers_bids)])
 
                 elif (min_building_id != -1):

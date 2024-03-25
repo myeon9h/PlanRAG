@@ -2,7 +2,7 @@
 
 mkdir -p outputs/PlanRAG_woReplan/building/relational
 
-for ((var=1;var<=91;var++))
+for ((var=92;var<=139;var++))
 #for var in 1 2
 do
        echo $var
