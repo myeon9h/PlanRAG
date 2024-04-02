@@ -71,7 +71,7 @@ pip install -r requirements.txt
   ```
 + Iterative RAG
   ```bash
-  python src/main.py --technique IterRAG --scenario locating --database graph --question_num 1
+  python src/main.py --technique IterRAG --scenario locating --database graph --question_num 2
   ```
 + Single-turn RAG
   ```bash

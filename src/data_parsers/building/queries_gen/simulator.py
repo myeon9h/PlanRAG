@@ -5,7 +5,6 @@ from tqdm import tqdm
 import copy
 import pandas as pd
 
-MAX_QUESTION_NUM=100
 
 def initialize(country_code, file_path = "./data/building/raw/test.v3", goods_file_path = "./data/building/raw/goods/00_goods.txt"):
 
@@ -82,13 +81,11 @@ CREATE TABLE demand(    goods_id INT,    building_id INT,    max_demand FLOAT,  
 
 def simulate(goods_list, building_dict, cycle = 10):
 
-    b_cnt = 0
     for b in building_dict.values():
         for goods_code in b.max_demand.keys():
-            goods_list[goods_code].building_demand = goods_list[goods_code].building_demand + b.current_input[goods_code]
+            goods_list[goods_code].building_demand = goods_list[goods_code].building_demand + b.max_demand[goods_code]
         for goods_code in b.max_supply.keys():
             goods_list[goods_code].supply = goods_list[goods_code].supply + b.max_supply[goods_code]
-        b_cnt +=1
 
 
 
@@ -115,24 +112,55 @@ def simulate(goods_list, building_dict, cycle = 10):
     return goods_list, building_dict
 
 
+
 if __name__ == "__main__":
 
     cql_dir = "./data/building/db_query(parsed)/LPG_format/"
     sql_dir = "./data/building/db_query(parsed)/SQL_format/"
     raw_dir = "./data/building/raw/simulated_question_raw.csv"
+    non_filtered_questions_raw_dir = "./data/building/raw/non_filtered_simulated_question_raw.csv"
+    two_or_more_answers_questions_raw_dir = "./data/building/raw/two_or_more_answers_simulated_questions_raw.csv"
 
     write = True
+
+    # 이어붙이기 
+    write_backword=True
     
-    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1849.v3"]]
+    savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3", "raw1839.v3","raw1849.v3"]]
+    # savefile_path_list = ["./data/building/raw/" + f for f in ["raw1836.v3"]]
 
     # sql or cql 
     extraction_mode = ["sql", "cql"]
 
     # country list
-    country_code_list = ["USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP"]
+    # country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
+    country_code_list = ["ARG", "BEL", "BRZ", "BRE", "CHL", "CLM", "FIN", "GRE", "TUR"]
+    # country_code_list = ["NGF", "KOR"]
     BUILDING_INCR = 5
 
-    questions = []
+    if write_backword:
+        import csv
+
+        def existing_questions_loader(dir):
+            with open(dir, 'r') as f:
+                temp_list = list(csv.reader(f, delimiter=","))[1:]
+            questions = []
+            for q in temp_list:
+                questions.append(q[1:])
+
+            return questions
+        
+        questions = existing_questions_loader(raw_dir)
+        print(questions)
+        
+        non_filtered_questions = existing_questions_loader(non_filtered_questions_raw_dir)
+        two_or_more_answers_question = existing_questions_loader(two_or_more_answers_questions_raw_dir)
+        
+        print("write backword complete. length original question: ", len(questions))
+    else:
+        questions = []
+        non_filtered_questions = []
+        two_or_more_answers_question=[]
 
     for savefile_path in savefile_path_list:
         
@@ -142,15 +170,12 @@ if __name__ == "__main__":
 
         for country_code in country_code_list:
 
-            if len(questions) >= MAX_QUESTION_NUM:
-                break
-            
             (_, goods_list, building_dict) = initialize(country_code, file_path=savefile_path)
             
-            if goods_list == None:
+            if building_dict == None:
                 continue
 
-            base_goods_list, base_building_dict=simulate(goods_list, building_dict, cycle = 100)
+            base_goods_list, base_building_dict=simulate(goods_list, building_dict)
             
             # base query
             if write and ("cql" in extraction_mode):
@@ -177,6 +202,8 @@ if __name__ == "__main__":
                 max_building_id = -1
                 min_building_id = -1
 
+                answers_bids=[]
+
                 max_val = base_goods_list[goods_id].current_price
                 min_val = base_goods_list[goods_id].current_price
                 for b in base_building_dict.values():
@@ -186,22 +213,40 @@ if __name__ == "__main__":
                     
                     goods_list, building_dict = simulate(goods_list, building_dict)
                     
-                    if goods_list[goods_id].current_price > max_val:
-                        # max_result = copy.deepcopy(goods_list[goods_id])
-                        max_val = goods_list[goods_id].current_price
-                        max_building_id = b.id
-                    elif goods_list[goods_id].current_price < min_val:
-                        # min_result = copy.deepcopy(goods_list[goods_id])
+                    # if goods_list[goods_id].current_price > max_val:
+                    #     # max_result = copy.deepcopy(goods_list[goods_id])
+                    #     answers_bids=[]
+                    #     max_val = goods_list[goods_id].current_price
+                    #     max_building_id = b.id
+                    # el
+                    if goods_list[goods_id].current_price < min_val:
+                        min_result = copy.deepcopy(goods_list[goods_id])
+                        answers_bids = []
                         min_building_id = b.id
                         min_val = goods_list[goods_id].current_price
+                    elif goods_list[goods_id].current_price == min_val:
+                        answers_bids.append(b.id)
 
                 if (min_building_id != -1) and (goods_id in building_dict[min_building_id].max_supply.keys()):
                     questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
+                    if len(answers_bids) >0:
+                        two_or_more_answers_question.append([country_code+year] + [goods_list[goods_id].name] + ["{}".format(answers_bids)])
 
+                elif (min_building_id != -1):
+                    non_filtered_questions.append([country_code+year] + [goods_list[goods_id].name] + [min_building_id])
 
 
     df = pd.DataFrame(data=questions, index=range(len(questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
     df.to_csv(raw_dir)
 
-    print(len(questions))
+    df = pd.DataFrame(data=non_filtered_questions, index=range(len(non_filtered_questions)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
+    df.to_csv(non_filtered_questions_raw_dir)
+
+    df = pd.DataFrame(data=two_or_more_answers_question, index=range(len(two_or_more_answers_question)), columns = ["Country", "Goods_to_Minimize", "Answer_id"])
+    df.to_csv(two_or_more_answers_questions_raw_dir)
+
+    print("questions",len(questions))
+    print("nonfiltered",len(non_filtered_questions))
+    print("two answers",len(two_or_more_answers_question))
+    
             

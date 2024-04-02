@@ -27,7 +27,16 @@ def building_dataloader(question_number, question_path = "./data/building/questi
 
     with open(question_path, 'r') as f:
         # question number starts with 1
-        target_question= json.load(f)[question_number-1]
+        json_data = json.load(f)
+        target_question = None
+        for q in json_data:
+            if q["question_num"] == question_number:
+                target_question = q
+                break
+        if target_question == None:
+            print("no target question")
+            exit()
+
 
     f.close()
 

@@ -1,0 +1,39 @@
+,Country,Goods_to_Minimize,Answer_id
+0,USA1836,clothes,"[1538, 1562]"
+1,AUS1836,groceries,"[410, 1092, 1099]"
+2,AUS1836,liquor,"[410, 1092, 1099]"
+3,FRA1836,groceries,[323]
+4,FRA1836,liquor,[323]
+5,RUS1836,groceries,"[984, 988, 2136, 2142]"
+6,RUS1836,liquor,"[984, 988, 2136, 2142]"
+7,CHI1836,clothes,[2547]
+8,CHI1836,luxury_clothes,[2547]
+9,JAP1836,clothes,[2654]
+10,JAP1836,porcelain,"[2655, 2668, 2677]"
+11,JAP1836,luxury_clothes,[2654]
+12,USA1839,furniture,"[1367, 1418, 1460]"
+13,USA1839,luxury_furniture,"[1367, 1418, 1460]"
+14,AUS1839,groceries,"[372, 985]"
+15,AUS1839,liquor,"[372, 985]"
+16,RUS1839,clothes,"[882, 895, 896, 959, 2010]"
+17,RUS1839,meat,[2003]
+18,RUS1839,luxury_clothes,"[882, 895, 896, 959, 2010]"
+19,CHI1839,clothes,[2379]
+20,CHI1839,luxury_clothes,[2379]
+21,JAP1839,clothes,[2484]
+22,JAP1839,glass,"[2485, 2498, 2507]"
+23,JAP1839,porcelain,"[2485, 2498, 2507]"
+24,JAP1839,meat,[2500]
+25,JAP1839,luxury_clothes,[2484]
+26,USA1849,clothes,"[1491, 1514]"
+27,RUS1849,clothes,"[948, 1043]"
+28,RUS1849,porcelain,[1047]
+29,CHI1849,clothes,[2481]
+30,CHI1849,luxury_clothes,[2481]
+31,JAP1849,clothes,[2591]
+32,JAP1849,porcelain,"[2592, 2605, 2614]"
+33,JAP1849,luxury_clothes,[2591]
+34,KOR1849,services,"[3588, 5224]"
+35,BRZ1836,clothes,[1951]
+36,CLM1836,services,[3992]
+37,TUR1839,clothes,[844]

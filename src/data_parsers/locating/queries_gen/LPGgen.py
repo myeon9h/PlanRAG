@@ -37,9 +37,9 @@ class LPGwrapper:
                 node_total_power = 0
 
             trade_node = node.name
-            node_inland = node.inland
+            is_inland = node.inland
 
-            self.trade_nodes_dict[trade_node] = {"local_value": float(node_localvalue), "node_inland": node_inland, "total_power": float(node_total_power), "outgoing": 0, "ingoing": 0}
+            self.trade_nodes_dict[trade_node] = {"local_value": float(node_localvalue), "is_inland": is_inland, "total_power": float(node_total_power), "outgoing": 0, "ingoing": 0}
         
         for country in country_dict.keys():
             country_val = country_dict[country]

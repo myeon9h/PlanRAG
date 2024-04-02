@@ -4,6 +4,7 @@ from prompt_templete import business_rules, question, goal
 import os
 import pandas as pd
 
+MAX_QUESTION_NUM = 100
 
 
 def json_example_generator(file_dir="./data/locating/questions/standard/questions.json", raw_dirs = ["./data/locating/raw/locating_raw.csv"]):
@@ -31,6 +32,10 @@ def json_example_generator(file_dir="./data/locating/questions/standard/question
         situation_text = business_rules()
 
         for con in question_and_answers.keys():
+
+            if idx>MAX_QUESTION_NUM:
+                break
+
             con_dict = dict()
             
             home_node = country_tradeprovince_dict[con]["home_node"]

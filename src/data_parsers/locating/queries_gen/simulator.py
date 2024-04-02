@@ -81,7 +81,7 @@ def simulation(wrapper):
 
         for idx in range(len(wrapper.node_country)):
             if wrapper.node_country[idx]["has_merchant"]:
-                if CARAVAN_EFFECT and wrapper.trade_nodes_dict[wrapper.node_country[idx]["trade_node"]]["node_inland"]:
+                if CARAVAN_EFFECT and wrapper.trade_nodes_dict[wrapper.node_country[idx]["trade_node"]]["is_inland"]:
                     wrapper.node_country[idx]["calculated_trading_power"] = 1.05*(wrapper.node_country[idx]["base_trading_power"] +2 + max(CARAVAN_MAX, wrapper.countries_dict[wrapper.node_country[idx]["country_name"]]["development"]))
 
                 else:
@@ -148,8 +148,8 @@ def simulation(wrapper):
     object_node = find_top_node(wrapper, simulated_nodes_name)
     while (object_node) != None:
         flow_estimation(wrapper, object_node)
-        object_node = find_top_node(wrapper, simulated_nodes_name)
         simulated_nodes_name.add(object_node)
+        object_node = find_top_node(wrapper, simulated_nodes_name)
 
     return wrapper
 
@@ -180,7 +180,7 @@ def extraction_cql(wrapper):
 
     for trade_node in wrapper.trade_nodes_dict.keys():
         node_val = wrapper.trade_nodes_dict[trade_node]
-        query = query + "CREATE ({0}:Trade_node {{name:\"{0}\", local_value:{1}, node_inland:{2}, total_power:{3}, outgoing:{4}, ingoing:{5}}});\n".format(trade_node, node_val["local_value"], ("true" if node_val["node_inland"] else "false"), node_val["total_power"], node_val["outgoing"], node_val["ingoing"])
+        query = query + "CREATE ({0}:Trade_node {{name:\"{0}\", local_value:{1}, is_inland:{2}, total_power:{3}, outgoing:{4}, ingoing:{5}}});\n".format(trade_node, node_val["local_value"], ("true" if node_val["is_inland"] else "false"), node_val["total_power"], node_val["outgoing"], node_val["ingoing"])
 
     for con in wrapper.countries_dict.keys():
         con_val = wrapper.countries_dict[con]
@@ -196,7 +196,7 @@ def extraction_cql(wrapper):
     for tc in wrapper.node_country:
         node = tc["trade_node"]
         con = tc["country_name"]
-        query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Country {{name:\"{1}\"}}) CREATE ({1})-[r:NodeCountry{{is_home: {2}, merchant: \"{3}\",base_trading_power: {4},calculated_trading_power: {5}}}]->({0});\n".format(node, con, ("true" if tc["is_home"] else "false"), tc["has_merchant"], tc["base_trading_power"], tc["calculated_trading_power"])
+        query = query + "MATCH ({0}:Trade_node {{name:\"{0}\"}}), ({1}:Country {{name:\"{1}\"}}) CREATE ({1})-[r:NodeCountry{{is_home: {2}, has_merchant: \"{3}\",base_trading_power: {4},calculated_trading_power: {5}}}]->({0});\n".format(node, con, ("true" if tc["is_home"] else "false"), tc["has_merchant"], tc["base_trading_power"], tc["calculated_trading_power"])
     return query
 
 def extraction_sql(wrapper):
@@ -207,11 +207,11 @@ def extraction_sql(wrapper):
 
 CREATE TABLE country( country_name  VARCHAR(30), home_node    VARCHAR(30), development FLOAT, PRIMARY KEY (country_name));
 
-CREATE TABLE trade_node(    trade_node    VARCHAR(30), local_value FLOAT,    node_inland BOOLEAN,    total_power FLOAT,    outgoing FLOAT,    ingoing FLOAT,   PRIMARY KEY (trade_node));
+CREATE TABLE trade_node(    trade_node    VARCHAR(30), local_value FLOAT,    is_inland BOOLEAN,    total_power FLOAT,    outgoing FLOAT,    ingoing FLOAT,   PRIMARY KEY (trade_node));
 
 CREATE TABLE flow(    source    VARCHAR(30),    dest VARCHAR(30),    flow FLOAT,   PRIMARY KEY (source, dest));
 
-CREATE TABLE node_country(    trade_node     VARCHAR(30), country_name    VARCHAR(30),    is_home BOOLEAN, merchant BOOLEAN,    base_trading_power FLOAT,    calculated_trading_power FLOAT,   PRIMARY KEY (trade_node, country_name));
+CREATE TABLE node_country(    trade_node     VARCHAR(30), country_name    VARCHAR(30),    is_home BOOLEAN, has_merchant BOOLEAN,    base_trading_power FLOAT,    calculated_trading_power FLOAT,   PRIMARY KEY (trade_node, country_name));
     
 """
 
@@ -224,7 +224,7 @@ CREATE TABLE node_country(    trade_node     VARCHAR(30), country_name    VARCHA
     # trade_node table
     for trade_node in wrapper.trade_nodes_dict.keys():
         node_val = wrapper.trade_nodes_dict[trade_node]
-        query = query + "INSERT INTO trade_node(trade_node, local_value, node_inland, total_power, outgoing, ingoing) VALUES (\"{0}\", {1}, {2}, {3}, {4}, {5});\n".format(trade_node, node_val["local_value"], ("TRUE" if node_val["node_inland"] else "FALSE"), node_val["total_power"], node_val["outgoing"], node_val["ingoing"])
+        query = query + "INSERT INTO trade_node(trade_node, local_value, is_inland, total_power, outgoing, ingoing) VALUES (\"{0}\", {1}, {2}, {3}, {4}, {5});\n".format(trade_node, node_val["local_value"], ("TRUE" if node_val["is_inland"] else "FALSE"), node_val["total_power"], node_val["outgoing"], node_val["ingoing"])
 
     
     # flow table
@@ -238,7 +238,7 @@ CREATE TABLE node_country(    trade_node     VARCHAR(30), country_name    VARCHA
     for tc in wrapper.node_country:
         node = tc["trade_node"]
         con = tc["country_name"]
-        query = query + "INSERT INTO node_country(trade_node,country_name, is_home, merchant, base_trading_power, calculated_trading_power) VALUES (\"{0}\", \"{1}\", {2}, {3}, {4}, {5});\n".format(node, con, ("TRUE" if tc["is_home"] else "FALSE"), ("TRUE" if tc["has_merchant"] else "FALSE"), tc["base_trading_power"], tc["calculated_trading_power"])
+        query = query + "INSERT INTO node_country(trade_node,country_name, is_home, has_merchant, base_trading_power, calculated_trading_power) VALUES (\"{0}\", \"{1}\", {2}, {3}, {4}, {5});\n".format(node, con, ("TRUE" if tc["is_home"] else "FALSE"), ("TRUE" if tc["has_merchant"] else "FALSE"), tc["base_trading_power"], tc["calculated_trading_power"])
 
     return query
 
