@@ -7,7 +7,7 @@ import pandas as pd
 MAX_QUESTION_NUM = 100
 
 
-def json_example_generator(file_dir="./data/locating/questions/standard/questions.json", raw_dirs = ["./data/locating/raw/locating_raw.csv"]):
+def json_example_generator(file_dir="./data/locating/questions/questions.json", raw_dirs = ["./data/locating/raw/locating_raw.csv"]):
     global objective_country
     idx = 1
     example_list = []
@@ -88,4 +88,4 @@ def example_generator(indices, json_file_dir):
 if __name__ == "__main__":
 
     raw_dirs = ["./data/locating/raw/simulated_question_raw" + f for f in ["1445.csv", "1618.csv", "1701.csv"]]
-    json_example_generator(file_dir="./data/locating/questions/standard/simulated_question.json", raw_dirs=raw_dirs)
+    json_example_generator(file_dir="./data/locating/questions/simulated_question.json", raw_dirs=raw_dirs)

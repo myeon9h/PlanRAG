@@ -115,8 +115,8 @@ def simulate(goods_list, building_dict, cycle = 10):
 
 if __name__ == "__main__":
 
-    cql_dir = "./data/building/db_query(parsed)/LPG_format/"
-    sql_dir = "./data/building/db_query(parsed)/SQL_format/"
+    cql_dir = "./data/building/queries/LPG_format/"
+    sql_dir = "./data/building/queries/SQL_format/"
     raw_dir = "./data/building/raw/simulated_question_raw.csv"
     non_filtered_questions_raw_dir = "./data/building/raw/non_filtered_simulated_question_raw.csv"
     two_or_more_answers_questions_raw_dir = "./data/building/raw/two_or_more_answers_simulated_questions_raw.csv"
@@ -133,9 +133,7 @@ if __name__ == "__main__":
     extraction_mode = ["sql", "cql"]
 
     # country list
-    # country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR"]
-    country_code_list = ["ARG", "BEL", "BRZ", "BRE", "CHL", "CLM", "FIN", "GRE", "TUR"]
-    # country_code_list = ["NGF", "KOR"]
+    country_code_list = ["NGF", "USA", "AUS", "GBR", "FRA", "PRU", "RUS", "CHI", "JAP",  "KOR","ARG", "BEL", "BRZ", "BRE", "CHL", "CLM", "FIN", "GRE", "TUR"]
     BUILDING_INCR = 5
 
     if write_backword:

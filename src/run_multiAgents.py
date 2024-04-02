@@ -50,11 +50,11 @@ question_num = args.question_num
 if dataset == "building":
     from data_loaders.building import building_dataloader, GDB_INFO
     question, _, country = building_dataloader(question_num, question_path = "./data/building/questions/simulated_questions.json")
-    db_file_path = f"./data/building/db_query(parsed)/LPG_format/{country}.cql"
+    db_file_path = f"./data/building/queries/LPG_format/{country}.cql"
 elif dataset == "locating":
     from data_loaders.locating  import locating_dataloader, GDB_INFO
-    question, _, _ = locating_dataloader(question_num, "./data/locating/questions/standard/simulated_question.json", option=False)
-    db_file_path = f"./data/locating/db_query(parsed)/LPG_format/q{question_num}.cql"
+    question, _, _ = locating_dataloader(question_num, "./data/locating/questions/simulated_question.json", option=False)
+    db_file_path = f"./data/locating/queries/LPG_format/q{question_num}.cql"
 else:
     assert(0)
 
