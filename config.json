@@ -1,14 +1,14 @@
 {
-    "OPENAI_API_KEY": "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",
-    "HUGGINGFACEHUB_API_TOKEN": "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",
+    "OPENAI_API_KEY": "",
+    "HUGGINGFACEHUB_API_TOKEN": "",
     "NEO4J": {
         "HOST": "bolt://localhost:7687",
         "USER": "neo4j",
-        "PASSWORD": "1234"
+        "PASSWORD": "neo4j"
     },
     "MYSQL": {
         "HOST": "localhost",
         "USER": "root",
-        "PASSWORD": "infolab1234"
+        "PASSWORD": ""
     }
 }

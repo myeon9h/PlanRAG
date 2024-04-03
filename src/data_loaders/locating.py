@@ -51,7 +51,7 @@ import json
 
 
 # question starts with question number 1
-def locating_dataloader(question_number, question_path = "./data/trading/questions/standard/questions.json", option=True):
+def locating_dataloader(question_number, question_path = "./data/trading/questions/questions.json", option=True):
     
     with open(question_path, 'r') as f:
         # question number starts with 1

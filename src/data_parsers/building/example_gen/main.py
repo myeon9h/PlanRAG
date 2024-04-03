@@ -3,6 +3,47 @@ from prompt_templete import question, business_rules
 import os
 import pandas as pd
 
+MAX_QUESTION_NUM=101
+
+def eliminate_multianswers():
+    import tqdm
+    import csv
+    with open("./data/building/questions/simulated_questions.json", 'r') as f:
+        d = json.load(f)
+    
+    with open('./data/building/raw/two_or_more_answers_simulated_questions_raw.csv') as f:
+        reader = csv.reader(f)
+        l = [row for row in reader]
+    
+    
+    # print(l)
+    
+    l_idx = 1
+
+    new_d = []
+
+    for q in tqdm.tqdm(d):
+        if len(new_d) >=MAX_QUESTION_NUM:
+            break
+
+        if l_idx >= len(l):
+            new_d.append(q)
+            continue
+
+        
+        if q['country'] == l[l_idx][1] and q["goods"] == l[l_idx][2]:
+            # print(q["question_num"])
+            l_idx = l_idx + 1
+                
+        else:
+            new_d.append(q)
+            # print(len(new_d))
+
+
+    with open("./data/building/questions/simulated_questions.json", 'w') as f:
+        json.dump(new_d, f, indent=4)
+    
+
 
 
 def json_example_generator(file_dir="./data/building/questions/simulated_questions.json", raw_dir = "./data/building/raw/simulated_question_raw.csv"):
@@ -42,3 +83,4 @@ def json_example_generator(file_dir="./data/building/questions/simulated_questio
 
 if __name__ == "__main__":
     json_example_generator()
+    eliminate_multianswers()

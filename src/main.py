@@ -73,7 +73,7 @@ if __name__ == "__main__":
         question, _, country = building_dataloader(question_num, question_path = "./data/building/questions/simulated_questions.json")
     elif scenario == "locating":
         from data_loaders.locating  import locating_dataloader, GDB_INFO, RDB_INFO
-        question, _, _ = locating_dataloader(question_num, "./data/locating/questions/standard/simulated_question.json", option=False)
+        question, _, _ = locating_dataloader(question_num, "./data/locating/questions/simulated_question.json", option=False)
     else:
         assert(0)
 
@@ -87,9 +87,9 @@ if __name__ == "__main__":
 
         if scenario == "building":
             # example country name: USA1836
-            db_file_path = f"./data/{scenario}/db_query(parsed)/LPG_format/{country}.cql"
+            db_file_path = f"./data/{scenario}/queries/LPG_format/{country}.cql"
         elif scenario == "locating":
-            db_file_path = f"./data/{scenario}/db_query(parsed)/LPG_format/q{question_num}.cql"
+            db_file_path = f"./data/{scenario}/queries/LPG_format/q{question_num}.cql"
 
     elif database_type == "relational":
         db_name = "DQA_rdb"
@@ -100,9 +100,9 @@ if __name__ == "__main__":
         tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a MySQL statement to interact with this tool):""" + RDB_INFO
 
         if scenario == "building":
-            db_file_path = f"./data/{scenario}/db_query(parsed)/SQL_format/{country}.sql"
+            db_file_path = f"./data/{scenario}/queries/SQL_format/{country}.sql"
         elif scenario == "locating":
-            db_file_path = f"./data/{scenario}/db_query(parsed)/SQL_format/q{question_num}.sql"
+            db_file_path = f"./data/{scenario}/queries/SQL_format/q{question_num}.sql"
 
     else:
         assert(0)

@@ -15,8 +15,6 @@ CARAVAN_MAX = 50
 HOP_MUL = 1.05
 RANDOM_SEED = 1
 
-MAX_QUESTION_NUM=200
-
 find_flow_cache = dict()
 
 def construct(file=None):
@@ -284,8 +282,8 @@ def problem_gen(file=None, write = True, verbose = True, extraction_modes = ["cq
     for k in original_wrapper.trade_nodes_dict.keys():
         find_flow_cache[k] = dict()
 
-    cql_dir = "./data/locating/db_query(parsed)/LPG_format/"
-    sql_dir = "./data/locating/db_query(parsed)/SQL_format/"
+    cql_dir = "./data/locating/queries/LPG_format/"
+    sql_dir = "./data/locating/queries/SQL_format/"
 
     raw_dir = "./data/locating/raw/simulated_question_raw{}.csv".format(file[-8:-4])
     countries = []
@@ -297,9 +295,6 @@ def problem_gen(file=None, write = True, verbose = True, extraction_modes = ["cq
 
     questions = []
     for con in countries:
-
-        # if question_number >= MAX_QUESTION_NUM:
-        #     break
 
         copied_original_wrapper = copy.deepcopy(original_wrapper)
         question_number = question_number+1

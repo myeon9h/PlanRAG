@@ -78,9 +78,7 @@ pip install -r requirements.txt
   python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
   ```
 
-### One-shot examples
-
-(Should be filled)
+### One-shot examples (not recommanded)
 
 ```bash
 python src/main-fewshot.py --technique PlanRAG --scenario locating --database graph --question_num 2 --fewshot True --model gpt-3.5-turbo
@@ -125,27 +123,28 @@ Note: As this code is reletively slow rather than vllm's one, we are not recomma
 
 To generate questions for the locating scenario, you will need a Europa Universalis IV game savefile. We provide three raw files: `raw1445.eu4`, `raw1618.eu4` and `raw1701.eu4` in `/data/locating/raw/` for data generation.
 
-You can create the `simulated_question.json` in `/data/locating/questions/standard/` by sequentially executing the following code:
+You can create the `simulated_question.json` in `/data/locating/questions/` by sequentially executing the following code:
 
 ```
 export PYTHONPATH=.
 python ./src/data_parsers/locating/queries_gen/simulator.py
 python ./src/data_parsers/locating/example_gen/main.py
 ```
+Note: Executing Locating simulator usually takes around 30 minutes.
 
 ### The building scenario
 
 
 To generate questions for the building scenario, you will need a Victoria 3 game savefile.  We provide three raw files: `raw1836.v3` <!--`raw1839.v3` --> and `raw1849.v3` in `/data/building/raw/` for data generation.
 
-You can create the `simulated_questions.json` in `/data/building/questions/standard/` by sequentially executing the following code:
+You can create the `simulated_questions.json` in `/data/building/questions/` by sequentially executing the following code:
 
 ```
 export PYTHONPATH=.
 python ./src/data_parsers/building/queries_gen/simulator.py
 python ./src/data_parsers/building/example_gen/main.py
 ```
-
+Note: Executing Building simulator usually takes around one hour.
 
 ## Notice in database schema
 In locating scenario, columns named "upstream" and "downstream" mean "source" and "destination" in our paper, respectively (i.e., The business logic is identical.)
