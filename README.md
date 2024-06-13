@@ -1,4 +1,5 @@
 # PlanRAG: An Iterative Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers
+Accepted at NAACL 2024 Main: (document will be shared soon)
 
 ## Setup 
 ### Databases
@@ -38,11 +39,13 @@ mysql> flush privileges;
 # Then, enter ':exit' to return to the terminal.
 ```
 ### Configuration
-Our decision makers use OpenAI's GPT-4.0 as a generative LM, so an OpenAI API key is required.   
-Please fill the values in "config.json" file with your API key and database connection information.
+Please fill the values in "config.json" file with database connection information and your API key you want to use.
+
+Note: Our decision makers in the paper use OpenAI's GPT-4.0 as a generative LM. Due to the performance, we strongly recommend using OpenAI's GPT-4.0.
 ```json
 {
     "OPENAI_API_KEY": "Your OpenAI API key",
+    "HUGGINGFACEHUB_API_TOKEN": "Your Hugging Face Hub API key", 
     "NEO4J": {
         "HOST": "Neo4j host address (default: 'bolt://localhost:7687')", 
         "USER": "User id (default: 'neo4j')",
@@ -65,26 +68,58 @@ pip install -r requirements.txt
 + PlanRAG (ours)
   ```bash
   # locating scenario with relational database
-  python src/main.py --technique PlanRAG --scenario locating --database relational --question_num 1
+  python src/main.py \
+      --technique PlanRAG \
+      --scenario locating \
+      --database relational \
+      --question_num 1 \
+      --model gpt-4 \
+      --model_method openai
+  
   # building scenario with graph database
-  python src/main.py --technique PlanRAG --scenario building --database graph --question_num 1
+  python src/main.py \
+      --technique PlanRAG \
+      --scenario building \
+      --database graph \
+      --question_num 1 \
+      --model gpt-4 \
+      --model_method openai
   ```
 + Iterative RAG
   ```bash
-  python src/main.py --technique IterRAG --scenario locating --database graph --question_num 2
+  python src/main.py \
+      --technique IterRAG \
+      --scenario locating \
+      --database relational \
+      --question_num 1 \
+      --model gpt-4 \
+      --model_method openai
   ```
 + Single-turn RAG
   ```bash
-  python src/main.py --technique SingleRAG --scenario locating --database graph --question_num 1
+  python src/main.py \
+      --technique SingleRAG \
+      --scenario locating \
+      --database relational \
+      --question_num 1 \
+      --model gpt-4 \
+      --model_method openai
   ```
 
-### One-shot examples (not recommanded)
+### One-shot examples (not recommended)
 
 ```bash
-python src/main-fewshot.py --technique PlanRAG --scenario locating --database graph --question_num 2 --fewshot True --model gpt-3.5-turbo
+python src/main.py \
+    --technique PlanRAG \
+    --scenario locating \
+    --database relational \
+    --question_num 1 \
+    --model gpt-4 \
+    --model_method openai \
+    --mode few-shot
 ```
 
-Note: As DQA has relatively long questions, we recommand to use one-shot execution only with GPT-4 or GPT-3.5
+Note: As DQA has relatively long questions, we recommend to use one-shot execution only with GPT-4 or GPT-3.5
 
 ## Open models
 
@@ -103,19 +138,31 @@ Following code is an example for executing our code by using `meta-llama/Llama-2
 python -m vllm.entrypoints.openai.api_server --model meta-llama/Llama-2-70b-chat-hf
 
 # Now, you can try open-model experiments.
-python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-70b-chat-hf
+python src/main.py \
+  --technique IterRAG \
+  --scenario locating \
+  --database relational \
+  --question_num 1 \
+  --model meta-llama/Llama-2-70b-chat-hf \
+  --model_method vllm
 ```
 
 
-### Using open models by Huggingface's library (not recommanded)
+### Using open models by Huggingface's library (not recommended)
 
 You can also try to use Huggingface library. Following code is for executing `meta-llama/Llama-2-13b-chat-hf` and do experiment by Huggingface pipeline function:
 
 ```bash
-python src/main.py --technique IterRAG --scenario locating --database relational --question_num 1 --model meta-llama/Llama-2-13b-chat-hf --open_model_method huggingface
+python src/main.py \
+  --technique IterRAG \
+  --scenario locating \
+  --database relational \
+  --question_num 1 \
+  --model meta-llama/Llama-2-13b-chat-hf \
+  --model_method huggingface
 ```
 
-Note: As this code is reletively slow rather than vllm's one, we are not recommanded to run this.
+Note: As this code is reletively slow rather than vllm's one, we are not recommended to run this.
 
 ## Simulators
 
