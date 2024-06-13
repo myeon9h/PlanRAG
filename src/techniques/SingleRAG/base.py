@@ -27,7 +27,8 @@ class TaskManagerSingleRAG:
         answering_prefix = PREFIX_AFTER_RETRIEVE
         answering_suffix = SUFFIX_AFTER_RETRIEVE
 
-        retrieving_format_instructions = FORMAT_INSTRUCTIONS
+        tool_names = ", ".join([tool.name for tool in tools])
+        retrieving_format_instructions = FORMAT_INSTRUCTIONS.format(tool_names=tool_names)
         retrieving_prefix = PREFIX
         retrieving_suffix = SUFFIX
         

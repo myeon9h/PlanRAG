@@ -1,12 +1,12 @@
 # flake8: noqa
 PREFIX = """You are a decision-making agent answering a given question. 
-You should collect the data to answer the question: """
+To answer the question, you should collect the data from the following databases: """
 
 FORMAT_INSTRUCTIONS = """Use the following Strict format:
 
 Question: the input question you must answer.
 Thought: you should always think about what to do.
-Action: Graph DB
+Action: a suitable database name, MUST be one of [{tool_names}].
 Action input: a syntactically correct query statement only, MUST be written by one of [MySQL, Cypher query language].
 Observation: the result of the action.
 Thought: I now know the answer.
