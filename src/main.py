@@ -3,10 +3,8 @@ import pandas as pd
 import json
 
 from langchain.agents import Tool
-from langchain.chat_models import ChatOpenAI
 
-from utils import Neo4jDatabase
-from utils import SQLDatabase
+from utils import Neo4jDatabase, SQLDatabase
 from tqdm import tqdm
 import argparse
 
@@ -49,17 +47,20 @@ if __name__ == "__main__":
     parser.add_argument("--technique", help="SingleRAG, IterRAG, PlanRAG or PlanRAG_woReplan", type=str, default="PlanRAG")
     parser.add_argument("--scenario", help="locating or building", type=str, default="locating")
     parser.add_argument("--database", help="graph or relational", type=str, default="graph")
-    parser.add_argument("--question_num", type=int, default=1)
-    parser.add_argument("--device", type=int, default=0)
+    parser.add_argument("--question_num", help="locating: 1~200, building: 1~101", type=int, default=1)
+    parser.add_argument("--model_method", help="openai, vllm or huggingface", type=str, default="openai")
     parser.add_argument("--model", type=str, default="gpt-4")
+    parser.add_argument("--mode", help="zero-shot(recommended) or few-shot", type=str, default="zero-shot")
+    parser.add_argument("--device", help="GPU ID to be used by huggingface model when model_method is huggingface", type=int, default=None)
 
-    parser.add_argument("--open_model_method", help="vllm or huggingface", type=str, default="vllm")
     args = parser.parse_args()
     print_args(args)
 
     config = read_config("./config.json")
 
     os.environ["OPENAI_API_KEY"] = config['OPENAI_API_KEY']
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = config['HUGGINGFACEHUB_API_TOKEN']
+
     pd.set_option("display.max_rows", 200)
     pd.set_option('display.max_colwidth', 1000)
 
@@ -71,11 +72,19 @@ if __name__ == "__main__":
     if scenario == "building":
         from data_loaders.building import building_dataloader, GDB_INFO, RDB_INFO
         question, _, country = building_dataloader(question_num, question_path = "./data/building/questions/simulated_questions.json")
+
     elif scenario == "locating":
-        from data_loaders.locating  import locating_dataloader, GDB_INFO, RDB_INFO
+        from data_loaders.locating import locating_dataloader, GDB_INFO, RDB_INFO
         question, _, _ = locating_dataloader(question_num, "./data/locating/questions/simulated_question.json", option=False)
+
     else:
         assert(0)
+
+    if args.mode == "few-shot":
+        from data_loaders.fewshot_loader import fewshot_loader
+        question = question.split("<Question>")[0]+fewshot_loader(args.technique, scenario, database_type)+question.split("<Question>")[1]
+
+    tool_description_template = """Useful for when you need to collect the data that follows the following schema (You MUST generate a {query_type} statement to interact with this tool):"""
 
     if database_type == "graph":
         db_name = "neo4j"
@@ -83,7 +92,7 @@ if __name__ == "__main__":
         db_engine = Neo4jDatabase(host=db_config['HOST'], user=db_config['USER'], password=db_config['PASSWORD'], database=db_name)
 
         tool_name = "Graph DB"
-        tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a Cypher query statement to interact with this tool):""" + GDB_INFO
+        tool_description = tool_description_template.format(query_type="Cypher query") + GDB_INFO
 
         if scenario == "building":
             # example country name: USA1836
@@ -97,7 +106,7 @@ if __name__ == "__main__":
         db_engine = SQLDatabase.from_uri(f"mysql+pymysql://{db_config['USER']}@{db_config['HOST']}/{db_name}")
 
         tool_name = "Relational DB"
-        tool_description = """Useful for when you need to collect the data that follows the following schema (You MUST generate a MySQL statement to interact with this tool):""" + RDB_INFO
+        tool_description = tool_description_template.format(query_type="MySQL") + RDB_INFO
 
         if scenario == "building":
             db_file_path = f"./data/{scenario}/queries/SQL_format/{country}.sql"
@@ -120,9 +129,7 @@ if __name__ == "__main__":
         Tool(
             name="Self thinking",
             func=fake_tool,
-            description="""
-            Useful for when there is no available tool.
-            """
+            description="""Useful for when there is no available tool."""
         )
     ]
 
@@ -140,20 +147,22 @@ if __name__ == "__main__":
     else:
         assert(0)
 
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = config['HUGGINGFACEHUB_API_TOKEN']
-
 
     if "gpt" in args.model:
+        from langchain.chat_models import ChatOpenAI
+
         llm = ChatOpenAI(temperature=0, model_name=args.model, max_retries=40)
+
     elif args.open_model_method == "huggingface":
         from langchain.llms.huggingface_pipeline import HuggingFacePipeline
 
         llm =  HuggingFacePipeline.from_model_id(
-        model_id = args.model,
-        task="text-generation",
-        pipeline_kwargs={"temperature": 0.1, "max_length": 2048},
-        device = args.device
+            model_id = args.model,
+            task="text-generation",
+            pipeline_kwargs={"temperature": 0.1, "max_length": 2048},
+            device = args.device
         )
+
     elif args.open_model_method == "vllm":
         from langchain.llms import VLLMOpenAI
 
@@ -161,13 +170,12 @@ if __name__ == "__main__":
             openai_api_key="EMPTY",
             openai_api_base="http://localhost:8000/v1",
             model_name=args.model,
-            )
+        )
 
     else:
         print("invalid model!")
         assert(0)
 
-    
 
     taskManager = TaskManager.from_llm_and_tools(llm=llm, tools=databases, verbose = True)
     taskManager.run(question)
