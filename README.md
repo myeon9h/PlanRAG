@@ -1,5 +1,5 @@
 # PlanRAG: A Plan-then-Retrieval Augmented Generation for Generative Large Language Models as Decision Makers
-Accepted at NAACL 2024 Main: (document will be shared soon)
+Accepted at NAACL 2024 Main: https://aclanthology.org/2024.naacl-long.364/
 
 ![main.png](./main.png)
 
